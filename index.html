@@ -34,19 +34,18 @@
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
-
   a { color: inherit; }
+  img { display: block; max-width: 100%; }
 
-  /* ——— top nav ——— */
+  /* nav */
   .nav {
     position: fixed; top: 0; left: 0; right: 0;
     display: flex; justify-content: space-between; align-items: center;
     padding: 18px 28px;
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .12em;
-    text-transform: uppercase;
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
     z-index: 100;
     mix-blend-mode: difference;
     color: #fff;
@@ -57,7 +56,7 @@
   .nav a:hover { opacity: 1; }
   .nav .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); margin-right: 8px; vertical-align: middle; }
 
-  /* ——— section primitives ——— */
+  /* sections */
   section {
     position: relative;
     padding: 96px 6vw;
@@ -66,12 +65,10 @@
     flex-direction: column;
     justify-content: center;
     border-bottom: 1px solid var(--line);
+    overflow: hidden;
   }
-  section.dark {
-    background: var(--bg-dark);
-    color: #f3f1ec;
-    border-bottom-color: var(--line-dark);
-  }
+  section.dark { background: var(--bg-dark); color: #f3f1ec; border-bottom-color: var(--line-dark); }
+  section.no-min { min-height: 0; }
 
   .tag {
     display: inline-block;
@@ -79,296 +76,291 @@
     border-radius: 999px;
     padding: 6px 16px;
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: .14em;
-    text-transform: uppercase;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
     margin-bottom: 48px;
+    align-self: flex-start;
   }
 
   .footer-mark {
     position: absolute;
     left: 6vw; bottom: 32px;
     font-family: var(--display);
-    font-size: 11px;
-    letter-spacing: .04em;
+    font-size: 11px; letter-spacing: .04em;
+    z-index: 5;
   }
   .footer-mark.right { left: auto; right: 6vw; }
 
-  /* ——— hero ——— */
-  .hero {
-    min-height: 100vh;
-    align-items: center; text-align: center;
-    padding: 0 6vw;
-  }
+  /* hero */
+  .hero { min-height: 100vh; align-items: center; text-align: center; padding: 0 6vw; position: relative; }
+  .hero-content { position: relative; z-index: 3; }
   .hero h1 {
     font-family: var(--display);
     font-weight: 400;
     font-size: clamp(56px, 11vw, 180px);
-    line-height: .92;
-    letter-spacing: -.01em;
-    margin: 0;
-    color: var(--ink);
+    line-height: .92; letter-spacing: -.01em;
+    margin: 0; color: var(--ink);
   }
   .hero .sub {
     margin-top: 56px;
     font-family: var(--mono);
-    font-size: 14px;
-    letter-spacing: .25em;
-    text-transform: uppercase;
+    font-size: 14px; letter-spacing: .25em; text-transform: uppercase;
   }
   .hero .scroll-cue {
     position: absolute;
     bottom: 32px; left: 50%; transform: translateX(-50%);
     font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: .3em;
-    text-transform: uppercase;
+    font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
     opacity: .6;
     animation: bob 2.4s ease-in-out infinite;
+    z-index: 5;
   }
-  @keyframes bob {
-    0%,100% { transform: translate(-50%, 0); }
-    50%     { transform: translate(-50%, 6px); }
-  }
+  @keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
 
-  /* ——— chapter divider ——— */
-  .chapter {
-    align-items: flex-start; justify-content: center;
-    padding: 96px 6vw;
+  /* depth-floating accent images */
+  .float {
+    position: absolute;
+    overflow: hidden;
+    background: #2a2826;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,.45), 0 8px 20px -8px rgba(0,0,0,.3);
+    z-index: 1;
+    will-change: transform;
   }
-  .chapter .num-row {
-    display: flex; align-items: center; gap: 32px;
-    color: var(--yellow);
-  }
+  .float img { width: 100%; height: 100%; object-fit: cover; }
+  .float.back { z-index: 0; opacity: .6;  filter: grayscale(1) blur(1.2px); }
+  .float.mid  { z-index: 1; opacity: .85; filter: grayscale(1) contrast(.95); }
+  .float.fore { z-index: 2; opacity: 1;   filter: grayscale(.85) contrast(1.02); }
+
+  /* chapter */
+  .chapter { align-items: flex-start; justify-content: center; padding: 96px 6vw; position: relative; }
+  .chapter .num-row { display: flex; align-items: center; gap: 32px; color: var(--yellow); position: relative; z-index: 3; }
   .chapter .num {
     width: 88px; height: 88px;
     border: 1.5px solid var(--yellow);
     border-radius: 50%;
     display: grid; place-items: center;
-    font-family: var(--mono);
-    font-size: 38px;
-    font-weight: 400;
+    font-family: var(--mono); font-size: 38px; font-weight: 400;
   }
   .chapter h2 {
     font-family: var(--mono);
     font-weight: 400;
     font-size: clamp(40px, 7vw, 96px);
-    line-height: 1;
-    letter-spacing: .02em;
-    margin: 0;
-    text-transform: uppercase;
+    line-height: 1; letter-spacing: .02em;
+    margin: 0; text-transform: uppercase;
+  }
+  .chapter-bg {
+    position: absolute; inset: -10%;
+    z-index: 0; overflow: hidden;
+    pointer-events: none;
+    will-change: transform;
+  }
+  .chapter-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: .25;
+    filter: grayscale(1) contrast(1.1) brightness(.7);
+  }
+  .chapter-bg::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, var(--bg-dark) 80%);
   }
 
-  /* ——— two column content ——— */
+  /* two col */
   .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6vw;
-    align-items: start;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 6vw; align-items: start;
+    position: relative; z-index: 2;
   }
   .col-text h3 {
-    font-family: var(--mono);
-    font-weight: 700;
-    font-size: 22px;
-    letter-spacing: .02em;
-    text-transform: uppercase;
+    font-family: var(--mono); font-weight: 700;
+    font-size: 22px; letter-spacing: .02em; text-transform: uppercase;
     margin: 0 0 24px;
   }
   .col-text p {
-    font-family: var(--mono);
-    font-size: 15px;
-    line-height: 1.65;
-    margin: 0 0 18px;
-    max-width: 56ch;
+    font-family: var(--mono); font-size: 15px; line-height: 1.65;
+    margin: 0 0 18px; max-width: 56ch;
   }
   .col-text p a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 
-  /* ——— image grids ——— */
-  .grid {
-    display: grid;
-    gap: 8px;
-  }
-  .grid-2x2 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; aspect-ratio: 1 / 1; }
+  /* image grids */
+  .grid { display: grid; gap: 8px; }
   .grid-3 { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
-  .grid-mood { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; aspect-ratio: 3 / 2; }
-  .grid-titles { grid-template-columns: 1fr; }
 
   .frame {
-    position: relative;
-    overflow: hidden;
-    background: #2a2826;
-    color: var(--yellow);
+    position: relative; overflow: hidden;
+    background: #2a2826; color: var(--yellow);
     aspect-ratio: 4 / 3;
+    will-change: transform;
   }
   .frame.tall { aspect-ratio: 3 / 4; }
   .frame.wide { aspect-ratio: 16 / 9; }
   .frame.square { aspect-ratio: 1 / 1; }
-
   .frame img {
     width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
+    object-fit: cover; display: block;
+    transition: transform .6s ease;
   }
-  /* placeholder treatment so the layout reads w/o final assets */
-  .frame.placeholder {
-    background:
-      repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 12px, transparent 12px 24px),
-      linear-gradient(180deg, #3a3733, #1d1b19);
-    display: grid; place-items: center;
-  }
-  .frame.placeholder::after {
-    content: attr(data-label);
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: .25em;
-    text-transform: uppercase;
-    color: rgba(236,209,66,.7);
-    text-align: center;
-    padding: 0 12px;
-  }
+  .frame.zoom img:hover { transform: scale(1.04); }
+
   .super {
     position: absolute;
     color: var(--yellow);
     font-family: var(--mono);
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .02em;
+    text-transform: uppercase; letter-spacing: .02em;
     line-height: 1.05;
     font-size: clamp(14px, 1.6vw, 22px);
-    pointer-events: none;
-    z-index: 2;
-    text-shadow: 0 1px 0 rgba(0,0,0,.4);
+    pointer-events: none; z-index: 2;
+    text-shadow: 0 2px 4px rgba(0,0,0,.6);
   }
   .super.tl { top: 14px; left: 14px; }
   .super.tr { top: 14px; right: 14px; text-align: right; }
   .super.br { bottom: 14px; right: 14px; text-align: right; }
-  .super.center {
-    top: 50%; right: 14px; transform: translateY(-50%); text-align: right;
-  }
+  .super.center { top: 50%; right: 14px; transform: translateY(-50%); text-align: right; }
 
-  /* ——— demographics list ——— */
-  .list-section {
-    padding: 120px 6vw;
-  }
+  /* list */
+  .list-section { padding: 120px 6vw; position: relative; }
   .list {
-    columns: 2;
-    column-gap: 6vw;
+    columns: 2; column-gap: 6vw;
     font-family: var(--mono);
-    font-size: 15px;
-    line-height: 1.85;
+    font-size: 15px; line-height: 1.85;
+    position: relative; z-index: 2;
+    max-width: 1400px;
   }
   .list span { display: block; break-inside: avoid; }
 
-  /* ——— moodboard ——— */
+  /* moodboard */
   .grid-moodboard {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 22vh;
     gap: 8px;
+    position: relative; z-index: 2;
   }
   .grid-moodboard .frame { aspect-ratio: auto; height: 100%; }
   .span-2c { grid-column: span 2; }
   .span-2r { grid-row: span 2; }
 
-  /* ——— titles section ——— */
+  /* full-bleed parallax interstitials */
+  .interstitial {
+    min-height: 70vh;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    border-bottom: none;
+  }
+  .interstitial-bg {
+    position: absolute;
+    inset: -15% -5%;
+    will-change: transform;
+  }
+  .interstitial-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.05) brightness(.85);
+  }
+  .interstitial-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 50%, rgba(0,0,0,.55) 100%);
+    z-index: 1;
+  }
+  .interstitial-text {
+    position: relative; z-index: 2;
+    color: var(--yellow);
+    font-family: var(--mono);
+    font-weight: 700; text-transform: uppercase;
+    font-size: clamp(28px, 5vw, 72px);
+    line-height: 1; letter-spacing: .02em;
+    text-align: center; width: 100%; padding: 0 6vw;
+    text-shadow: 0 2px 12px rgba(0,0,0,.5);
+  }
+
+  /* horizontal marquee */
+  .strip-section { padding: 32px 0; min-height: 0; overflow: hidden; border-bottom: none; }
+  .strip { display: flex; gap: 8px; width: max-content; will-change: transform; }
+  .strip .frame { width: 28vw; height: 32vh; flex-shrink: 0; aspect-ratio: auto; }
+  .strip-section.scroll-driven .strip { animation: marquee 60s linear infinite; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* titles */
   .titles-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6vw;
-    align-items: center;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6vw;
+    align-items: center; position: relative; z-index: 2;
   }
   .title-frame {
     position: relative;
     aspect-ratio: 16 / 10;
-    background: #1d1b19;
-    overflow: hidden;
+    background: #1d1b19; overflow: hidden;
     display: grid; place-items: center;
   }
   .title-frame .circle-crop {
     width: 70%; aspect-ratio: 1/1;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #2a2826;
-    position: relative;
+    border-radius: 50%; overflow: hidden;
+    background: #2a2826; position: relative;
   }
-  .title-frame .circle-crop::before {
-    content: '';
-    position: absolute; inset: 0;
-    background:
-      repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 12px, transparent 12px 24px),
-      linear-gradient(180deg, #4a4742, #1d1b19);
+  .title-frame .circle-crop img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: grayscale(.6) contrast(1.05);
   }
   .title-frame .label-top, .title-frame .label-bottom {
-    position: absolute;
-    color: var(--yellow);
-    font-family: var(--mono);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .02em;
-    text-align: center;
-    width: 100%;
+    position: absolute; color: var(--yellow);
+    font-family: var(--mono); font-weight: 700;
+    text-transform: uppercase; letter-spacing: .02em;
+    text-align: center; width: 100%;
   }
   .title-frame .label-top { top: 9%; font-size: 18px; }
   .title-frame .label-bottom { bottom: 9%; font-size: 14px; }
 
-  /* ——— eat it anywhere ——— */
+  /* eat it anywhere vignettes */
   .vignette-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    position: relative; z-index: 2;
   }
   .vignette-grid .frame:first-child { grid-row: span 2; aspect-ratio: 3/4; }
 
-  /* ——— founder grid ——— */
+  /* founder grid */
   .founder-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    position: relative; z-index: 2;
   }
   .founder-grid .frame { aspect-ratio: 4/5; }
 
-  /* ——— goes with grid ——— */
+  /* goes with grid */
   .goes-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 8px;
-    aspect-ratio: 1/1;
+    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
+    gap: 8px; aspect-ratio: 1/1;
+    position: relative; z-index: 2;
   }
   .goes-grid .frame:last-child { grid-column: span 2; aspect-ratio: auto; }
 
-  /* ——— closing ——— */
-  .closing {
-    text-align: center;
-    align-items: center;
-    background: var(--bg-light);
-  }
+  /* closing */
+  .closing { text-align: center; align-items: center; background: var(--bg-light); position: relative; }
   .closing .mark {
     font-family: var(--display);
     font-size: clamp(40px, 7vw, 96px);
-    line-height: .95;
-    margin: 0;
+    line-height: .95; margin: 0;
+    position: relative; z-index: 3;
   }
   .closing .credit {
     margin-top: 40px;
     font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: .25em;
-    text-transform: uppercase;
+    font-size: 12px; letter-spacing: .25em; text-transform: uppercase;
     opacity: .7;
+    position: relative; z-index: 3;
   }
   .closing .credit a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
 
-  /* ——— reveal animation ——— */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
-  .reveal.in { opacity: 1; transform: none; }
+  /* reveal */
+  .reveal { opacity: 0; transition: opacity 1s ease; }
+  .reveal.in { opacity: 1; }
+
   @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
+    .reveal { opacity: 1; transition: none; }
+    [data-parallax] { transform: none !important; }
     html { scroll-behavior: auto; }
-    .scroll-cue { animation: none; }
+    .scroll-cue, .strip-section.scroll-driven .strip { animation: none; }
   }
 
-  /* ——— responsive ——— */
+  /* responsive */
   @media (max-width: 860px) {
     section { padding: 72px 6vw; min-height: auto; }
     .two-col, .titles-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -380,6 +372,9 @@
     .vignette-grid .frame:first-child { grid-row: auto; aspect-ratio: 16/10; }
     .nav { padding: 14px 20px; font-size: 10px; }
     .chapter .num { width: 64px; height: 64px; font-size: 28px; }
+    .float { display: none; }
+    .strip .frame { width: 60vw; height: 28vh; }
+    .interstitial { min-height: 50vh; }
   }
 </style>
 </head>
@@ -392,7 +387,20 @@
 
 <!-- HERO -->
 <section id="top" class="hero">
-  <div>
+  <div class="float back tilt-l" data-parallax="0.18" style="top: 14%; left: 6%; width: 200px; height: 260px;">
+    <img src="https://picsum.photos/seed/hd-hero-1/400/520?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float mid tilt-r" data-parallax="0.06" style="top: 10%; right: 8%; width: 220px; height: 160px;">
+    <img src="https://picsum.photos/seed/hd-hero-2/440/320?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float fore tilt-l" data-parallax="-0.12" style="bottom: 18%; left: 12%; width: 180px; height: 220px;">
+    <img src="https://picsum.photos/seed/hd-hero-3/360/440?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float mid tilt-r" data-parallax="-0.05" style="bottom: 14%; right: 10%; width: 240px; height: 180px;">
+    <img src="https://picsum.photos/seed/hd-hero-4/480/360?grayscale" alt="" loading="lazy" />
+  </div>
+
+  <div class="hero-content">
     <h1 class="reveal">HONEY<br/>DEPARTMENT</h1>
     <div class="sub reveal">Campaign Selects — Fall 2026</div>
   </div>
@@ -401,8 +409,33 @@
   <div class="footer-mark right" style="font-family: var(--display);">HONEY DEPARTMENT</div>
 </section>
 
+<!-- MARQUEE STRIP -->
+<section class="strip-section scroll-driven no-min">
+  <div class="strip">
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-1/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-2/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-3/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-4/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-5/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-6/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-7/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-8/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-1/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-2/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-3/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-4/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-5/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-6/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-7/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-8/600/400?grayscale" alt="" loading="lazy" /></div>
+  </div>
+</section>
+
 <!-- CHAPTER 1 -->
 <section class="dark chapter" id="ch-1">
+  <div class="chapter-bg" data-parallax="0.15">
+    <img src="https://picsum.photos/seed/hd-ch1-bg/1800/1200?grayscale" alt="" loading="lazy" />
+  </div>
   <div class="num-row reveal">
     <div class="num">1</div>
     <h2>Demographics</h2>
@@ -412,6 +445,13 @@
 
 <!-- DEMOGRAPHICS — concept -->
 <section>
+  <div class="float back tilt-l" data-parallax="0.12" style="top: 8%; right: 4%; width: 160px; height: 200px;">
+    <img src="https://picsum.photos/seed/hd-acc-1/320/400?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float fore tilt-r" data-parallax="-0.08" style="bottom: 10%; left: 2%; width: 140px; height: 180px;">
+    <img src="https://picsum.photos/seed/hd-acc-2/280/360?grayscale" alt="" loading="lazy" />
+  </div>
+
   <span class="tag">Film / Photo</span>
   <div class="two-col">
     <div class="col-text reveal">
@@ -421,14 +461,17 @@
       <p>This is a series of portraits or films about specific average people living their lives and eating honey. Fly on the wall, the honey is just another character. We're focused on the eater eating, everyone around them goes about their business.</p>
       <p style="margin-top:32px;">Think: John Wilson, <a href="#">Bill Owens</a>, Martin Parr, <a href="#">Vernon, Florida</a></p>
     </div>
-    <div class="grid grid-3 reveal">
-      <div class="frame placeholder" data-label="Bingo Players">
+    <div class="grid grid-3 reveal" data-parallax="-0.04">
+      <div class="frame zoom">
+        <img src="https://picsum.photos/seed/hd-bingo/600/450" alt="" loading="lazy" />
         <span class="super tl">Bingo Players<br/>Eat<br/>Honey Dept.</span>
       </div>
-      <div class="frame placeholder" data-label="Chiropractors">
+      <div class="frame zoom">
+        <img src="https://picsum.photos/seed/hd-chiro/600/450" alt="" loading="lazy" />
         <span class="super tl">Chiropractors<br/>Eat<br/>Honey Dept.</span>
       </div>
-      <div class="frame wide placeholder" data-label="ROMEO" style="grid-column: span 2;">
+      <div class="frame wide zoom" style="grid-column: span 2;">
+        <img src="https://picsum.photos/seed/hd-romeo/1200/675" alt="" loading="lazy" />
         <span class="super center">Romeo<br/><small style="font-size:.7em;opacity:.85">(Retired Old Men Eating Out)</small><br/>Eat<br/>Honey Dept.</span>
       </div>
     </div>
@@ -436,8 +479,27 @@
   <div class="footer-mark">FILM</div>
 </section>
 
+<!-- INTERSTITIAL -->
+<section class="interstitial">
+  <div class="interstitial-bg" data-parallax="0.2">
+    <img src="https://picsum.photos/seed/hd-inter-1/2000/1300?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="interstitial-overlay"></div>
+  <div class="interstitial-text">Anyone over the age of one.</div>
+</section>
+
 <!-- DEMOGRAPHICS — list 1 -->
 <section class="list-section">
+  <div class="float back tilt-r" data-parallax="0.14" style="top: 5%; right: 8%; width: 180px; height: 240px;">
+    <img src="https://picsum.photos/seed/hd-list1-a/360/480?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float mid tilt-l" data-parallax="-0.06" style="bottom: 10%; right: 14%; width: 160px; height: 200px;">
+    <img src="https://picsum.photos/seed/hd-list1-b/320/400?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float fore tilt-r" data-parallax="-0.1" style="top: 50%; left: 1%; width: 130px; height: 170px;">
+    <img src="https://picsum.photos/seed/hd-list1-c/260/340?grayscale" alt="" loading="lazy" />
+  </div>
+
   <span class="tag">Film / Photo</span>
   <div class="list reveal">
     <span>Babuskas of Little Odessa eat Honey Dept.</span>
@@ -496,8 +558,40 @@
   <div class="footer-mark right" style="font-family: var(--display);">HONEY DEPARTMENT</div>
 </section>
 
+<!-- MARQUEE STRIP 2 (reverse) -->
+<section class="strip-section scroll-driven no-min">
+  <div class="strip" style="animation-duration: 80s; animation-direction: reverse;">
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-1/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-2/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-3/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-4/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-5/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-6/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-7/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-8/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-1/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-2/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-3/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-4/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-5/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-6/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-7/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-8/600/400?grayscale" alt="" loading="lazy" /></div>
+  </div>
+</section>
+
 <!-- DEMOGRAPHICS — list 2 -->
 <section class="list-section">
+  <div class="float back tilt-l" data-parallax="0.16" style="top: 8%; left: 6%; width: 170px; height: 220px;">
+    <img src="https://picsum.photos/seed/hd-list2-a/340/440?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float mid tilt-r" data-parallax="-0.04" style="bottom: 12%; right: 4%; width: 200px; height: 150px;">
+    <img src="https://picsum.photos/seed/hd-list2-b/400/300?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float fore tilt-l" data-parallax="-0.12" style="top: 40%; right: 12%; width: 130px; height: 170px;">
+    <img src="https://picsum.photos/seed/hd-list2-c/260/340?grayscale" alt="" loading="lazy" />
+  </div>
+
   <span class="tag">Film / Photo</span>
   <div class="list reveal">
     <span>The guy waiting for the tow truck eats Honey Dept.</span>
@@ -540,7 +634,7 @@
   <div class="footer-mark right" style="font-family: var(--display);">HONEY DEPARTMENT</div>
 </section>
 
-<!-- MOODBOARD -->
+<!-- MOODBOARD intro + mosaic -->
 <section>
   <span class="tag">Moodboard</span>
   <div class="two-col reveal" style="margin-bottom: 48px;">
@@ -548,36 +642,46 @@
       <p>The references are Roy Andersson, Martin Parr, Bill Owens, Errol Morris, Jacques Tati — filmmakers and photographers with genuine curiosity about ordinary people in ordinary situations, and the patience to let those situations be exactly what they are.</p>
       <p>The humor is always there, and it's never mean. Deadpan, warm, specific. Nobody is the punchline. The product is present but not celebrated. Every frame should look like it could be from a film that has nothing to do with honey.</p>
     </div>
-    <div></div>
+    <div class="float mid tilt-r" data-parallax="-0.08" style="position: relative; width: 70%; aspect-ratio: 4/5; margin: 0 auto;">
+      <img src="https://picsum.photos/seed/hd-moodintro/500/625?grayscale" alt="" loading="lazy" />
+    </div>
   </div>
   <div class="grid-moodboard reveal">
-    <div class="frame placeholder span-2r" data-label="Bill Owens — vacuuming"></div>
-    <div class="frame placeholder span-2c" data-label="Martin Parr — pug show"></div>
-    <div class="frame placeholder" data-label="Roy Andersson — drum"></div>
-    <div class="frame placeholder" data-label="Errol Morris — Vernon, FL"></div>
-    <div class="frame placeholder span-2c" data-label="Documentary still"></div>
+    <div class="frame zoom span-2r" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-mood-1/600/800?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom span-2c" data-parallax="-0.03"><img src="https://picsum.photos/seed/hd-mood-2/1200/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="0.05"><img src="https://picsum.photos/seed/hd-mood-3/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="-0.05"><img src="https://picsum.photos/seed/hd-mood-4/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom span-2c" data-parallax="0.03"><img src="https://picsum.photos/seed/hd-mood-5/1200/600?grayscale" alt="" loading="lazy" /></div>
   </div>
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- REFERENCE MOODBOARD (full bleed grid) -->
+<!-- REFERENCE MOODBOARD - bigger mosaic -->
 <section style="padding-top: 48px;">
   <span class="tag">Reference Moodboard</span>
   <div class="grid-moodboard reveal">
-    <div class="frame placeholder" data-label="Hawaiian shirt"></div>
-    <div class="frame placeholder" data-label="Porch portrait"></div>
-    <div class="frame placeholder" data-label="Trophies"></div>
-    <div class="frame placeholder" data-label="Bedroom interior"></div>
-    <div class="frame placeholder" data-label="Apron lady"></div>
-    <div class="frame placeholder" data-label="Living room"></div>
-    <div class="frame placeholder" data-label="Diner — Andersson"></div>
-    <div class="frame placeholder" data-label="Trailer interior"></div>
+    <div class="frame zoom" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-ref-1/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="-0.03"><img src="https://picsum.photos/seed/hd-ref-2/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="0.06"><img src="https://picsum.photos/seed/hd-ref-3/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom span-2r" data-parallax="-0.05"><img src="https://picsum.photos/seed/hd-ref-4/600/800?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="0.03"><img src="https://picsum.photos/seed/hd-ref-5/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="-0.06"><img src="https://picsum.photos/seed/hd-ref-6/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="0.05"><img src="https://picsum.photos/seed/hd-ref-7/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom span-2c" data-parallax="-0.04"><img src="https://picsum.photos/seed/hd-ref-8/1200/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-ref-9/600/600?grayscale" alt="" loading="lazy" /></div>
   </div>
   <div class="footer-mark">FILM</div>
 </section>
 
 <!-- TITLES -->
 <section class="dark">
+  <div class="float back tilt-l" data-parallax="0.18" style="top: 12%; left: 6%; width: 200px; height: 260px; opacity: .35;">
+    <img src="https://picsum.photos/seed/hd-titles-a/400/520?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float back tilt-r" data-parallax="0.12" style="bottom: 14%; right: 6%; width: 180px; height: 220px; opacity: .35;">
+    <img src="https://picsum.photos/seed/hd-titles-b/360/440?grayscale" alt="" loading="lazy" />
+  </div>
+
   <span class="tag" style="color:#f3f1ec;">Titles</span>
   <div class="titles-grid">
     <div class="col-text reveal">
@@ -585,9 +689,9 @@
       <p style="color:#e9e6df;">Each film cuts to a dedicated title frame at the end. The frame isolates the subject with a crop, circular to mimic the circles ("bees") used in branding. The super can appear above, below or beside the image, depending on the crop.</p>
       <p style="color:#e9e6df;">The title frame replaces the need for in-scene headroom or negative space. Framing during production stays unconstrained.</p>
     </div>
-    <div class="title-frame reveal">
+    <div class="title-frame reveal" data-parallax="-0.04">
       <div class="label-top">ROMEO</div>
-      <div class="circle-crop"></div>
+      <div class="circle-crop"><img src="https://picsum.photos/seed/hd-romeo-circle/600/600?grayscale" alt="" loading="lazy" /></div>
       <div class="label-bottom">EAT HONEY DEPT.</div>
     </div>
   </div>
@@ -596,6 +700,9 @@
 
 <!-- CHAPTER 2 -->
 <section class="dark chapter" id="ch-2">
+  <div class="chapter-bg" data-parallax="0.15">
+    <img src="https://picsum.photos/seed/hd-ch2-bg/1800/1200?grayscale" alt="" loading="lazy" />
+  </div>
   <div class="num-row reveal">
     <div class="num">2</div>
     <h2>Eat It Anywhere</h2>
@@ -605,6 +712,13 @@
 
 <!-- EAT IT ANYWHERE -->
 <section>
+  <div class="float back tilt-l" data-parallax="0.14" style="top: 8%; right: 5%; width: 160px; height: 200px;">
+    <img src="https://picsum.photos/seed/hd-eat-acc1/320/400?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float fore tilt-r" data-parallax="-0.1" style="bottom: 14%; left: 1%; width: 140px; height: 180px;">
+    <img src="https://picsum.photos/seed/hd-eat-acc2/280/360?grayscale" alt="" loading="lazy" />
+  </div>
+
   <span class="tag">Film</span>
   <div class="two-col">
     <div class="col-text reveal">
@@ -613,17 +727,44 @@
       <p>This honey is the first honey that can be eaten anywhere. So eat it wherever you want doing whatever you're doing. It's your honey.</p>
       <p style="margin-top:32px; opacity:.75;">An edit of short vignettes. Locked-off shots. One scenario, one take, cut. The titles and VO run over them.</p>
     </div>
-    <div class="vignette-grid reveal">
-      <div class="frame placeholder" data-label="Vignette — chair"></div>
-      <div class="frame placeholder" data-label="Vignette — birch"></div>
-      <div class="frame placeholder" data-label="Vignette — under table"></div>
+    <div class="vignette-grid reveal" data-parallax="-0.03">
+      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-vig-1/600/800?grayscale" alt="" loading="lazy" /></div>
+      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-vig-2/600/450?grayscale" alt="" loading="lazy" /></div>
+      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-vig-3/600/450?grayscale" alt="" loading="lazy" /></div>
     </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- INTERSTITIAL 2 -->
+<section class="interstitial">
+  <div class="interstitial-bg" data-parallax="0.22">
+    <img src="https://picsum.photos/seed/hd-inter-2/2000/1300?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="interstitial-overlay"></div>
+  <div class="interstitial-text">It's your honey.</div>
+</section>
+
+<!-- ADDITIONAL VIGNETTE GRID -->
+<section style="padding-top: 32px;">
+  <span class="tag">Additional Vignettes</span>
+  <div class="grid-moodboard reveal">
+    <div class="frame zoom" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-add-1/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="-0.05"><img src="https://picsum.photos/seed/hd-add-2/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="0.03"><img src="https://picsum.photos/seed/hd-add-3/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="-0.06"><img src="https://picsum.photos/seed/hd-add-4/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom span-2c" data-parallax="0.05"><img src="https://picsum.photos/seed/hd-add-5/1200/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="-0.04"><img src="https://picsum.photos/seed/hd-add-6/600/600?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom" data-parallax="0.06"><img src="https://picsum.photos/seed/hd-add-7/600/600?grayscale" alt="" loading="lazy" /></div>
   </div>
   <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHAPTER 3 -->
 <section class="dark chapter" id="ch-3">
+  <div class="chapter-bg" data-parallax="0.15">
+    <img src="https://picsum.photos/seed/hd-ch3-bg/1800/1200?grayscale" alt="" loading="lazy" />
+  </div>
   <div class="num-row reveal">
     <div class="num">3</div>
     <h2>A Note From<br/>Our Founder</h2>
@@ -633,6 +774,13 @@
 
 <!-- FOUNDER -->
 <section>
+  <div class="float back tilt-l" data-parallax="0.12" style="top: 6%; right: 4%; width: 170px; height: 220px;">
+    <img src="https://picsum.photos/seed/hd-found-acc1/340/440?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float fore tilt-r" data-parallax="-0.09" style="bottom: 8%; left: 1%; width: 130px; height: 170px;">
+    <img src="https://picsum.photos/seed/hd-found-acc2/260/340?grayscale" alt="" loading="lazy" />
+  </div>
+
   <span class="tag">Film</span>
   <div class="two-col">
     <div class="col-text reveal">
@@ -641,20 +789,32 @@
       <p>A series of films in which a rotating cast of individuals — a bodega owner, a seven-year-old girl, someone's grandmother, a drag queen — each sit at a desk and deliver an official communication from Honey Department. A press release. A response to customer feedback. An AMA. Q3 results. An apology. A product announcement.</p>
       <p>The desk is the same. The uniform is the same. The founder is never the same.</p>
     </div>
-    <div class="founder-grid reveal">
-      <div class="frame placeholder" data-label="Founder #1"></div>
-      <div class="frame placeholder" data-label="Founder #2"></div>
-      <div class="frame placeholder" data-label="Founder #3"></div>
-      <div class="frame placeholder" data-label="Founder #4"></div>
-      <div class="frame placeholder" data-label="Founder #5"></div>
-      <div class="frame placeholder" data-label="Founder #6"></div>
+    <div class="founder-grid reveal" data-parallax="-0.04">
+      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-found-1/500/625?grayscale" alt="" loading="lazy" /></div>
+      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-found-2/500/625?grayscale" alt="" loading="lazy" /></div>
+      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-found-3/500/625?grayscale" alt="" loading="lazy" /></div>
+      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-found-4/500/625?grayscale" alt="" loading="lazy" /></div>
+      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-found-5/500/625?grayscale" alt="" loading="lazy" /></div>
+      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-found-6/500/625?grayscale" alt="" loading="lazy" /></div>
     </div>
   </div>
   <div class="footer-mark">FILM</div>
 </section>
 
+<!-- INTERSTITIAL 3 -->
+<section class="interstitial">
+  <div class="interstitial-bg" data-parallax="0.18">
+    <img src="https://picsum.photos/seed/hd-inter-3/2000/1300?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="interstitial-overlay"></div>
+  <div class="interstitial-text">The founder is never the same.</div>
+</section>
+
 <!-- CHAPTER 4 -->
 <section class="dark chapter" id="ch-4">
+  <div class="chapter-bg" data-parallax="0.15">
+    <img src="https://picsum.photos/seed/hd-ch4-bg/1800/1200?grayscale" alt="" loading="lazy" />
+  </div>
   <div class="num-row reveal">
     <div class="num">4</div>
     <h2>Goes With<br/>Everything</h2>
@@ -664,6 +824,13 @@
 
 <!-- GOES WITH EVERYTHING -->
 <section>
+  <div class="float back tilt-r" data-parallax="0.13" style="top: 8%; left: 4%; width: 170px; height: 210px;">
+    <img src="https://picsum.photos/seed/hd-goes-acc1/340/420?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float fore tilt-l" data-parallax="-0.1" style="bottom: 12%; right: 2%; width: 130px; height: 170px;">
+    <img src="https://picsum.photos/seed/hd-goes-acc2/260/340?grayscale" alt="" loading="lazy" />
+  </div>
+
   <span class="tag">Film / Photo</span>
   <div class="two-col">
     <div class="col-text reveal">
@@ -671,14 +838,17 @@
       <p>Honey Department pairs well with Ricotta toast. It also goes with leather pants, climate anxiety, translating cat, corporate dystopia, overpriced candles, 2am Wikipedia spirals, motel ice, amicable divorces, trying to appreciate jazz, New Jersey suntanning, impatiently waiting, mid-range crystal energy, sorting through garage boxes, gas station sunglasses shopping, post office parking lots, fake accents, hotel stationery, benign neglect, discount astrology, long voicemails, and timeshare scams.</p>
       <p>Is this a food pairing guide or compatibility study? Yes. A series of simple vignettes where the honey is being enjoyed in a different scenario with the specific pairing written out.</p>
     </div>
-    <div class="goes-grid reveal">
-      <div class="frame placeholder" data-label="Dance studio">
+    <div class="goes-grid reveal" data-parallax="-0.03">
+      <div class="frame zoom">
+        <img src="https://picsum.photos/seed/hd-goes-1/600/600?grayscale" alt="" loading="lazy" />
         <span class="super tl">Goes With<br/>Unsolicited<br/>Feedback.</span>
       </div>
-      <div class="frame placeholder" data-label="Dining alone">
+      <div class="frame zoom">
+        <img src="https://picsum.photos/seed/hd-goes-2/600/600?grayscale" alt="" loading="lazy" />
         <span class="super tl">Goes With<br/>Formally Dining<br/>Alone.</span>
       </div>
-      <div class="frame placeholder" data-label="Tanning bed" style="aspect-ratio: 16/9;">
+      <div class="frame zoom" style="aspect-ratio: 16/9;">
+        <img src="https://picsum.photos/seed/hd-goes-3/1200/675?grayscale" alt="" loading="lazy" />
         <span class="super tl">Goes With<br/>Late-Stage<br/>Wellness.</span>
       </div>
     </div>
@@ -686,8 +856,43 @@
   <div class="footer-mark">FILM</div>
 </section>
 
+<!-- FINAL MARQUEE -->
+<section class="strip-section scroll-driven no-min">
+  <div class="strip" style="animation-duration: 70s;">
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-1/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-2/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-3/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-4/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-5/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-6/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-7/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-8/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-1/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-2/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-3/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-4/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-5/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-6/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-7/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-8/600/400?grayscale" alt="" loading="lazy" /></div>
+  </div>
+</section>
+
 <!-- CLOSING -->
 <section class="closing" id="closing">
+  <div class="float back tilt-l" data-parallax="0.14" style="top: 12%; left: 6%; width: 170px; height: 220px; opacity: .55;">
+    <img src="https://picsum.photos/seed/hd-close-1/340/440?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float back tilt-r" data-parallax="0.1" style="top: 18%; right: 8%; width: 200px; height: 150px; opacity: .55;">
+    <img src="https://picsum.photos/seed/hd-close-2/400/300?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float mid tilt-r" data-parallax="-0.06" style="bottom: 18%; left: 12%; width: 150px; height: 200px;">
+    <img src="https://picsum.photos/seed/hd-close-3/300/400?grayscale" alt="" loading="lazy" />
+  </div>
+  <div class="float fore tilt-l" data-parallax="-0.1" style="bottom: 14%; right: 10%; width: 180px; height: 130px;">
+    <img src="https://picsum.photos/seed/hd-close-4/360/260?grayscale" alt="" loading="lazy" />
+  </div>
+
   <h2 class="mark reveal">HONEY<br/>DEPARTMENT</h2>
   <div class="credit reveal">
     Concept &amp; Direction —
@@ -697,7 +902,7 @@
 </section>
 
 <script>
-  // ——— reveal-on-scroll ———
+  // reveal-on-scroll
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {
       if (e.isIntersecting) {
@@ -707,6 +912,35 @@
     }
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // parallax engine — translate Y based on distance from viewport center
+  // positive speed = moves slower (deeper z-plane), negative = moves faster (closer)
+  const parallaxItems = Array.from(document.querySelectorAll('[data-parallax]')).map(el => {
+    let rotate = 0;
+    if (el.classList.contains('tilt-l')) rotate = -3;
+    else if (el.classList.contains('tilt-r')) rotate = 3;
+    return { el, speed: parseFloat(el.dataset.parallax), rotate };
+  });
+
+  let ticking = false;
+  function updateParallax() {
+    const vh = window.innerHeight;
+    for (const item of parallaxItems) {
+      const rect = item.el.getBoundingClientRect();
+      if (rect.bottom < -vh || rect.top > vh * 2) continue;
+      const elCenter = rect.top + rect.height / 2;
+      const fromCenter = elCenter - vh / 2;
+      const offset = -fromCenter * item.speed;
+      item.el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0) rotate(${item.rotate}deg)`;
+    }
+    ticking = false;
+  }
+  function onScroll() {
+    if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  updateParallax();
 </script>
 </body>
 </html>
