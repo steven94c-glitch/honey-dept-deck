@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Honey Department — Campaign Selects, Fall 2026</title>
+<meta name="description" content="A campaign concept deck from Studio SDK for Honey Department — Fall 2026." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@600;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg-light: #ececec;
+    --bg-dark: #1f1d1c;
+    --ink: #111;
+    --ink-soft: #2b2926;
+    --paper: #ececec;
+    --yellow: #ecd142;
+    --line: rgba(0,0,0,.18);
+    --line-dark: rgba(255,255,255,.18);
+    --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --display: 'Alfa Slab One', 'Cooper Black', Georgia, serif;
+    --ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--mono);
+    color: var(--ink);
+    background: var(--bg-light);
+    font-size: 15px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: inherit; }
+
+  /* ——— top nav ——— */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    z-index: 100;
+    mix-blend-mode: difference;
+    color: #fff;
+    pointer-events: none;
+  }
+  .nav .left, .nav .right { pointer-events: auto; }
+  .nav a { text-decoration: none; opacity: .8; }
+  .nav a:hover { opacity: 1; }
+  .nav .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); margin-right: 8px; vertical-align: middle; }
+
+  /* ——— section primitives ——— */
+  section {
+    position: relative;
+    padding: 96px 6vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid var(--line);
+  }
+  section.dark {
+    background: var(--bg-dark);
+    color: #f3f1ec;
+    border-bottom-color: var(--line-dark);
+  }
+
+  .tag {
+    display: inline-block;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+  }
+
+  .footer-mark {
+    position: absolute;
+    left: 6vw; bottom: 32px;
+    font-family: var(--display);
+    font-size: 11px;
+    letter-spacing: .04em;
+  }
+  .footer-mark.right { left: auto; right: 6vw; }
+
+  /* ——— hero ——— */
+  .hero {
+    min-height: 100vh;
+    align-items: center; text-align: center;
+    padding: 0 6vw;
+  }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(56px, 11vw, 180px);
+    line-height: .92;
+    letter-spacing: -.01em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .hero .sub {
+    margin-top: 56px;
+    font-family: var(--mono);
+    font-size: 14px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+  }
+  .hero .scroll-cue {
+    position: absolute;
+    bottom: 32px; left: 50%; transform: translateX(-50%);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    opacity: .6;
+    animation: bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob {
+    0%,100% { transform: translate(-50%, 0); }
+    50%     { transform: translate(-50%, 6px); }
+  }
+
+  /* ——— chapter divider ——— */
+  .chapter {
+    align-items: flex-start; justify-content: center;
+    padding: 96px 6vw;
+  }
+  .chapter .num-row {
+    display: flex; align-items: center; gap: 32px;
+    color: var(--yellow);
+  }
+  .chapter .num {
+    width: 88px; height: 88px;
+    border: 1.5px solid var(--yellow);
+    border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: var(--mono);
+    font-size: 38px;
+    font-weight: 400;
+  }
+  .chapter h2 {
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: clamp(40px, 7vw, 96px);
+    line-height: 1;
+    letter-spacing: .02em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  /* ——— two column content ——— */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6vw;
+    align-items: start;
+  }
+  .col-text h3 {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+    margin: 0 0 24px;
+  }
+  .col-text p {
+    font-family: var(--mono);
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0 0 18px;
+    max-width: 56ch;
+  }
+  .col-text p a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ——— image grids ——— */
+  .grid {
+    display: grid;
+    gap: 8px;
+  }
+  .grid-2x2 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; aspect-ratio: 1 / 1; }
+  .grid-3 { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+  .grid-mood { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; aspect-ratio: 3 / 2; }
+  .grid-titles { grid-template-columns: 1fr; }
+
+  .frame {
+    position: relative;
+    overflow: hidden;
+    background: #2a2826;
+    color: var(--yellow);
+    aspect-ratio: 4 / 3;
+  }
+  .frame.tall { aspect-ratio: 3 / 4; }
+  .frame.wide { aspect-ratio: 16 / 9; }
+  .frame.square { aspect-ratio: 1 / 1; }
+
+  .frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* placeholder treatment so the layout reads w/o final assets */
+  .frame.placeholder {
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 12px, transparent 12px 24px),
+      linear-gradient(180deg, #3a3733, #1d1b19);
+    display: grid; place-items: center;
+  }
+  .frame.placeholder::after {
+    content: attr(data-label);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: rgba(236,209,66,.7);
+    text-align: center;
+    padding: 0 12px;
+  }
+  .super {
+    position: absolute;
+    color: var(--yellow);
+    font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    line-height: 1.05;
+    font-size: clamp(14px, 1.6vw, 22px);
+    pointer-events: none;
+    z-index: 2;
+    text-shadow: 0 1px 0 rgba(0,0,0,.4);
+  }
+  .super.tl { top: 14px; left: 14px; }
+  .super.tr { top: 14px; right: 14px; text-align: right; }
+  .super.br { bottom: 14px; right: 14px; text-align: right; }
+  .super.center {
+    top: 50%; right: 14px; transform: translateY(-50%); text-align: right;
+  }
+
+  /* ——— demographics list ——— */
+  .list-section {
+    padding: 120px 6vw;
+  }
+  .list {
+    columns: 2;
+    column-gap: 6vw;
+    font-family: var(--mono);
+    font-size: 15px;
+    line-height: 1.85;
+  }
+  .list span { display: block; break-inside: avoid; }
+
+  /* ——— moodboard ——— */
+  .grid-moodboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 22vh;
+    gap: 8px;
+  }
+  .grid-moodboard .frame { aspect-ratio: auto; height: 100%; }
+  .span-2c { grid-column: span 2; }
+  .span-2r { grid-row: span 2; }
+
+  /* ——— titles section ——— */
+  .titles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6vw;
+    align-items: center;
+  }
+  .title-frame {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: #1d1b19;
+    overflow: hidden;
+    display: grid; place-items: center;
+  }
+  .title-frame .circle-crop {
+    width: 70%; aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #2a2826;
+    position: relative;
+  }
+  .title-frame .circle-crop::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(135deg, rgba(255,255,255,.04) 0 12px, transparent 12px 24px),
+      linear-gradient(180deg, #4a4742, #1d1b19);
+  }
+  .title-frame .label-top, .title-frame .label-bottom {
+    position: absolute;
+    color: var(--yellow);
+    font-family: var(--mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .02em;
+    text-align: center;
+    width: 100%;
+  }
+  .title-frame .label-top { top: 9%; font-size: 18px; }
+  .title-frame .label-bottom { bottom: 9%; font-size: 14px; }
+
+  /* ——— eat it anywhere ——— */
+  .vignette-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .vignette-grid .frame:first-child { grid-row: span 2; aspect-ratio: 3/4; }
+
+  /* ——— founder grid ——— */
+  .founder-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .founder-grid .frame { aspect-ratio: 4/5; }
+
+  /* ——— goes with grid ——— */
+  .goes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    aspect-ratio: 1/1;
+  }
+  .goes-grid .frame:last-child { grid-column: span 2; aspect-ratio: auto; }
+
+  /* ——— closing ——— */
+  .closing {
+    text-align: center;
+    align-items: center;
+    background: var(--bg-light);
+  }
+  .closing .mark {
+    font-family: var(--display);
+    font-size: clamp(40px, 7vw, 96px);
+    line-height: .95;
+    margin: 0;
+  }
+  .closing .credit {
+    margin-top: 40px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    opacity: .7;
+  }
+  .closing .credit a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+  /* ——— reveal animation ——— */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+    .scroll-cue { animation: none; }
+  }
+
+  /* ——— responsive ——— */
+  @media (max-width: 860px) {
+    section { padding: 72px 6vw; min-height: auto; }
+    .two-col, .titles-grid { grid-template-columns: 1fr; gap: 32px; }
+    .list { columns: 1; }
+    .grid-moodboard { grid-template-columns: 1fr 1fr; grid-auto-rows: 28vh; }
+    .span-2c { grid-column: span 1; }
+    .founder-grid { grid-template-columns: 1fr 1fr; }
+    .vignette-grid { grid-template-columns: 1fr; }
+    .vignette-grid .frame:first-child { grid-row: auto; aspect-ratio: 16/10; }
+    .nav { padding: 14px 20px; font-size: 10px; }
+    .chapter .num { width: 64px; height: 64px; font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="primary">
+  <div class="left"><span class="dot"></span><a href="#top">Honey Department</a></div>
+  <div class="right"><a href="#closing">Studio SDK · Fall 2026</a></div>
+</nav>
+
+<!-- HERO -->
+<section id="top" class="hero">
+  <div>
+    <h1 class="reveal">HONEY<br/>DEPARTMENT</h1>
+    <div class="sub reveal">Campaign Selects — Fall 2026</div>
+  </div>
+  <div class="scroll-cue">Scroll ↓</div>
+  <div class="footer-mark">FILM</div>
+  <div class="footer-mark right" style="font-family: var(--display);">HONEY DEPARTMENT</div>
+</section>
+
+<!-- CHAPTER 1 -->
+<section class="dark chapter" id="ch-1">
+  <div class="num-row reveal">
+    <div class="num">1</div>
+    <h2>Demographics</h2>
+  </div>
+  <div class="footer-mark" style="color:#aaa;">FILM</div>
+</section>
+
+<!-- DEMOGRAPHICS — concept -->
+<section>
+  <span class="tag">Film / Photo</span>
+  <div class="two-col">
+    <div class="col-text reveal">
+      <h3>Demographics</h3>
+      <p>Honey Dept. is made for anyone and everyone. It's made to eat anywhere doing anything. Our demographic is specifically anyone over the age of one.</p>
+      <p>Crossing guards eat HD. Manicurists eat HD. Foley artists, nuns, auctioneers, third-generation taxidermists, puppeteers, and dog groomers eat HD.</p>
+      <p>This is a series of portraits or films about specific average people living their lives and eating honey. Fly on the wall, the honey is just another character. We're focused on the eater eating, everyone around them goes about their business.</p>
+      <p style="margin-top:32px;">Think: John Wilson, <a href="#">Bill Owens</a>, Martin Parr, <a href="#">Vernon, Florida</a></p>
+    </div>
+    <div class="grid grid-3 reveal">
+      <div class="frame placeholder" data-label="Bingo Players">
+        <span class="super tl">Bingo Players<br/>Eat<br/>Honey Dept.</span>
+      </div>
+      <div class="frame placeholder" data-label="Chiropractors">
+        <span class="super tl">Chiropractors<br/>Eat<br/>Honey Dept.</span>
+      </div>
+      <div class="frame wide placeholder" data-label="ROMEO" style="grid-column: span 2;">
+        <span class="super center">Romeo<br/><small style="font-size:.7em;opacity:.85">(Retired Old Men Eating Out)</small><br/>Eat<br/>Honey Dept.</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- DEMOGRAPHICS — list 1 -->
+<section class="list-section">
+  <span class="tag">Film / Photo</span>
+  <div class="list reveal">
+    <span>Babuskas of Little Odessa eat Honey Dept.</span>
+    <span>Chess Players eat Honey Dept.</span>
+    <span>The Parks Dept. eats Honey Dept.</span>
+    <span>Your Bodega guy eats Honey Dept.</span>
+    <span>CPAs eat Honey Dept.</span>
+    <span>Deliverymen eat Honey Dept.</span>
+    <span>UWS Doormen eat Honey Dept.</span>
+    <span>"Mickey" eats Honey Dept. (a Times Sq. mascot on break)</span>
+    <span>Stagehands eat Honey Dept.</span>
+    <span>The West 4th Courts eat Honey Dept.</span>
+    <span>Sensei eats Honey Dept.</span>
+    <span>Handball players eat Honey Dept.</span>
+    <span>Republicans eat Honey Dept. Democrats eat Honey Dept.</span>
+    <span>Skaters eat Honey Dept.</span>
+    <span>Birders eat Honey Dept.</span>
+    <span>Marathon spectators eat Honey Dept.</span>
+    <span>Locksmiths eat Honey Dept.</span>
+    <span>Parking Enforcement eats Honey Dept.</span>
+    <span>Alternate side parkers eat Honey Dept.</span>
+    <span>6am regulars eat Honey Dept.</span>
+    <span>The unseasonably dressed eat Honey Dept.</span>
+    <span>Karaoke singers eat Honey Dept.</span>
+    <span>Pawnbrokers eat Honey Dept.</span>
+    <span>Tattoo artists eat Honey Dept.</span>
+    <span>Flower vendors eat Honey Dept.</span>
+    <span>Your neighbor eats Honey Dept.</span>
+    <span>Early mass eats Honey Dept.</span>
+    <span>Antique dealers eat Honey Dept.</span>
+    <span>Second-shift nurses eat Honey Dept.</span>
+    <span>The congregation eats Honey Dept.</span>
+    <span>Pool Sharks eat Honey Dept.</span>
+    <span>Furriers eat Honey Dept.</span>
+    <span>The opening act eats Honey Dept.</span>
+    <span>Docents eat Honey Dept.</span>
+    <span>Small Claims Court eats Honey Dept.</span>
+    <span>Volunteers eat Honey Dept.</span>
+    <span>The regulars eat Honey Dept.</span>
+    <span>Court reporters eat Honey Dept.</span>
+    <span>Dog walkers eat Honey Dept.</span>
+    <span>Nana eats Honey Dept.</span>
+    <span>Bingo players eat Honey Dept.</span>
+    <span>Chiropractors eat Honey Dept.</span>
+    <span>ROMEO (Retired Old Men Eating Out) eat Honey Dept.</span>
+    <span>Bailiffs eat Honey Dept.</span>
+    <span>5am gymgoers eat Honey Dept.</span>
+    <span>Loiterers eat Honey Dept.</span>
+    <span>The 7 train eats Honey Dept.</span>
+    <span>Sparring partners eat Honey Dept.</span>
+    <span>The early bird eats Honey Dept.</span>
+    <span>2nd place eats Honey Dept.</span>
+    <span>Scaffolding workers eat Honey Dept.</span>
+  </div>
+  <div class="footer-mark">FILM</div>
+  <div class="footer-mark right" style="font-family: var(--display);">HONEY DEPARTMENT</div>
+</section>
+
+<!-- DEMOGRAPHICS — list 2 -->
+<section class="list-section">
+  <span class="tag">Film / Photo</span>
+  <div class="list reveal">
+    <span>The guy waiting for the tow truck eats Honey Dept.</span>
+    <span>Crossing guards eat Honey Dept.</span>
+    <span>The second violin eats Honey Dept.</span>
+    <span>Coat check girls eat Honey Dept.</span>
+    <span>Apprentice plumbers eat Honey Dept.</span>
+    <span>The man who feeds the pigeons eats Honey Dept.</span>
+    <span>The woman on hold eats Honey Dept.</span>
+    <span>Amateur astronomers eat Honey Dept.</span>
+    <span>Roofers eat Honey Dept.</span>
+    <span>The pool man eats Honey Dept.</span>
+    <span>The man at the end of the bar eats Honey Dept.</span>
+    <span>The Sunday laundromat eats Honey Dept.</span>
+    <span>Your landlord eats Honey Dept.</span>
+    <span>Gaffers eat Honey Dept.</span>
+    <span>Timekeepers eat Honey Dept.</span>
+    <span>The woman waiting for the locksmith eats Honey Dept.</span>
+    <span>The night security guard eats Honey Dept.</span>
+    <span>Bench warmers eat Honey Dept.</span>
+    <span>Locals eat Honey Dept.</span>
+    <span>Personal assistants eat Honey Dept.</span>
+    <span>Mermaids eat Honey Dept. (Mermaid parade)</span>
+    <span>Puerto Rico eats Honey Dept. (Puerto Rico Day parade)</span>
+    <span>The Elks Lodge eats Honey Dept.</span>
+    <span>Old Italian Men eat Honey Dept.</span>
+    <span>The 9th floor eats Honey Dept.</span>
+    <span>Jockeys eat Honey Dept.</span>
+    <span>Women in fancy hats eat Honey Dept. (Hampton Classic)</span>
+    <span>Elvis impersonators eat Honey Dept.</span>
+    <span>Swifties eat Honey Dept.</span>
+    <span>Canal Street vendors eat Honey Dept.</span>
+    <span>Ironworkers Local 638 eat Honey Dept.</span>
+    <span>The bride eats Honey Dept.</span>
+    <span>Hot FM eats Honey Dept. (UCB improv troupe)</span>
+    <span>The Wednesday regulars eat Honey Dept. (trivia night team)</span>
+    <span>The Gutterbirds eat Honey Dept. (bowling league team)</span>
+  </div>
+  <div class="footer-mark">FILM</div>
+  <div class="footer-mark right" style="font-family: var(--display);">HONEY DEPARTMENT</div>
+</section>
+
+<!-- MOODBOARD -->
+<section>
+  <span class="tag">Moodboard</span>
+  <div class="two-col reveal" style="margin-bottom: 48px;">
+    <div class="col-text">
+      <p>The references are Roy Andersson, Martin Parr, Bill Owens, Errol Morris, Jacques Tati — filmmakers and photographers with genuine curiosity about ordinary people in ordinary situations, and the patience to let those situations be exactly what they are.</p>
+      <p>The humor is always there, and it's never mean. Deadpan, warm, specific. Nobody is the punchline. The product is present but not celebrated. Every frame should look like it could be from a film that has nothing to do with honey.</p>
+    </div>
+    <div></div>
+  </div>
+  <div class="grid-moodboard reveal">
+    <div class="frame placeholder span-2r" data-label="Bill Owens — vacuuming"></div>
+    <div class="frame placeholder span-2c" data-label="Martin Parr — pug show"></div>
+    <div class="frame placeholder" data-label="Roy Andersson — drum"></div>
+    <div class="frame placeholder" data-label="Errol Morris — Vernon, FL"></div>
+    <div class="frame placeholder span-2c" data-label="Documentary still"></div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- REFERENCE MOODBOARD (full bleed grid) -->
+<section style="padding-top: 48px;">
+  <span class="tag">Reference Moodboard</span>
+  <div class="grid-moodboard reveal">
+    <div class="frame placeholder" data-label="Hawaiian shirt"></div>
+    <div class="frame placeholder" data-label="Porch portrait"></div>
+    <div class="frame placeholder" data-label="Trophies"></div>
+    <div class="frame placeholder" data-label="Bedroom interior"></div>
+    <div class="frame placeholder" data-label="Apron lady"></div>
+    <div class="frame placeholder" data-label="Living room"></div>
+    <div class="frame placeholder" data-label="Diner — Andersson"></div>
+    <div class="frame placeholder" data-label="Trailer interior"></div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- TITLES -->
+<section class="dark">
+  <span class="tag" style="color:#f3f1ec;">Titles</span>
+  <div class="titles-grid">
+    <div class="col-text reveal">
+      <p style="color:#e9e6df;">Let's not let framing get in the way of titles.</p>
+      <p style="color:#e9e6df;">Each film cuts to a dedicated title frame at the end. The frame isolates the subject with a crop, circular to mimic the circles ("bees") used in branding. The super can appear above, below or beside the image, depending on the crop.</p>
+      <p style="color:#e9e6df;">The title frame replaces the need for in-scene headroom or negative space. Framing during production stays unconstrained.</p>
+    </div>
+    <div class="title-frame reveal">
+      <div class="label-top">ROMEO</div>
+      <div class="circle-crop"></div>
+      <div class="label-bottom">EAT HONEY DEPT.</div>
+    </div>
+  </div>
+  <div class="footer-mark" style="color:#aaa;">FILM</div>
+</section>
+
+<!-- CHAPTER 2 -->
+<section class="dark chapter" id="ch-2">
+  <div class="num-row reveal">
+    <div class="num">2</div>
+    <h2>Eat It Anywhere</h2>
+  </div>
+  <div class="footer-mark" style="color:#aaa;">FILM</div>
+</section>
+
+<!-- EAT IT ANYWHERE -->
+<section>
+  <span class="tag">Film</span>
+  <div class="two-col">
+    <div class="col-text reveal">
+      <h3>Eat It Anywhere</h3>
+      <p>Eat it near a horse. Eat it in a stairwell you don't belong in. Eat it in front of someone jogging. Eat it on the wrong train. Eat it while holding something fragile. Eat it walking up the down escalator. Eat it inside your coat, quietly. Eat it while whispering to a plant. Eat it mid-apology. Eat it behind the shed, where no one thinks to look. Eat it in the good chair, the one they said not to use. Eat it during the group photo, just slightly out of frame.</p>
+      <p>This honey is the first honey that can be eaten anywhere. So eat it wherever you want doing whatever you're doing. It's your honey.</p>
+      <p style="margin-top:32px; opacity:.75;">An edit of short vignettes. Locked-off shots. One scenario, one take, cut. The titles and VO run over them.</p>
+    </div>
+    <div class="vignette-grid reveal">
+      <div class="frame placeholder" data-label="Vignette — chair"></div>
+      <div class="frame placeholder" data-label="Vignette — birch"></div>
+      <div class="frame placeholder" data-label="Vignette — under table"></div>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHAPTER 3 -->
+<section class="dark chapter" id="ch-3">
+  <div class="num-row reveal">
+    <div class="num">3</div>
+    <h2>A Note From<br/>Our Founder</h2>
+  </div>
+  <div class="footer-mark" style="color:#aaa;">FILM</div>
+</section>
+
+<!-- FOUNDER -->
+<section>
+  <span class="tag">Film</span>
+  <div class="two-col">
+    <div class="col-text reveal">
+      <h3>A Note From Our Founder</h3>
+      <p>Every company has a founder. Ours has several.</p>
+      <p>A series of films in which a rotating cast of individuals — a bodega owner, a seven-year-old girl, someone's grandmother, a drag queen — each sit at a desk and deliver an official communication from Honey Department. A press release. A response to customer feedback. An AMA. Q3 results. An apology. A product announcement.</p>
+      <p>The desk is the same. The uniform is the same. The founder is never the same.</p>
+    </div>
+    <div class="founder-grid reveal">
+      <div class="frame placeholder" data-label="Founder #1"></div>
+      <div class="frame placeholder" data-label="Founder #2"></div>
+      <div class="frame placeholder" data-label="Founder #3"></div>
+      <div class="frame placeholder" data-label="Founder #4"></div>
+      <div class="frame placeholder" data-label="Founder #5"></div>
+      <div class="frame placeholder" data-label="Founder #6"></div>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHAPTER 4 -->
+<section class="dark chapter" id="ch-4">
+  <div class="num-row reveal">
+    <div class="num">4</div>
+    <h2>Goes With<br/>Everything</h2>
+  </div>
+  <div class="footer-mark" style="color:#aaa;">FILM</div>
+</section>
+
+<!-- GOES WITH EVERYTHING -->
+<section>
+  <span class="tag">Film / Photo</span>
+  <div class="two-col">
+    <div class="col-text reveal">
+      <h3>Goes With Everything</h3>
+      <p>Honey Department pairs well with Ricotta toast. It also goes with leather pants, climate anxiety, translating cat, corporate dystopia, overpriced candles, 2am Wikipedia spirals, motel ice, amicable divorces, trying to appreciate jazz, New Jersey suntanning, impatiently waiting, mid-range crystal energy, sorting through garage boxes, gas station sunglasses shopping, post office parking lots, fake accents, hotel stationery, benign neglect, discount astrology, long voicemails, and timeshare scams.</p>
+      <p>Is this a food pairing guide or compatibility study? Yes. A series of simple vignettes where the honey is being enjoyed in a different scenario with the specific pairing written out.</p>
+    </div>
+    <div class="goes-grid reveal">
+      <div class="frame placeholder" data-label="Dance studio">
+        <span class="super tl">Goes With<br/>Unsolicited<br/>Feedback.</span>
+      </div>
+      <div class="frame placeholder" data-label="Dining alone">
+        <span class="super tl">Goes With<br/>Formally Dining<br/>Alone.</span>
+      </div>
+      <div class="frame placeholder" data-label="Tanning bed" style="aspect-ratio: 16/9;">
+        <span class="super tl">Goes With<br/>Late-Stage<br/>Wellness.</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CLOSING -->
+<section class="closing" id="closing">
+  <h2 class="mark reveal">HONEY<br/>DEPARTMENT</h2>
+  <div class="credit reveal">
+    Concept &amp; Direction —
+    <a href="https://studiosdk.co" target="_blank" rel="noopener">studiosdk.co</a>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<script>
+  // ——— reveal-on-scroll ———
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    }
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
