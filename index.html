@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Honey Department — Studio SDK Pitch, Fall 2026</title>
-<meta name="description" content="Studio SDK's response to the Honey Department campaign brief — Fall 2026." />
+<title>Honey Department — Campaign Selects, Fall 2026</title>
+<meta name="description" content="Campaign Selects — Fall 2026." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
@@ -112,40 +112,58 @@
     overflow: visible;
   }
 
-  /* hero */
+  /* hero — cover page (centered, like the original concept deck) */
   .hero {
     min-height: 100vh;
     padding: 0 6vw;
     position: relative;
-    align-items: stretch;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     background: var(--cream);
   }
   .hero-content {
     position: relative; z-index: 3;
-    padding-bottom: 18vh;
-    max-width: 1200px;
+    max-width: 100%;
   }
   .hero h1 {
     font-family: var(--display);
     font-weight: 400;
     font-size: var(--t-display-xl);
-    line-height: .88;
+    line-height: .85;
     letter-spacing: -.015em;
     margin: 0;
     color: var(--ink);
   }
   .hero .sub {
-    margin-top: 28px;
+    margin-top: 56px;
     font-family: var(--mono);
     font-size: var(--t-label); letter-spacing: .25em; text-transform: uppercase;
   }
-  .hero .intro-body {
-    margin-top: 48px;
-    max-width: 56ch;
-    font-size: var(--t-body); line-height: 1.65;
+
+  /* intro section (Hello / Carlton) — cream, flows from cover */
+  .intro-section {
+    background: var(--cream);
+    padding: 96px 6vw;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
   }
-  .hero .intro-body p { margin: 0 0 18px; }
+  .intro-section h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: var(--t-display-xl);
+    line-height: .88; letter-spacing: -.015em;
+    margin: 0 0 56px;
+    text-transform: uppercase;
+  }
+  .intro-section .intro-body {
+    max-width: 56ch;
+    font-size: var(--t-body); line-height: 1.7;
+  }
+  .intro-section .intro-body p { margin: 0 0 22px; }
   .hero .scroll-cue {
     position: absolute;
     bottom: 32px; right: 6vw;
@@ -392,20 +410,30 @@
 </nav>
 
 <!-- ——————————————————————————————
-     01 · INTRO — Hello from Carlton
+     COVER PAGE
      —————————————————————————————— -->
 <section id="top" class="hero">
   <div class="hero-content">
-    <div class="sub reveal">A Pitch · Fall 2026</div>
-    <h1 class="reveal" style="margin-top: 28px;">HELLO.</h1>
-    <div class="intro-body reveal">
-      <p>I'm Carlton Lorenz. I run Studio SDK.</p>
-      <p>When the Honey Department brief landed, I read it twice and immediately wanted in. The references — Andersson, Owens, Parr, Errol Morris — are the references. The premise is the kind we'd write for ourselves on a good day.</p>
-      <p>This deck is how we'd make it. Four films, one tone, plenty of room for honey to just be in the room.</p>
-    </div>
+    <h1 class="reveal">HONEY<br/>DEPARTMENT</h1>
+    <div class="sub reveal">Campaign Selects — Fall 2026</div>
   </div>
   <div class="scroll-cue">Scroll ↓</div>
-  <div class="footer-mark">PITCH</div>
+  <div class="footer-mark">FILM</div>
+  <div class="footer-mark right" style="font-family: var(--display);">HONEY DEPARTMENT</div>
+</section>
+
+<!-- ——————————————————————————————
+     01 · INTRO — Hello from Carlton
+     —————————————————————————————— -->
+<section class="intro-section" id="intro">
+  <span class="tag">01 · Hello</span>
+  <h2 class="reveal">Hello.</h2>
+  <div class="intro-body reveal">
+    <p>I'm Carlton Lorenz.</p>
+    <p>When the Honey Department brief landed, I read it twice and immediately wanted in. The references — Andersson, Owens, Parr, Errol Morris — are the references. The premise is the kind we'd write for ourselves on a good day.</p>
+    <p>This deck is how we'd make it. Four films, one tone, plenty of room for honey to just be in the room.</p>
+  </div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- transition strip -->
@@ -439,7 +467,7 @@
     <div class="label">Chapter 01</div>
     <h2>Approach<br/>&amp; Tone</h2>
   </div>
-  <div class="footer-mark">PITCH</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <section class="cream has-divider-top">
@@ -466,7 +494,7 @@
       </ul>
     </div>
   </div>
-  <div class="footer-mark">PITCH</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- pull-quote interstitial -->
@@ -483,7 +511,7 @@
     <div class="label">Chapter 02</div>
     <h2>The Films</h2>
   </div>
-  <div class="footer-mark">PITCH</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- ··· FILM 01 — DEMOGRAPHICS ··· -->
@@ -517,7 +545,7 @@
       <p>End cards in monospaced caps, dropped over a circular crop of the subject. Title card replaces the headroom we don't shoot for.</p>
     </div>
   </div>
-  <div class="footer-mark">PITCH</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- ··· FILM 02 — EAT IT ANYWHERE ··· -->
@@ -549,7 +577,7 @@
       <p>We cut on action, never on dialogue. The VO is allowed to land into silence.</p>
     </div>
   </div>
-  <div class="footer-mark">PITCH</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- ··· FILM 03 — A NOTE FROM OUR FOUNDER ··· -->
@@ -581,7 +609,7 @@
       <p>Each spot ends on a 3-second hold after the last word. Tati's ghost in the room.</p>
     </div>
   </div>
-  <div class="footer-mark">PITCH</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- ··· FILM 04 — GOES WITH EVERYTHING ··· -->
@@ -611,7 +639,7 @@
       <p>Color graded a half-stop warmer than the Demographics films. Slightly more saturation. Just enough to read as a sister campaign, not a different one.</p>
     </div>
   </div>
-  <div class="footer-mark">PITCH</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- ——————————————————————————————
@@ -623,7 +651,7 @@
     <div class="label">Chapter 03</div>
     <h2>Editing<br/>&amp; Sound</h2>
   </div>
-  <div class="footer-mark">PITCH</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <section class="cream has-divider-top">
@@ -646,7 +674,7 @@
       <p>One voice across all four films. Warm, dry, slightly older than expected. We'd suggest a curated short list and tape early.</p>
     </div>
   </div>
-  <div class="footer-mark">PITCH</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- pull-quote interstitial -->
@@ -685,7 +713,6 @@
   <h2 class="mark reveal">THANK<br/>YOU.</h2>
   <div class="signoff reveal">
     Carlton Lorenz<br/>
-    Studio SDK<br/>
     <a href="https://studiosdk.co" target="_blank" rel="noopener">studiosdk.co</a>
   </div>
   <div class="credit reveal">Honey Department · Fall 2026</div>
