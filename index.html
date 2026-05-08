@@ -13,9 +13,10 @@
     --bg-light: #ececec;
     --bg-dark: #1f1d1c;
     --ink: #111;
-    --ink-soft: #2b2926;
     --paper: #ececec;
     --yellow: #ecd142;
+    --yellow-deep: #d6b91f;
+    --honey: #f1b500;
     --line: rgba(0,0,0,.18);
     --line-dark: rgba(255,255,255,.18);
     --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -52,8 +53,7 @@
     pointer-events: none;
   }
   .nav .left, .nav .right { pointer-events: auto; }
-  .nav a { text-decoration: none; opacity: .8; }
-  .nav a:hover { opacity: 1; }
+  .nav a { text-decoration: none; opacity: .85; }
   .nav .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); margin-right: 8px; vertical-align: middle; }
 
   /* sections */
@@ -64,10 +64,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-bottom: 1px solid var(--line);
     overflow: hidden;
   }
-  section.dark { background: var(--bg-dark); color: #f3f1ec; border-bottom-color: var(--line-dark); }
+  section.dark   { background: var(--bg-dark); color: #f3f1ec; }
+  section.honey  { background: var(--yellow); color: var(--ink); }
   section.no-min { min-height: 0; }
 
   .tag {
@@ -90,78 +90,114 @@
   }
   .footer-mark.right { left: auto; right: 6vw; }
 
+  /* —————————————————————————————————————
+     BOLD COLOR-SHAPE PRIMITIVES (Loverboy-inspired)
+     ————————————————————————————————————— */
+
+  /* giant circle "bee" — huge solid color disc that overlaps content */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--yellow);
+    z-index: 0;
+    pointer-events: none;
+    will-change: transform;
+  }
+  .blob.honey { background: var(--honey); }
+  .blob.dark  { background: var(--bg-dark); }
+  .blob.cream { background: var(--bg-light); }
+
+  /* solid color slab — full-width or partial color block behind content */
+  .slab {
+    position: absolute;
+    background: var(--yellow);
+    z-index: 0;
+    will-change: transform;
+  }
+
+  /* huge ghost numeral — oversized chapter number bleeding off canvas */
+  .ghost-num {
+    position: absolute;
+    font-family: var(--mono);
+    font-weight: 400;
+    font-size: clamp(280px, 50vw, 700px);
+    line-height: .8;
+    color: var(--yellow);
+    opacity: .14;
+    user-select: none;
+    pointer-events: none;
+    letter-spacing: -.04em;
+    will-change: transform;
+    z-index: 0;
+  }
+
+  /* huge wordmark slab text */
+  .mega {
+    font-family: var(--display);
+    font-size: clamp(80px, 18vw, 320px);
+    line-height: .85;
+    letter-spacing: -.02em;
+    margin: 0;
+  }
+
   /* hero */
-  .hero { min-height: 100vh; align-items: center; text-align: center; padding: 0 6vw; position: relative; }
-  .hero-content { position: relative; z-index: 3; }
+  .hero { min-height: 100vh; padding: 0 6vw; position: relative; align-items: stretch; justify-content: flex-end; }
+  .hero-content {
+    position: relative; z-index: 3;
+    padding-bottom: 14vh;
+  }
   .hero h1 {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(56px, 11vw, 180px);
-    line-height: .92; letter-spacing: -.01em;
+    font-size: clamp(56px, 14vw, 240px);
+    line-height: .85; letter-spacing: -.02em;
     margin: 0; color: var(--ink);
   }
   .hero .sub {
-    margin-top: 56px;
+    margin-top: 32px;
     font-family: var(--mono);
     font-size: 14px; letter-spacing: .25em; text-transform: uppercase;
   }
   .hero .scroll-cue {
     position: absolute;
-    bottom: 32px; left: 50%; transform: translateX(-50%);
+    bottom: 32px; right: 6vw;
     font-family: var(--mono);
     font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
     opacity: .6;
     animation: bob 2.4s ease-in-out infinite;
     z-index: 5;
   }
-  @keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 
-  /* depth-floating accent images */
-  .float {
-    position: absolute;
-    overflow: hidden;
-    background: #2a2826;
-    box-shadow: 0 30px 60px -20px rgba(0,0,0,.45), 0 8px 20px -8px rgba(0,0,0,.3);
-    z-index: 1;
-    will-change: transform;
+  /* chapter — now a bold yellow slab with oversized numeral */
+  .chapter {
+    align-items: flex-start; justify-content: flex-end;
+    padding: 96px 6vw;
+    position: relative;
+    background: var(--yellow);
+    color: var(--ink);
+    min-height: 80vh;
   }
-  .float img { width: 100%; height: 100%; object-fit: cover; }
-  .float.back { z-index: 0; opacity: .6;  filter: grayscale(1) blur(1.2px); }
-  .float.mid  { z-index: 1; opacity: .85; filter: grayscale(1) contrast(.95); }
-  .float.fore { z-index: 2; opacity: 1;   filter: grayscale(.85) contrast(1.02); }
-
-  /* chapter */
-  .chapter { align-items: flex-start; justify-content: center; padding: 96px 6vw; position: relative; }
-  .chapter .num-row { display: flex; align-items: center; gap: 32px; color: var(--yellow); position: relative; z-index: 3; }
-  .chapter .num {
-    width: 88px; height: 88px;
-    border: 1.5px solid var(--yellow);
-    border-radius: 50%;
-    display: grid; place-items: center;
-    font-family: var(--mono); font-size: 38px; font-weight: 400;
-  }
+  .chapter .num-row { display: flex; align-items: baseline; gap: 32px; position: relative; z-index: 3; }
   .chapter h2 {
-    font-family: var(--mono);
+    font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(40px, 7vw, 96px);
-    line-height: 1; letter-spacing: .02em;
+    font-size: clamp(60px, 14vw, 220px);
+    line-height: .85; letter-spacing: -.02em;
     margin: 0; text-transform: uppercase;
+    color: var(--ink);
   }
-  .chapter-bg {
-    position: absolute; inset: -10%;
-    z-index: 0; overflow: hidden;
-    pointer-events: none;
-    will-change: transform;
+  .chapter .label {
+    font-family: var(--mono);
+    font-size: 13px; letter-spacing: .25em; text-transform: uppercase;
+    margin-bottom: 16px;
   }
-  .chapter-bg img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: .25;
-    filter: grayscale(1) contrast(1.1) brightness(.7);
-  }
-  .chapter-bg::after {
-    content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at center, transparent 0%, var(--bg-dark) 80%);
+  .chapter .ghost-num {
+    color: var(--ink);
+    opacity: .08;
+    top: -8%; right: -4%;
+    font-family: var(--display);
+    font-size: clamp(400px, 70vw, 900px);
   }
 
   /* two col */
@@ -171,9 +207,12 @@
     position: relative; z-index: 2;
   }
   .col-text h3 {
-    font-family: var(--mono); font-weight: 700;
-    font-size: 22px; letter-spacing: .02em; text-transform: uppercase;
-    margin: 0 0 24px;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: .9; letter-spacing: -.01em;
+    text-transform: uppercase;
+    margin: 0 0 28px;
   }
   .col-text p {
     font-family: var(--mono); font-size: 15px; line-height: 1.65;
@@ -182,7 +221,7 @@
   .col-text p a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 
   /* image grids */
-  .grid { display: grid; gap: 8px; }
+  .grid { display: grid; gap: 12px; }
   .grid-3 { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
 
   .frame {
@@ -197,7 +236,7 @@
   .frame img {
     width: 100%; height: 100%;
     object-fit: cover; display: block;
-    transition: transform .6s ease;
+    transition: transform .8s ease;
   }
   .frame.zoom img:hover { transform: scale(1.04); }
 
@@ -214,7 +253,6 @@
   }
   .super.tl { top: 14px; left: 14px; }
   .super.tr { top: 14px; right: 14px; text-align: right; }
-  .super.br { bottom: 14px; right: 14px; text-align: right; }
   .super.center { top: 50%; right: 14px; transform: translateY(-50%); text-align: right; }
 
   /* list */
@@ -233,51 +271,52 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 22vh;
-    gap: 8px;
+    gap: 12px;
     position: relative; z-index: 2;
   }
   .grid-moodboard .frame { aspect-ratio: auto; height: 100%; }
   .span-2c { grid-column: span 2; }
   .span-2r { grid-row: span 2; }
 
-  /* full-bleed parallax interstitials */
+  /* full-bleed parallax interstitial: solid honey-yellow with overlapping image */
   .interstitial {
-    min-height: 70vh;
+    min-height: 80vh;
     padding: 0;
     overflow: hidden;
     position: relative;
-    border-bottom: none;
+    background: var(--yellow);
+    display: grid; place-items: center;
   }
-  .interstitial-bg {
-    position: absolute;
-    inset: -15% -5%;
+  .interstitial-image {
+    position: relative;
+    z-index: 2;
+    width: 60vw;
+    max-width: 900px;
+    aspect-ratio: 16/10;
+    overflow: hidden;
     will-change: transform;
   }
-  .interstitial-bg img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: grayscale(1) contrast(1.05) brightness(.85);
-  }
-  .interstitial-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.15) 50%, rgba(0,0,0,.55) 100%);
-    z-index: 1;
-  }
+  .interstitial-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
   .interstitial-text {
-    position: relative; z-index: 2;
-    color: var(--yellow);
-    font-family: var(--mono);
-    font-weight: 700; text-transform: uppercase;
-    font-size: clamp(28px, 5vw, 72px);
-    line-height: 1; letter-spacing: .02em;
-    text-align: center; width: 100%; padding: 0 6vw;
-    text-shadow: 0 2px 12px rgba(0,0,0,.5);
+    position: absolute;
+    z-index: 3;
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: clamp(48px, 11vw, 180px);
+    line-height: .85;
+    letter-spacing: -.02em;
+    text-align: center;
+    width: 100%;
+    padding: 0 6vw;
+    text-transform: uppercase;
+    pointer-events: none;
+    mix-blend-mode: multiply;
   }
 
   /* horizontal marquee */
-  .strip-section { padding: 32px 0; min-height: 0; overflow: hidden; border-bottom: none; }
-  .strip { display: flex; gap: 8px; width: max-content; will-change: transform; }
-  .strip .frame { width: 28vw; height: 32vh; flex-shrink: 0; aspect-ratio: auto; }
+  .strip-section { padding: 0; min-height: 0; overflow: hidden; background: var(--bg-dark); }
+  .strip { display: flex; gap: 0; width: max-content; will-change: transform; }
+  .strip .frame { width: 28vw; height: 38vh; flex-shrink: 0; aspect-ratio: auto; }
   .strip-section.scroll-driven .strip { animation: marquee 60s linear infinite; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
@@ -289,7 +328,7 @@
   .title-frame {
     position: relative;
     aspect-ratio: 16 / 10;
-    background: #1d1b19; overflow: hidden;
+    background: var(--bg-dark); overflow: hidden;
     display: grid; place-items: center;
   }
   .title-frame .circle-crop {
@@ -312,14 +351,14 @@
 
   /* eat it anywhere vignettes */
   .vignette-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
     position: relative; z-index: 2;
   }
   .vignette-grid .frame:first-child { grid-row: span 2; aspect-ratio: 3/4; }
 
   /* founder grid */
   .founder-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
     position: relative; z-index: 2;
   }
   .founder-grid .frame { aspect-ratio: 4/5; }
@@ -327,24 +366,71 @@
   /* goes with grid */
   .goes-grid {
     display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
-    gap: 8px; aspect-ratio: 1/1;
+    gap: 12px; aspect-ratio: 1/1;
     position: relative; z-index: 2;
   }
   .goes-grid .frame:last-child { grid-column: span 2; aspect-ratio: auto; }
 
+  /* —————————————————————————————————————
+     OVERLAPPING COLOR-BLOCK SECTIONS
+     ————————————————————————————————————— */
+
+  /* image-on-honey: yellow background, image grid sits on top, oversized title bleeds off */
+  .on-honey {
+    background: var(--yellow);
+    color: var(--ink);
+    padding: 120px 6vw;
+    min-height: auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .on-honey .col-text h3 { color: var(--ink); }
+  .on-honey .col-text p  { color: var(--ink); }
+
+  /* huge type that bleeds off the right edge of the section */
+  .bleed-type {
+    font-family: var(--display);
+    font-size: clamp(120px, 28vw, 520px);
+    line-height: .82;
+    letter-spacing: -.03em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0;
+    white-space: nowrap;
+    position: relative;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+  .bleed-type.outline {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--ink);
+    mix-blend-mode: normal;
+  }
+  .bleed-type.right { text-align: right; margin-right: -8vw; }
+  .bleed-type.left  { text-align: left;  margin-left:  -4vw; }
+
+  /* circle-overlap: wraps an image grid so a big circle peeks behind it */
+  .with-circle { position: relative; }
+
   /* closing */
-  .closing { text-align: center; align-items: center; background: var(--bg-light); position: relative; }
+  .closing {
+    text-align: center;
+    align-items: center; justify-content: center;
+    background: var(--yellow); color: var(--ink);
+    position: relative;
+  }
   .closing .mark {
     font-family: var(--display);
-    font-size: clamp(40px, 7vw, 96px);
-    line-height: .95; margin: 0;
+    font-size: clamp(80px, 18vw, 320px);
+    line-height: .82; letter-spacing: -.02em;
+    margin: 0;
     position: relative; z-index: 3;
   }
   .closing .credit {
     margin-top: 40px;
     font-family: var(--mono);
     font-size: 12px; letter-spacing: .25em; text-transform: uppercase;
-    opacity: .7;
+    opacity: .8;
     position: relative; z-index: 3;
   }
   .closing .credit a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
@@ -371,10 +457,10 @@
     .vignette-grid { grid-template-columns: 1fr; }
     .vignette-grid .frame:first-child { grid-row: auto; aspect-ratio: 16/10; }
     .nav { padding: 14px 20px; font-size: 10px; }
-    .chapter .num { width: 64px; height: 64px; font-size: 28px; }
-    .float { display: none; }
     .strip .frame { width: 60vw; height: 28vh; }
     .interstitial { min-height: 50vh; }
+    .interstitial-image { width: 84vw; }
+    .bleed-type { font-size: clamp(60px, 18vw, 120px); }
   }
 </style>
 </head>
@@ -385,20 +471,12 @@
   <div class="right"><a href="#closing">Studio SDK · Fall 2026</a></div>
 </nav>
 
-<!-- HERO -->
-<section id="top" class="hero">
-  <div class="float back tilt-l" data-parallax="0.18" style="top: 14%; left: 6%; width: 200px; height: 260px;">
-    <img src="https://picsum.photos/seed/hd-hero-1/400/520?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float mid tilt-r" data-parallax="0.06" style="top: 10%; right: 8%; width: 220px; height: 160px;">
-    <img src="https://picsum.photos/seed/hd-hero-2/440/320?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float fore tilt-l" data-parallax="-0.12" style="bottom: 18%; left: 12%; width: 180px; height: 220px;">
-    <img src="https://picsum.photos/seed/hd-hero-3/360/440?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float mid tilt-r" data-parallax="-0.05" style="bottom: 14%; right: 10%; width: 240px; height: 180px;">
-    <img src="https://picsum.photos/seed/hd-hero-4/480/360?grayscale" alt="" loading="lazy" />
-  </div>
+<!-- HERO — bold color-block with oversized wordmark sitting on honey -->
+<section id="top" class="hero" style="background: var(--yellow);">
+  <!-- giant overlapping circle bleeding off the top -->
+  <div class="blob honey" data-parallax="0.1" style="top: -25vh; left: -10vw; width: 80vh; height: 80vh;"></div>
+  <!-- secondary circle bottom-right -->
+  <div class="blob dark" data-parallax="0.06" style="bottom: -15vh; right: -8vw; width: 50vh; height: 50vh; opacity: .9;"></div>
 
   <div class="hero-content">
     <h1 class="reveal">HONEY<br/>DEPARTMENT</h1>
@@ -406,7 +484,6 @@
   </div>
   <div class="scroll-cue">Scroll ↓</div>
   <div class="footer-mark">FILM</div>
-  <div class="footer-mark right" style="font-family: var(--display);">HONEY DEPARTMENT</div>
 </section>
 
 <!-- MARQUEE STRIP -->
@@ -431,27 +508,20 @@
   </div>
 </section>
 
-<!-- CHAPTER 1 -->
-<section class="dark chapter" id="ch-1">
-  <div class="chapter-bg" data-parallax="0.15">
-    <img src="https://picsum.photos/seed/hd-ch1-bg/1800/1200?grayscale" alt="" loading="lazy" />
-  </div>
+<!-- CHAPTER 1 — yellow slab with oversized numeral -->
+<section class="chapter" id="ch-1">
+  <div class="ghost-num">01</div>
   <div class="num-row reveal">
-    <div class="num">1</div>
-    <h2>Demographics</h2>
+    <div>
+      <div class="label">Chapter 01</div>
+      <h2>Demographics</h2>
+    </div>
   </div>
-  <div class="footer-mark" style="color:#aaa;">FILM</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
-<!-- DEMOGRAPHICS — concept -->
+<!-- DEMOGRAPHICS — concept (light bg, image grid only — congruent, no tilts) -->
 <section>
-  <div class="float back tilt-l" data-parallax="0.12" style="top: 8%; right: 4%; width: 160px; height: 200px;">
-    <img src="https://picsum.photos/seed/hd-acc-1/320/400?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float fore tilt-r" data-parallax="-0.08" style="bottom: 10%; left: 2%; width: 140px; height: 180px;">
-    <img src="https://picsum.photos/seed/hd-acc-2/280/360?grayscale" alt="" loading="lazy" />
-  </div>
-
   <span class="tag">Film / Photo</span>
   <div class="two-col">
     <div class="col-text reveal">
@@ -479,26 +549,18 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- INTERSTITIAL -->
+<!-- INTERSTITIAL — yellow slab + bleed type + image overlap -->
 <section class="interstitial">
-  <div class="interstitial-bg" data-parallax="0.2">
-    <img src="https://picsum.photos/seed/hd-inter-1/2000/1300?grayscale" alt="" loading="lazy" />
+  <div class="bleed-type" style="position:absolute; top: 8%; left: 0; right: 0; text-align:center;" data-parallax="0.06">ANYONE</div>
+  <div class="interstitial-image" data-parallax="-0.04">
+    <img src="https://picsum.photos/seed/hd-inter-1/1600/1000?grayscale" alt="" loading="lazy" />
   </div>
-  <div class="interstitial-overlay"></div>
-  <div class="interstitial-text">Anyone over the age of one.</div>
+  <div class="bleed-type" style="position:absolute; bottom: 8%; left: 0; right: 0; text-align:center;" data-parallax="-0.06">OVER ONE</div>
 </section>
 
-<!-- DEMOGRAPHICS — list 1 -->
+<!-- DEMOGRAPHICS — list 1 with overlapping circle -->
 <section class="list-section">
-  <div class="float back tilt-r" data-parallax="0.14" style="top: 5%; right: 8%; width: 180px; height: 240px;">
-    <img src="https://picsum.photos/seed/hd-list1-a/360/480?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float mid tilt-l" data-parallax="-0.06" style="bottom: 10%; right: 14%; width: 160px; height: 200px;">
-    <img src="https://picsum.photos/seed/hd-list1-b/320/400?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float fore tilt-r" data-parallax="-0.1" style="top: 50%; left: 1%; width: 130px; height: 170px;">
-    <img src="https://picsum.photos/seed/hd-list1-c/260/340?grayscale" alt="" loading="lazy" />
-  </div>
+  <div class="blob" data-parallax="0.12" style="top: -10vh; right: -10vw; width: 60vh; height: 60vh; opacity: .35;"></div>
 
   <span class="tag">Film / Photo</span>
   <div class="list reveal">
@@ -555,10 +617,9 @@
     <span>Scaffolding workers eat Honey Dept.</span>
   </div>
   <div class="footer-mark">FILM</div>
-  <div class="footer-mark right" style="font-family: var(--display);">HONEY DEPARTMENT</div>
 </section>
 
-<!-- MARQUEE STRIP 2 (reverse) -->
+<!-- MARQUEE STRIP 2 -->
 <section class="strip-section scroll-driven no-min">
   <div class="strip" style="animation-duration: 80s; animation-direction: reverse;">
     <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-1/600/400?grayscale" alt="" loading="lazy" /></div>
@@ -582,15 +643,7 @@
 
 <!-- DEMOGRAPHICS — list 2 -->
 <section class="list-section">
-  <div class="float back tilt-l" data-parallax="0.16" style="top: 8%; left: 6%; width: 170px; height: 220px;">
-    <img src="https://picsum.photos/seed/hd-list2-a/340/440?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float mid tilt-r" data-parallax="-0.04" style="bottom: 12%; right: 4%; width: 200px; height: 150px;">
-    <img src="https://picsum.photos/seed/hd-list2-b/400/300?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float fore tilt-l" data-parallax="-0.12" style="top: 40%; right: 12%; width: 130px; height: 170px;">
-    <img src="https://picsum.photos/seed/hd-list2-c/260/340?grayscale" alt="" loading="lazy" />
-  </div>
+  <div class="blob" data-parallax="0.1" style="bottom: -15vh; left: -10vw; width: 70vh; height: 70vh; opacity: .35;"></div>
 
   <span class="tag">Film / Photo</span>
   <div class="list reveal">
@@ -631,20 +684,18 @@
     <span>The Gutterbirds eat Honey Dept. (bowling league team)</span>
   </div>
   <div class="footer-mark">FILM</div>
-  <div class="footer-mark right" style="font-family: var(--display);">HONEY DEPARTMENT</div>
 </section>
 
-<!-- MOODBOARD intro + mosaic -->
-<section>
+<!-- MOODBOARD — on yellow slab w/ bleed type -->
+<section class="on-honey">
   <span class="tag">Moodboard</span>
-  <div class="two-col reveal" style="margin-bottom: 48px;">
-    <div class="col-text">
+  <div class="two-col" style="margin-bottom: 64px;">
+    <div class="col-text reveal">
+      <h3>Reference</h3>
       <p>The references are Roy Andersson, Martin Parr, Bill Owens, Errol Morris, Jacques Tati — filmmakers and photographers with genuine curiosity about ordinary people in ordinary situations, and the patience to let those situations be exactly what they are.</p>
       <p>The humor is always there, and it's never mean. Deadpan, warm, specific. Nobody is the punchline. The product is present but not celebrated. Every frame should look like it could be from a film that has nothing to do with honey.</p>
     </div>
-    <div class="float mid tilt-r" data-parallax="-0.08" style="position: relative; width: 70%; aspect-ratio: 4/5; margin: 0 auto;">
-      <img src="https://picsum.photos/seed/hd-moodintro/500/625?grayscale" alt="" loading="lazy" />
-    </div>
+    <div></div>
   </div>
   <div class="grid-moodboard reveal">
     <div class="frame zoom span-2r" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-mood-1/600/800?grayscale" alt="" loading="lazy" /></div>
@@ -656,8 +707,8 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- REFERENCE MOODBOARD - bigger mosaic -->
-<section style="padding-top: 48px;">
+<!-- REFERENCE MOODBOARD - bigger mosaic on dark -->
+<section class="dark" style="padding: 96px 6vw;">
   <span class="tag">Reference Moodboard</span>
   <div class="grid-moodboard reveal">
     <div class="frame zoom" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-ref-1/600/600?grayscale" alt="" loading="lazy" /></div>
@@ -670,21 +721,15 @@
     <div class="frame zoom span-2c" data-parallax="-0.04"><img src="https://picsum.photos/seed/hd-ref-8/1200/600?grayscale" alt="" loading="lazy" /></div>
     <div class="frame zoom" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-ref-9/600/600?grayscale" alt="" loading="lazy" /></div>
   </div>
-  <div class="footer-mark">FILM</div>
+  <div class="footer-mark" style="color:#aaa;">FILM</div>
 </section>
 
 <!-- TITLES -->
 <section class="dark">
-  <div class="float back tilt-l" data-parallax="0.18" style="top: 12%; left: 6%; width: 200px; height: 260px; opacity: .35;">
-    <img src="https://picsum.photos/seed/hd-titles-a/400/520?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float back tilt-r" data-parallax="0.12" style="bottom: 14%; right: 6%; width: 180px; height: 220px; opacity: .35;">
-    <img src="https://picsum.photos/seed/hd-titles-b/360/440?grayscale" alt="" loading="lazy" />
-  </div>
-
   <span class="tag" style="color:#f3f1ec;">Titles</span>
   <div class="titles-grid">
     <div class="col-text reveal">
+      <h3 style="color:#f3f1ec;">Titles</h3>
       <p style="color:#e9e6df;">Let's not let framing get in the way of titles.</p>
       <p style="color:#e9e6df;">Each film cuts to a dedicated title frame at the end. The frame isolates the subject with a crop, circular to mimic the circles ("bees") used in branding. The super can appear above, below or beside the image, depending on the crop.</p>
       <p style="color:#e9e6df;">The title frame replaces the need for in-scene headroom or negative space. Framing during production stays unconstrained.</p>
@@ -699,26 +744,19 @@
 </section>
 
 <!-- CHAPTER 2 -->
-<section class="dark chapter" id="ch-2">
-  <div class="chapter-bg" data-parallax="0.15">
-    <img src="https://picsum.photos/seed/hd-ch2-bg/1800/1200?grayscale" alt="" loading="lazy" />
-  </div>
+<section class="chapter" id="ch-2">
+  <div class="ghost-num">02</div>
   <div class="num-row reveal">
-    <div class="num">2</div>
-    <h2>Eat It Anywhere</h2>
+    <div>
+      <div class="label">Chapter 02</div>
+      <h2>Eat It<br/>Anywhere</h2>
+    </div>
   </div>
-  <div class="footer-mark" style="color:#aaa;">FILM</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- EAT IT ANYWHERE -->
 <section>
-  <div class="float back tilt-l" data-parallax="0.14" style="top: 8%; right: 5%; width: 160px; height: 200px;">
-    <img src="https://picsum.photos/seed/hd-eat-acc1/320/400?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float fore tilt-r" data-parallax="-0.1" style="bottom: 14%; left: 1%; width: 140px; height: 180px;">
-    <img src="https://picsum.photos/seed/hd-eat-acc2/280/360?grayscale" alt="" loading="lazy" />
-  </div>
-
   <span class="tag">Film</span>
   <div class="two-col">
     <div class="col-text reveal">
@@ -736,17 +774,17 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- INTERSTITIAL 2 -->
+<!-- INTERSTITIAL — ANYWHERE -->
 <section class="interstitial">
-  <div class="interstitial-bg" data-parallax="0.22">
-    <img src="https://picsum.photos/seed/hd-inter-2/2000/1300?grayscale" alt="" loading="lazy" />
+  <div class="bleed-type" style="position:absolute; top: 8%; left: 0; right: 0; text-align:center;" data-parallax="0.06">EAT IT</div>
+  <div class="interstitial-image" data-parallax="-0.04">
+    <img src="https://picsum.photos/seed/hd-inter-2/1600/1000?grayscale" alt="" loading="lazy" />
   </div>
-  <div class="interstitial-overlay"></div>
-  <div class="interstitial-text">It's your honey.</div>
+  <div class="bleed-type" style="position:absolute; bottom: 8%; left: 0; right: 0; text-align:center;" data-parallax="-0.06">ANYWHERE</div>
 </section>
 
-<!-- ADDITIONAL VIGNETTE GRID -->
-<section style="padding-top: 32px;">
+<!-- ADDITIONAL VIGNETTES on light -->
+<section style="padding-top: 96px;">
   <span class="tag">Additional Vignettes</span>
   <div class="grid-moodboard reveal">
     <div class="frame zoom" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-add-1/600/600?grayscale" alt="" loading="lazy" /></div>
@@ -761,26 +799,19 @@
 </section>
 
 <!-- CHAPTER 3 -->
-<section class="dark chapter" id="ch-3">
-  <div class="chapter-bg" data-parallax="0.15">
-    <img src="https://picsum.photos/seed/hd-ch3-bg/1800/1200?grayscale" alt="" loading="lazy" />
-  </div>
+<section class="chapter" id="ch-3">
+  <div class="ghost-num">03</div>
   <div class="num-row reveal">
-    <div class="num">3</div>
-    <h2>A Note From<br/>Our Founder</h2>
+    <div>
+      <div class="label">Chapter 03</div>
+      <h2>A Note From<br/>Our Founder</h2>
+    </div>
   </div>
-  <div class="footer-mark" style="color:#aaa;">FILM</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- FOUNDER -->
 <section>
-  <div class="float back tilt-l" data-parallax="0.12" style="top: 6%; right: 4%; width: 170px; height: 220px;">
-    <img src="https://picsum.photos/seed/hd-found-acc1/340/440?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float fore tilt-r" data-parallax="-0.09" style="bottom: 8%; left: 1%; width: 130px; height: 170px;">
-    <img src="https://picsum.photos/seed/hd-found-acc2/260/340?grayscale" alt="" loading="lazy" />
-  </div>
-
   <span class="tag">Film</span>
   <div class="two-col">
     <div class="col-text reveal">
@@ -801,36 +832,29 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- INTERSTITIAL 3 -->
+<!-- INTERSTITIAL — NEVER THE SAME -->
 <section class="interstitial">
-  <div class="interstitial-bg" data-parallax="0.18">
-    <img src="https://picsum.photos/seed/hd-inter-3/2000/1300?grayscale" alt="" loading="lazy" />
+  <div class="bleed-type" style="position:absolute; top: 8%; left: 0; right: 0; text-align:center;" data-parallax="0.06">NEVER</div>
+  <div class="interstitial-image" data-parallax="-0.04">
+    <img src="https://picsum.photos/seed/hd-inter-3/1600/1000?grayscale" alt="" loading="lazy" />
   </div>
-  <div class="interstitial-overlay"></div>
-  <div class="interstitial-text">The founder is never the same.</div>
+  <div class="bleed-type" style="position:absolute; bottom: 8%; left: 0; right: 0; text-align:center;" data-parallax="-0.06">THE SAME</div>
 </section>
 
 <!-- CHAPTER 4 -->
-<section class="dark chapter" id="ch-4">
-  <div class="chapter-bg" data-parallax="0.15">
-    <img src="https://picsum.photos/seed/hd-ch4-bg/1800/1200?grayscale" alt="" loading="lazy" />
-  </div>
+<section class="chapter" id="ch-4">
+  <div class="ghost-num">04</div>
   <div class="num-row reveal">
-    <div class="num">4</div>
-    <h2>Goes With<br/>Everything</h2>
+    <div>
+      <div class="label">Chapter 04</div>
+      <h2>Goes With<br/>Everything</h2>
+    </div>
   </div>
-  <div class="footer-mark" style="color:#aaa;">FILM</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- GOES WITH EVERYTHING -->
 <section>
-  <div class="float back tilt-r" data-parallax="0.13" style="top: 8%; left: 4%; width: 170px; height: 210px;">
-    <img src="https://picsum.photos/seed/hd-goes-acc1/340/420?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float fore tilt-l" data-parallax="-0.1" style="bottom: 12%; right: 2%; width: 130px; height: 170px;">
-    <img src="https://picsum.photos/seed/hd-goes-acc2/260/340?grayscale" alt="" loading="lazy" />
-  </div>
-
   <span class="tag">Film / Photo</span>
   <div class="two-col">
     <div class="col-text reveal">
@@ -880,18 +904,8 @@
 
 <!-- CLOSING -->
 <section class="closing" id="closing">
-  <div class="float back tilt-l" data-parallax="0.14" style="top: 12%; left: 6%; width: 170px; height: 220px; opacity: .55;">
-    <img src="https://picsum.photos/seed/hd-close-1/340/440?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float back tilt-r" data-parallax="0.1" style="top: 18%; right: 8%; width: 200px; height: 150px; opacity: .55;">
-    <img src="https://picsum.photos/seed/hd-close-2/400/300?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float mid tilt-r" data-parallax="-0.06" style="bottom: 18%; left: 12%; width: 150px; height: 200px;">
-    <img src="https://picsum.photos/seed/hd-close-3/300/400?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="float fore tilt-l" data-parallax="-0.1" style="bottom: 14%; right: 10%; width: 180px; height: 130px;">
-    <img src="https://picsum.photos/seed/hd-close-4/360/260?grayscale" alt="" loading="lazy" />
-  </div>
+  <div class="blob dark" data-parallax="0.08" style="top: -25vh; left: -10vw; width: 70vh; height: 70vh; opacity: .9;"></div>
+  <div class="blob honey" data-parallax="0.05" style="bottom: -30vh; right: -15vw; width: 90vh; height: 90vh;"></div>
 
   <h2 class="mark reveal">HONEY<br/>DEPARTMENT</h2>
   <div class="credit reveal">
@@ -913,14 +927,13 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // parallax engine — translate Y based on distance from viewport center
-  // positive speed = moves slower (deeper z-plane), negative = moves faster (closer)
-  const parallaxItems = Array.from(document.querySelectorAll('[data-parallax]')).map(el => {
-    let rotate = 0;
-    if (el.classList.contains('tilt-l')) rotate = -3;
-    else if (el.classList.contains('tilt-r')) rotate = 3;
-    return { el, speed: parseFloat(el.dataset.parallax), rotate };
-  });
+  // parallax engine — translate Y based on distance from viewport center.
+  // Positive speed = slower (deeper z), negative = faster (closer).
+  // No rotation — keeps everything congruent.
+  const parallaxItems = Array.from(document.querySelectorAll('[data-parallax]')).map(el => ({
+    el,
+    speed: parseFloat(el.dataset.parallax)
+  }));
 
   let ticking = false;
   function updateParallax() {
@@ -931,7 +944,7 @@
       const elCenter = rect.top + rect.height / 2;
       const fromCenter = elCenter - vh / 2;
       const offset = -fromCenter * item.speed;
-      item.el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0) rotate(${item.rotate}deg)`;
+      item.el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
     }
     ticking = false;
   }
