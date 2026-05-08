@@ -9,29 +9,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <style>
-  /* —————————————————————————————————————
-     TYPE SCALE  — tightened, four sizes only
-     ————————————————————————————————————— */
   :root {
-    --bg-light: #ececec;
-    --bg-dark: #1f1d1c;
-    --ink: #111;
-    --paper: #ececec;
-    --yellow: #ecd142;
-    --honey: #f1b500;
-    --honey-deep: #c89200;
-    --line: rgba(0,0,0,.18);
-    --line-dark: rgba(255,255,255,.18);
+    /* —— 3-color palette ———— */
+    --cream:    #efe6d2;
+    --muted-1:  #d4be7b;   /* light muted mustard — used for ribbon strokes */
+    --muted-2:  #ad9352;   /* deep muted yellow — used for fill zones */
+    --ink:      #1c1a18;   /* charcoal */
 
     --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     --display: 'Alfa Slab One', 'Cooper Black', Georgia, serif;
 
-    /* type scale (mobile -> desktop ceiling) */
-    --t-display-xl: clamp(64px, 11vw, 168px);   /* hero, closing, chapter h2 */
-    --t-display-l:  clamp(40px, 7vw, 96px);     /* interstitial bleed-type */
-    --t-display-m:  clamp(28px, 4vw, 56px);     /* col-text h3 */
-    --t-body:       15px;                       /* mono body */
-    --t-label:      11px;                       /* tags, labels, footer-mark */
+    /* type scale */
+    --t-display-xl: clamp(64px, 11vw, 168px);
+    --t-display-l:  clamp(40px, 7vw, 96px);
+    --t-display-m:  clamp(28px, 4vw, 56px);
+    --t-body:       15px;
+    --t-label:      11px;
   }
 
   * { box-sizing: border-box; }
@@ -40,7 +33,7 @@
   body {
     font-family: var(--mono);
     color: var(--ink);
-    background: var(--bg-light);
+    background: var(--cream);
     font-size: var(--t-body);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
@@ -64,7 +57,7 @@
   }
   .nav .left, .nav .right { pointer-events: auto; }
   .nav a { text-decoration: none; opacity: .85; }
-  .nav .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); margin-right: 8px; vertical-align: middle; }
+  .nav .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--muted-1); margin-right: 8px; vertical-align: middle; }
 
   /* sections */
   section {
@@ -76,9 +69,12 @@
     justify-content: center;
     overflow: hidden;
   }
-  section.dark   { background: var(--bg-dark); color: #f3f1ec; }
-  section.honey  { background: var(--yellow); color: var(--ink); }
+  section.cream { background: var(--cream); color: var(--ink); }
+  section.deep  { background: var(--muted-2); color: var(--ink); }
   section.no-min { min-height: 0; }
+
+  /* extra top padding when a section has a top divider so content clears the wave */
+  section.has-divider-top { padding-top: 200px; }
 
   .tag {
     display: inline-block;
@@ -89,6 +85,7 @@
     font-size: var(--t-label); letter-spacing: .14em; text-transform: uppercase;
     margin-bottom: 48px;
     align-self: flex-start;
+    position: relative; z-index: 2;
   }
 
   .footer-mark {
@@ -101,33 +98,33 @@
   .footer-mark.right { left: auto; right: 6vw; }
 
   /* —————————————————————————————————————
-     WAVY HONEY LAYERS
-     Full-width SVG bands with wavy top/bottom edges. Used as ambient
-     parallax depth — never carry content, never tilt.
+     WAVE DIVIDER — single curve, multiple ribbon offsets
      ————————————————————————————————————— */
-  .wave {
+  .wave-divider {
     position: absolute;
-    left: -5%; right: -5%;
-    width: 110%;
+    left: -2%; right: -2%;
+    width: 104%;
+    height: 220px;
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
     will-change: transform;
-    display: block;
   }
-  .wave svg { display: block; width: 100%; height: 100%; }
+  .wave-divider.top { top: 0; }
+  .wave-divider.bottom { bottom: 0; }
+  .wave-divider svg { display: block; width: 100%; height: 100%; }
 
   /* hero */
   .hero {
     min-height: 100vh;
-    padding: 0 6vw;
+    padding: 0 6vw 0;
     position: relative;
     align-items: stretch;
     justify-content: flex-end;
-    background: var(--yellow);
+    background: var(--cream);
   }
   .hero-content {
     position: relative; z-index: 3;
-    padding-bottom: 14vh;
+    padding-bottom: 22vh;
     max-width: 90vw;
   }
   .hero h1 {
@@ -155,12 +152,12 @@
   }
   @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 
-  /* chapter — yellow slab, large clean h2, no oversized ghost numeral */
+  /* chapter — deep slab */
   .chapter {
     align-items: flex-start; justify-content: center;
-    padding: 120px 6vw;
+    padding: 200px 6vw 120px;
     position: relative;
-    background: var(--yellow);
+    background: var(--muted-2);
     color: var(--ink);
     min-height: 70vh;
   }
@@ -210,7 +207,7 @@
 
   .frame {
     position: relative; overflow: hidden;
-    background: #2a2826; color: var(--yellow);
+    background: var(--ink); color: var(--muted-1);
     aspect-ratio: 4 / 3;
     will-change: transform;
   }
@@ -226,7 +223,7 @@
 
   .super {
     position: absolute;
-    color: var(--yellow);
+    color: var(--muted-1);
     font-family: var(--mono);
     font-weight: 700;
     text-transform: uppercase; letter-spacing: .02em;
@@ -239,7 +236,11 @@
   .super.center { top: 50%; right: 14px; transform: translateY(-50%); text-align: right; }
 
   /* list */
-  .list-section { padding: 120px 6vw; position: relative; }
+  .list-section {
+    padding: 200px 6vw 120px;
+    position: relative;
+    background: var(--cream);
+  }
   .list {
     columns: 2; column-gap: 6vw;
     font-family: var(--mono);
@@ -261,15 +262,13 @@
   .span-2c { grid-column: span 2; }
   .span-2r { grid-row: span 2; }
 
-  /* —————————————————————————————————————
-     INTERSTITIAL — yellow slab w/ stacked oversized type + image
-     Flex column to prevent any overlap.
-     ————————————————————————————————————— */
+  /* interstitial — deep slab */
   .interstitial {
     min-height: 90vh;
-    padding: 64px 6vw;
+    padding: 220px 6vw 180px;
     position: relative;
-    background: var(--yellow);
+    background: var(--muted-2);
+    color: var(--ink);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -300,9 +299,15 @@
   .interstitial-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
 
   /* horizontal marquee */
-  .strip-section { padding: 0; min-height: 0; overflow: hidden; background: var(--bg-dark); }
-  .strip { display: flex; gap: 0; width: max-content; will-change: transform; }
-  .strip .frame { width: 28vw; height: 38vh; flex-shrink: 0; aspect-ratio: auto; }
+  .strip-section {
+    padding: 0;
+    min-height: 0;
+    overflow: hidden;
+    background: var(--muted-2);
+    position: relative;
+  }
+  .strip { display: flex; gap: 0; width: max-content; will-change: transform; padding: 60px 0; }
+  .strip .frame { width: 28vw; height: 32vh; flex-shrink: 0; aspect-ratio: auto; }
   .strip-section.scroll-driven .strip { animation: marquee 60s linear infinite; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
@@ -314,20 +319,20 @@
   .title-frame {
     position: relative;
     aspect-ratio: 16 / 10;
-    background: var(--bg-dark); overflow: hidden;
+    background: var(--ink); overflow: hidden;
     display: grid; place-items: center;
   }
   .title-frame .circle-crop {
     width: 70%; aspect-ratio: 1/1;
     border-radius: 50%; overflow: hidden;
-    background: #2a2826; position: relative;
+    background: var(--muted-2); position: relative;
   }
   .title-frame .circle-crop img {
     width: 100%; height: 100%; object-fit: cover;
     filter: grayscale(.6) contrast(1.05);
   }
   .title-frame .label-top, .title-frame .label-bottom {
-    position: absolute; color: var(--yellow);
+    position: absolute; color: var(--muted-1);
     font-family: var(--mono); font-weight: 700;
     text-transform: uppercase; letter-spacing: .02em;
     text-align: center; width: 100%;
@@ -357,24 +362,13 @@
   }
   .goes-grid .frame:last-child { grid-column: span 2; aspect-ratio: auto; }
 
-  /* on-honey wrapper */
-  .on-honey {
-    background: var(--yellow);
-    color: var(--ink);
-    padding: 120px 6vw;
-    min-height: auto;
-    position: relative;
-    overflow: hidden;
-  }
-  .on-honey .col-text h3 { color: var(--ink); }
-  .on-honey .col-text p  { color: var(--ink); }
-
   /* closing */
   .closing {
     text-align: center;
     align-items: center; justify-content: center;
-    background: var(--yellow); color: var(--ink);
+    background: var(--cream); color: var(--ink);
     position: relative;
+    padding-top: 220px;
   }
   .closing .mark {
     font-family: var(--display);
@@ -406,6 +400,11 @@
   /* responsive */
   @media (max-width: 860px) {
     section { padding: 72px 6vw; min-height: auto; }
+    section.has-divider-top { padding-top: 140px; }
+    .chapter { padding: 140px 6vw 80px; }
+    .list-section { padding: 140px 6vw 80px; }
+    .interstitial { padding: 160px 6vw 140px; min-height: 60vh; }
+    .closing { padding-top: 160px; }
     .two-col, .titles-grid { grid-template-columns: 1fr; gap: 32px; }
     .list { columns: 1; }
     .grid-moodboard { grid-template-columns: 1fr 1fr; grid-auto-rows: 28vh; }
@@ -414,34 +413,44 @@
     .vignette-grid { grid-template-columns: 1fr; }
     .vignette-grid .frame:first-child { grid-row: auto; aspect-ratio: 16/10; }
     .nav { padding: 14px 20px; font-size: 10px; }
-    .strip .frame { width: 60vw; height: 28vh; }
-    .interstitial { min-height: 60vh; }
+    .strip .frame { width: 60vw; height: 24vh; }
     .interstitial-image { width: 84vw; }
+    .wave-divider { height: 120px; }
   }
 </style>
 </head>
 <body>
 
 <!-- ————————————————————————————————————
-     SVG WAVE DEFS — referenced via <use href="#wave-..."> below
+     WAVE TEMPLATES — single curve. Two directions:
+       .down : cream above, deep ribbon+fill descending below
+       .up   : deep above, ribbons descending into cream below
+     Same path geometry, parallel offsets create the layered ribbon look.
      ———————————————————————————————————— -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <!-- gentle sine wave with full-width fill below -->
-    <symbol id="wave-soft" viewBox="0 0 1440 320" preserveAspectRatio="none">
-      <path d="M0,160 C240,80 480,240 720,160 C960,80 1200,240 1440,160 L1440,320 L0,320 Z"/>
+    <!-- DOWN: cream sits above (transparent at top), deep fills below the curve -->
+    <symbol id="wd-down" viewBox="0 0 1440 220" preserveAspectRatio="none">
+      <!-- deep fill below curve -->
+      <path d="M0,90 C360,40 720,140 1080,90 C1260,65 1380,115 1440,90 L1440,220 L0,220 Z" fill="var(--muted-2)"/>
+      <!-- mid ribbon (just above the deep) -->
+      <path d="M0,76 C360,26 720,126 1080,76 C1260,51 1380,101 1440,76"
+            stroke="var(--muted-1)" stroke-width="9" fill="none" vector-effect="non-scaling-stroke"/>
+      <!-- light wash ribbon (above the mid) -->
+      <path d="M0,62 C360,12 720,112 1080,62 C1260,37 1380,87 1440,62"
+            stroke="var(--muted-1)" stroke-width="7" fill="none" opacity="0.55" vector-effect="non-scaling-stroke"/>
     </symbol>
-    <!-- bigger amplitude, dripping crests -->
-    <symbol id="wave-drip" viewBox="0 0 1440 360" preserveAspectRatio="none">
-      <path d="M0,200 C180,40 360,320 540,200 C720,80 900,300 1080,200 C1260,100 1350,260 1440,200 L1440,360 L0,360 Z"/>
-    </symbol>
-    <!-- low slow swell -->
-    <symbol id="wave-swell" viewBox="0 0 1440 220" preserveAspectRatio="none">
-      <path d="M0,120 C360,20 720,200 1080,100 C1260,50 1380,140 1440,110 L1440,220 L0,220 Z"/>
-    </symbol>
-    <!-- inverted — fills above, wavy bottom edge -->
-    <symbol id="wave-cap" viewBox="0 0 1440 320" preserveAspectRatio="none">
-      <path d="M0,0 L1440,0 L1440,160 C1200,260 960,80 720,160 C480,240 240,80 0,160 Z"/>
+
+    <!-- UP: deep sits above (fills upward), ribbons descend below into cream -->
+    <symbol id="wd-up" viewBox="0 0 1440 220" preserveAspectRatio="none">
+      <!-- deep fill above curve -->
+      <path d="M0,130 C360,80 720,180 1080,130 C1260,105 1380,155 1440,130 L1440,0 L0,0 Z" fill="var(--muted-2)"/>
+      <!-- mid ribbon below deep -->
+      <path d="M0,144 C360,94 720,194 1080,144 C1260,119 1380,169 1440,144"
+            stroke="var(--muted-1)" stroke-width="9" fill="none" vector-effect="non-scaling-stroke"/>
+      <!-- light wash ribbon further below -->
+      <path d="M0,158 C360,108 720,208 1080,158 C1260,133 1380,183 1440,158"
+            stroke="var(--muted-1)" stroke-width="7" fill="none" opacity="0.55" vector-effect="non-scaling-stroke"/>
     </symbol>
   </defs>
 </svg>
@@ -451,28 +460,22 @@
   <div class="right"><a href="#closing">Studio SDK · Fall 2026</a></div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — cream bg, no top divider; bottom wave transitions to muted-2 -->
 <section id="top" class="hero">
-  <!-- stacked wavy honey bands at varying depths -->
-  <div class="wave" data-parallax="0.10" style="top: -8vh; height: 50vh; opacity: .55;">
-    <svg><use href="#wave-drip" fill="var(--honey)"/></svg>
-  </div>
-  <div class="wave" data-parallax="0.04" style="top: 18vh; height: 42vh; opacity: .85;">
-    <svg><use href="#wave-soft" fill="var(--honey-deep)"/></svg>
-  </div>
-  <div class="wave" data-parallax="-0.04" style="bottom: -6vh; height: 36vh;">
-    <svg><use href="#wave-cap" fill="var(--bg-dark)"/></svg>
-  </div>
-
   <div class="hero-content">
     <h1 class="reveal">HONEY<br/>DEPARTMENT</h1>
     <div class="sub reveal">Campaign Selects — Fall 2026</div>
   </div>
   <div class="scroll-cue">Scroll ↓</div>
   <div class="footer-mark">FILM</div>
+
+  <!-- bottom divider into deep -->
+  <div class="wave-divider bottom" data-parallax="0.04" style="height: 240px;">
+    <svg><use href="#wd-down"/></svg>
+  </div>
 </section>
 
-<!-- MARQUEE STRIP -->
+<!-- MARQUEE STRIP (deep) — no divider, hero's bottom wave handled it -->
 <section class="strip-section scroll-driven no-min">
   <div class="strip">
     <div class="frame"><img src="https://picsum.photos/seed/hd-strip-1/600/400?grayscale" alt="" loading="lazy" /></div>
@@ -494,15 +497,8 @@
   </div>
 </section>
 
-<!-- CHAPTER 1 -->
+<!-- CHAPTER 1 (deep) — same color as strip, no divider needed -->
 <section class="chapter" id="ch-1">
-  <div class="wave" data-parallax="0.08" style="top: -10vh; height: 40vh; opacity: .55;">
-    <svg><use href="#wave-swell" fill="var(--honey)"/></svg>
-  </div>
-  <div class="wave" data-parallax="-0.04" style="bottom: -10vh; height: 36vh; opacity: .7;">
-    <svg><use href="#wave-cap" fill="var(--honey-deep)"/></svg>
-  </div>
-
   <div class="num-row reveal">
     <div class="label">Chapter 01</div>
     <h2>Demographics</h2>
@@ -510,8 +506,11 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- DEMOGRAPHICS -->
-<section>
+<!-- DEMOGRAPHICS (cream) — UP divider at top -->
+<section class="cream has-divider-top">
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-up"/></svg>
+  </div>
   <span class="tag">Film / Photo</span>
   <div class="two-col">
     <div class="col-text reveal">
@@ -539,15 +538,11 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- INTERSTITIAL — ANYONE OVER ONE -->
+<!-- INTERSTITIAL 1 (deep) — DOWN divider at top -->
 <section class="interstitial">
-  <div class="wave" data-parallax="0.08" style="top: -8vh; height: 38vh; opacity: .5;">
-    <svg><use href="#wave-drip" fill="var(--honey-deep)"/></svg>
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-down"/></svg>
   </div>
-  <div class="wave" data-parallax="-0.04" style="bottom: -8vh; height: 32vh; opacity: .6;">
-    <svg><use href="#wave-cap" fill="var(--honey)"/></svg>
-  </div>
-
   <div class="bleed-type" data-parallax="0.04">ANYONE</div>
   <div class="interstitial-image" data-parallax="-0.03">
     <img src="https://picsum.photos/seed/hd-inter-1/1600/1000?grayscale" alt="" loading="lazy" />
@@ -555,12 +550,11 @@
   <div class="bleed-type" data-parallax="-0.04">OVER ONE</div>
 </section>
 
-<!-- LIST 1 -->
+<!-- LIST 1 (cream) — UP divider -->
 <section class="list-section">
-  <div class="wave" data-parallax="0.10" style="top: -8vh; height: 32vh; opacity: .25;">
-    <svg><use href="#wave-soft" fill="var(--honey)"/></svg>
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-up"/></svg>
   </div>
-
   <span class="tag">Film / Photo</span>
   <div class="list reveal">
     <span>Babuskas of Little Odessa eat Honey Dept.</span>
@@ -618,9 +612,12 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- MARQUEE STRIP 2 -->
+<!-- MARQUEE 2 (deep) -->
 <section class="strip-section scroll-driven no-min">
-  <div class="strip" style="animation-duration: 80s; animation-direction: reverse;">
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-down"/></svg>
+  </div>
+  <div class="strip" style="animation-duration: 80s; animation-direction: reverse; padding-top: 220px;">
     <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-1/600/400?grayscale" alt="" loading="lazy" /></div>
     <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-2/600/400?grayscale" alt="" loading="lazy" /></div>
     <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-3/600/400?grayscale" alt="" loading="lazy" /></div>
@@ -640,12 +637,11 @@
   </div>
 </section>
 
-<!-- LIST 2 -->
+<!-- LIST 2 (cream) -->
 <section class="list-section">
-  <div class="wave" data-parallax="0.10" style="bottom: -10vh; height: 36vh; opacity: .25;">
-    <svg><use href="#wave-cap" fill="var(--honey)"/></svg>
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-up"/></svg>
   </div>
-
   <span class="tag">Film / Photo</span>
   <div class="list reveal">
     <span>The guy waiting for the tow truck eats Honey Dept.</span>
@@ -687,12 +683,11 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- MOODBOARD on yellow -->
-<section class="on-honey">
-  <div class="wave" data-parallax="0.06" style="top: -8vh; height: 32vh; opacity: .35;">
-    <svg><use href="#wave-soft" fill="var(--honey-deep)"/></svg>
+<!-- MOODBOARD (deep) -->
+<section class="deep has-divider-top" style="padding: 220px 6vw 120px;">
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-down"/></svg>
   </div>
-
   <span class="tag">Moodboard</span>
   <div class="two-col" style="margin-bottom: 64px;">
     <div class="col-text reveal">
@@ -712,8 +707,11 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- REFERENCE MOODBOARD on dark -->
-<section class="dark" style="padding: 96px 6vw;">
+<!-- REFERENCE MOODBOARD (cream) -->
+<section class="cream has-divider-top" style="padding: 220px 6vw 96px;">
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-up"/></svg>
+  </div>
   <span class="tag">Reference Moodboard</span>
   <div class="grid-moodboard reveal">
     <div class="frame zoom" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-ref-1/600/600?grayscale" alt="" loading="lazy" /></div>
@@ -726,18 +724,21 @@
     <div class="frame zoom span-2c" data-parallax="-0.04"><img src="https://picsum.photos/seed/hd-ref-8/1200/600?grayscale" alt="" loading="lazy" /></div>
     <div class="frame zoom" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-ref-9/600/600?grayscale" alt="" loading="lazy" /></div>
   </div>
-  <div class="footer-mark" style="color:#aaa;">FILM</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
-<!-- TITLES -->
-<section class="dark">
-  <span class="tag" style="color:#f3f1ec;">Titles</span>
+<!-- TITLES (deep) -->
+<section class="deep has-divider-top" style="padding: 220px 6vw 96px;">
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-down"/></svg>
+  </div>
+  <span class="tag">Titles</span>
   <div class="titles-grid">
     <div class="col-text reveal">
-      <h3 style="color:#f3f1ec;">Titles</h3>
-      <p style="color:#e9e6df;">Let's not let framing get in the way of titles.</p>
-      <p style="color:#e9e6df;">Each film cuts to a dedicated title frame at the end. The frame isolates the subject with a crop, circular to mimic the circles ("bees") used in branding. The super can appear above, below or beside the image, depending on the crop.</p>
-      <p style="color:#e9e6df;">The title frame replaces the need for in-scene headroom or negative space. Framing during production stays unconstrained.</p>
+      <h3>Titles</h3>
+      <p>Let's not let framing get in the way of titles.</p>
+      <p>Each film cuts to a dedicated title frame at the end. The frame isolates the subject with a crop, circular to mimic the circles ("bees") used in branding. The super can appear above, below or beside the image, depending on the crop.</p>
+      <p>The title frame replaces the need for in-scene headroom or negative space. Framing during production stays unconstrained.</p>
     </div>
     <div class="title-frame reveal" data-parallax="-0.04">
       <div class="label-top">ROMEO</div>
@@ -745,18 +746,11 @@
       <div class="label-bottom">EAT HONEY DEPT.</div>
     </div>
   </div>
-  <div class="footer-mark" style="color:#aaa;">FILM</div>
+  <div class="footer-mark">FILM</div>
 </section>
 
-<!-- CHAPTER 2 -->
+<!-- CHAPTER 2 (deep) — same color as titles, no divider -->
 <section class="chapter" id="ch-2">
-  <div class="wave" data-parallax="0.08" style="top: -10vh; height: 40vh; opacity: .55;">
-    <svg><use href="#wave-drip" fill="var(--honey)"/></svg>
-  </div>
-  <div class="wave" data-parallax="-0.04" style="bottom: -10vh; height: 36vh; opacity: .7;">
-    <svg><use href="#wave-cap" fill="var(--honey-deep)"/></svg>
-  </div>
-
   <div class="num-row reveal">
     <div class="label">Chapter 02</div>
     <h2>Eat It<br/>Anywhere</h2>
@@ -764,8 +758,11 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- EAT IT ANYWHERE -->
-<section>
+<!-- EAT IT (cream) -->
+<section class="cream has-divider-top">
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-up"/></svg>
+  </div>
   <span class="tag">Film</span>
   <div class="two-col">
     <div class="col-text reveal">
@@ -783,15 +780,11 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- INTERSTITIAL — EAT IT / ANYWHERE -->
+<!-- INTERSTITIAL 2 (deep) -->
 <section class="interstitial">
-  <div class="wave" data-parallax="0.08" style="top: -8vh; height: 38vh; opacity: .5;">
-    <svg><use href="#wave-soft" fill="var(--honey-deep)"/></svg>
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-down"/></svg>
   </div>
-  <div class="wave" data-parallax="-0.04" style="bottom: -8vh; height: 32vh; opacity: .6;">
-    <svg><use href="#wave-cap" fill="var(--honey)"/></svg>
-  </div>
-
   <div class="bleed-type" data-parallax="0.04">EAT IT</div>
   <div class="interstitial-image" data-parallax="-0.03">
     <img src="https://picsum.photos/seed/hd-inter-2/1600/1000?grayscale" alt="" loading="lazy" />
@@ -799,8 +792,11 @@
   <div class="bleed-type" data-parallax="-0.04">ANYWHERE</div>
 </section>
 
-<!-- ADDITIONAL VIGNETTES -->
-<section style="padding-top: 96px;">
+<!-- ADDITIONAL VIGNETTES (cream) -->
+<section class="cream has-divider-top" style="padding: 220px 6vw 96px;">
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-up"/></svg>
+  </div>
   <span class="tag">Additional Vignettes</span>
   <div class="grid-moodboard reveal">
     <div class="frame zoom" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-add-1/600/600?grayscale" alt="" loading="lazy" /></div>
@@ -814,15 +810,11 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- CHAPTER 3 -->
-<section class="chapter" id="ch-3">
-  <div class="wave" data-parallax="0.08" style="top: -10vh; height: 40vh; opacity: .55;">
-    <svg><use href="#wave-swell" fill="var(--honey)"/></svg>
+<!-- CHAPTER 3 (deep) -->
+<section class="chapter has-divider-top" id="ch-3">
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-down"/></svg>
   </div>
-  <div class="wave" data-parallax="-0.04" style="bottom: -10vh; height: 36vh; opacity: .7;">
-    <svg><use href="#wave-cap" fill="var(--honey-deep)"/></svg>
-  </div>
-
   <div class="num-row reveal">
     <div class="label">Chapter 03</div>
     <h2>A Note From Our Founder</h2>
@@ -830,8 +822,11 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- FOUNDER -->
-<section>
+<!-- FOUNDER (cream) -->
+<section class="cream has-divider-top">
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-up"/></svg>
+  </div>
   <span class="tag">Film</span>
   <div class="two-col">
     <div class="col-text reveal">
@@ -852,15 +847,11 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- INTERSTITIAL — NEVER THE SAME -->
+<!-- INTERSTITIAL 3 (deep) -->
 <section class="interstitial">
-  <div class="wave" data-parallax="0.08" style="top: -8vh; height: 38vh; opacity: .5;">
-    <svg><use href="#wave-drip" fill="var(--honey-deep)"/></svg>
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-down"/></svg>
   </div>
-  <div class="wave" data-parallax="-0.04" style="bottom: -8vh; height: 32vh; opacity: .6;">
-    <svg><use href="#wave-cap" fill="var(--honey)"/></svg>
-  </div>
-
   <div class="bleed-type" data-parallax="0.04">NEVER</div>
   <div class="interstitial-image" data-parallax="-0.03">
     <img src="https://picsum.photos/seed/hd-inter-3/1600/1000?grayscale" alt="" loading="lazy" />
@@ -868,15 +859,8 @@
   <div class="bleed-type" data-parallax="-0.04">THE SAME</div>
 </section>
 
-<!-- CHAPTER 4 -->
+<!-- CHAPTER 4 (deep) — no divider, same color -->
 <section class="chapter" id="ch-4">
-  <div class="wave" data-parallax="0.08" style="top: -10vh; height: 40vh; opacity: .55;">
-    <svg><use href="#wave-soft" fill="var(--honey)"/></svg>
-  </div>
-  <div class="wave" data-parallax="-0.04" style="bottom: -10vh; height: 36vh; opacity: .7;">
-    <svg><use href="#wave-cap" fill="var(--honey-deep)"/></svg>
-  </div>
-
   <div class="num-row reveal">
     <div class="label">Chapter 04</div>
     <h2>Goes With Everything</h2>
@@ -884,8 +868,11 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- GOES WITH EVERYTHING -->
-<section>
+<!-- GOES WITH (cream) -->
+<section class="cream has-divider-top">
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-up"/></svg>
+  </div>
   <span class="tag">Film / Photo</span>
   <div class="two-col">
     <div class="col-text reveal">
@@ -911,9 +898,12 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- FINAL MARQUEE -->
+<!-- FINAL MARQUEE (deep) -->
 <section class="strip-section scroll-driven no-min">
-  <div class="strip" style="animation-duration: 70s;">
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-down"/></svg>
+  </div>
+  <div class="strip" style="animation-duration: 70s; padding-top: 220px;">
     <div class="frame"><img src="https://picsum.photos/seed/hd-fin-1/600/400?grayscale" alt="" loading="lazy" /></div>
     <div class="frame"><img src="https://picsum.photos/seed/hd-fin-2/600/400?grayscale" alt="" loading="lazy" /></div>
     <div class="frame"><img src="https://picsum.photos/seed/hd-fin-3/600/400?grayscale" alt="" loading="lazy" /></div>
@@ -933,18 +923,11 @@
   </div>
 </section>
 
-<!-- CLOSING -->
+<!-- CLOSING (cream) -->
 <section class="closing" id="closing">
-  <div class="wave" data-parallax="0.08" style="top: -10vh; height: 50vh; opacity: .55;">
-    <svg><use href="#wave-drip" fill="var(--honey)"/></svg>
+  <div class="wave-divider top" data-parallax="0.04">
+    <svg><use href="#wd-up"/></svg>
   </div>
-  <div class="wave" data-parallax="0.04" style="top: 30vh; height: 38vh; opacity: .85;">
-    <svg><use href="#wave-soft" fill="var(--honey-deep)"/></svg>
-  </div>
-  <div class="wave" data-parallax="-0.04" style="bottom: -10vh; height: 36vh;">
-    <svg><use href="#wave-cap" fill="var(--bg-dark)"/></svg>
-  </div>
-
   <h2 class="mark reveal">HONEY<br/>DEPARTMENT</h2>
   <div class="credit reveal">
     Concept &amp; Direction —
@@ -966,7 +949,6 @@
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   // parallax engine — Y translate proportional to distance from viewport center.
-  // No rotations; everything stays congruent.
   const parallaxItems = Array.from(document.querySelectorAll('[data-parallax]')).map(el => ({
     el,
     speed: parseFloat(el.dataset.parallax)
