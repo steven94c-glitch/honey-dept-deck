@@ -10,10 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 <style>
   :root {
-    /* —— 3-color palette, pulled from honeydepartment.org ———— */
     --cream:    #efe6d2;
-    --muted-1:  #c9a527;   /* darker shade of brand yellow — ribbons */
-    --muted-2:  #f5db54;   /* brand primary honey yellow — feature fills */
+    --muted-1:  #c9a527;
+    --muted-2:  #f5db54;
     --ink:      #241f21;
 
     --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -42,7 +41,7 @@
   a { color: inherit; }
   img { display: block; max-width: 100%; }
 
-  /* nav — solid bg so it's legible across every section color */
+  /* nav */
   .nav {
     position: fixed; top: 0; left: 0; right: 0;
     display: flex; justify-content: space-between; align-items: center;
@@ -107,13 +106,9 @@
   }
   .wave-divider.top    { top: -40px; }
   .wave-divider.bottom { bottom: -40px; }
-  .wave-divider svg {
-    display: block;
-    width: 100%; height: 100%;
-    overflow: visible;
-  }
+  .wave-divider svg { display: block; width: 100%; height: 100%; overflow: visible; }
 
-  /* hero — cover page (centered, like the original concept deck) */
+  /* hero — cover */
   .hero {
     min-height: 100vh;
     padding: 0 6vw;
@@ -123,26 +118,34 @@
     text-align: center;
     background: var(--cream);
   }
-  .hero-content {
-    position: relative; z-index: 3;
-    max-width: 100%;
-  }
+  .hero-content { position: relative; z-index: 3; max-width: 100%; }
   .hero h1 {
     font-family: var(--display);
     font-weight: 400;
     font-size: var(--t-display-xl);
-    line-height: .85;
-    letter-spacing: -.015em;
-    margin: 0;
-    color: var(--ink);
+    line-height: .85; letter-spacing: -.015em;
+    margin: 0; color: var(--ink);
   }
   .hero .sub {
     margin-top: 56px;
     font-family: var(--mono);
     font-size: var(--t-label); letter-spacing: .25em; text-transform: uppercase;
   }
+  .hero .scroll-cue {
+    position: absolute;
+    bottom: 32px; left: 50%; transform: translateX(-50%);
+    font-family: var(--mono);
+    font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
+    opacity: .6;
+    animation: bob 2.4s ease-in-out infinite;
+    z-index: 5;
+  }
+  @keyframes bob {
+    0%,100% { transform: translate(-50%, 0); }
+    50%     { transform: translate(-50%, 6px); }
+  }
 
-  /* intro section (Hello / Carlton) — cream, flows from cover */
+  /* intro section */
   .intro-section {
     background: var(--cream);
     padding: 96px 6vw;
@@ -165,21 +168,8 @@
     font-size: var(--t-body); line-height: 1.7;
   }
   .intro-section .intro-body p { margin: 0 0 22px; }
-  .hero .scroll-cue {
-    position: absolute;
-    bottom: 32px; left: 50%; transform: translateX(-50%);
-    font-family: var(--mono);
-    font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
-    opacity: .6;
-    animation: bob 2.4s ease-in-out infinite;
-    z-index: 5;
-  }
-  @keyframes bob {
-    0%,100% { transform: translate(-50%, 0); }
-    50%     { transform: translate(-50%, 6px); }
-  }
 
-  /* chapter — deep slab */
+  /* chapter */
   .chapter {
     align-items: flex-start; justify-content: center;
     padding: 200px 6vw 120px;
@@ -229,26 +219,14 @@
     font-family: var(--mono); font-size: var(--t-body); line-height: 1.65;
     margin: 0 0 18px; max-width: 56ch;
   }
-  .col-text ul {
-    list-style: none; padding: 0; margin: 0;
-    font-family: var(--mono); font-size: var(--t-body); line-height: 1.7;
-  }
-  .col-text ul li {
-    padding-left: 20px; position: relative;
-    margin-bottom: 6px;
-  }
-  .col-text ul li::before {
-    content: '—';
-    position: absolute; left: 0;
-  }
+  .col-text ul { list-style: none; padding: 0; margin: 0;
+    font-family: var(--mono); font-size: var(--t-body); line-height: 1.7; }
+  .col-text ul li { padding-left: 20px; position: relative; margin-bottom: 6px; }
+  .col-text ul li::before { content: '—'; position: absolute; left: 0; }
 
   /* film breakdown */
   .film-section { padding: 200px 6vw 120px; position: relative; background: var(--cream); }
-  .film-header {
-    position: relative; z-index: 2;
-    margin-bottom: 56px;
-    max-width: 90vw;
-  }
+  .film-header { position: relative; z-index: 2; margin-bottom: 56px; max-width: 90vw; }
   .film-header .tag { margin-bottom: 24px; }
   .film-header h2 {
     font-family: var(--display);
@@ -268,7 +246,7 @@
     opacity: .8;
   }
 
-  /* 2x2 reference image grid — full page width */
+  /* 2x2 reference grid */
   .ref-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -281,41 +259,33 @@
   /* generic frame */
   .frame {
     position: relative; overflow: hidden;
-    background: var(--ink); color: var(--muted-1);
+    background: var(--ink); color: var(--cream);
     aspect-ratio: 4 / 3;
     will-change: transform;
   }
   .frame img {
     width: 100%; height: 100%;
-    object-fit: cover; display: block;
+    object-fit: cover; object-position: center top;
+    display: block;
     transition: transform .8s ease;
   }
   .frame.zoom img:hover { transform: scale(1.04); }
 
-  /* interstitial */
-  .interstitial {
-    min-height: 80vh;
-    padding: 220px 6vw 180px;
-    position: relative;
-    background: var(--muted-2);
-    color: var(--ink);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 32px;
-    overflow: hidden;
-  }
-  .bleed-type {
-    font-family: var(--display);
-    font-size: var(--t-display-l);
-    line-height: .9; letter-spacing: -.015em;
+  /* reference caption — small label inside each frame */
+  .ref-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    z-index: 3;
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: .2em;
     text-transform: uppercase;
-    color: var(--ink);
-    margin: 0;
-    text-align: center;
-    position: relative; z-index: 2;
-    max-width: 22ch;
+    color: var(--cream);
+    background: linear-gradient(180deg, rgba(36,31,33,0) 0%, rgba(36,31,33,.85) 60%);
+    padding: 32px 12px 10px;
+    line-height: 1.4;
+    pointer-events: none;
   }
 
   /* horizontal marquee */
@@ -370,19 +340,18 @@
     .scroll-cue, .strip-section.scroll-driven .strip { animation: none; }
   }
 
-  /* responsive */
   @media (max-width: 860px) {
     section { padding: 72px 6vw; min-height: auto; }
     section.has-divider-top { padding-top: 140px; }
     .chapter { padding: 140px 6vw 80px; }
     .film-section { padding: 140px 6vw 80px; }
-    .interstitial { padding: 160px 6vw 140px; min-height: 60vh; }
     .closing { padding-top: 160px; }
     .two-col { grid-template-columns: 1fr; gap: 32px; }
     .ref-grid { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 48px; }
     .nav { padding: 14px 20px; font-size: 10px; }
     .strip .frame { width: 60vw; height: 24vh; }
     .wave-divider { height: 120px; }
+    .ref-label { font-size: 8px; padding: 24px 10px 8px; }
   }
 </style>
 </head>
@@ -413,9 +382,7 @@
   <div class="right"><a href="#thanks">Fall 2026</a></div>
 </nav>
 
-<!-- ——————————————————————————————
-     COVER PAGE
-     —————————————————————————————— -->
+<!-- COVER -->
 <section id="top" class="hero">
   <div class="hero-content">
     <h1 class="reveal">HONEY<br/>DEPARTMENT</h1>
@@ -426,9 +393,7 @@
   <div class="footer-mark right" style="font-family: var(--display);">HONEY DEPARTMENT</div>
 </section>
 
-<!-- ——————————————————————————————
-     01 · INTRO — Hello from Carlton
-     —————————————————————————————— -->
+<!-- 01 INTRO -->
 <section class="intro-section" id="intro">
   <span class="tag">01 · Hello</span>
   <h2 class="reveal">Hello.</h2>
@@ -440,32 +405,31 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- transition strip -->
+<!-- TRANSITION STRIP — reference moodboard -->
 <section class="strip-section scroll-driven no-min" style="padding-top: 220px;">
   <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
   <div class="strip">
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-1/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-2/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-3/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-4/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-5/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-6/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-7/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-8/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-1/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-2/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-3/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-4/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-5/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-6/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-7/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip-8/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/f/f9/Vernon%2C_Florida.jpg" alt="Vernon, Florida (1981, dir. Errol Morris)" loading="lazy" /><span class="ref-label">Errol Morris · Vernon, Florida (1981)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/b/b3/Songssecondfloor.jpg" alt="Songs from the Second Floor poster" loading="lazy" /><span class="ref-label">Roy Andersson · Songs from the Second Floor (2000)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/d/df/Du_levande_city_model.jpg" alt="You, the Living city model" loading="lazy" /><span class="ref-label">Roy Andersson · You, the Living (2007)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/e/e5/Mon_Oncle_hulot.jpg" alt="Mon Oncle still" loading="lazy" /><span class="ref-label">Jacques Tati · Mon Oncle (1958)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/91/Play_Time_screenshot.jpg/1280px-Play_Time_screenshot.jpg" alt="Playtime still" loading="lazy" /><span class="ref-label">Jacques Tati · Playtime (1967)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/c/c4/A-pigeon-sat-on-a-branch-reflecting-on-existence-148-Afis.jpg" alt="A Pigeon Sat on a Branch poster" loading="lazy" /><span class="ref-label">Roy Andersson · A Pigeon Sat on a Branch (2014)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Roy_Andersson_in_Aug_2014-3.jpg" alt="Roy Andersson portrait" loading="lazy" /><span class="ref-label">Roy Andersson · Director</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MartinParrVA130524_%286_of_7%29_%28cropped_2%29.jpg" alt="Martin Parr portrait" loading="lazy" /><span class="ref-label">Martin Parr · Photographer</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/f/f9/Vernon%2C_Florida.jpg" alt="" loading="lazy" /><span class="ref-label">Errol Morris · Vernon, Florida (1981)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/b/b3/Songssecondfloor.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · Songs from the Second Floor (2000)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/d/df/Du_levande_city_model.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · You, the Living (2007)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/e/e5/Mon_Oncle_hulot.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mon Oncle (1958)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/91/Play_Time_screenshot.jpg/1280px-Play_Time_screenshot.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Playtime (1967)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/c/c4/A-pigeon-sat-on-a-branch-reflecting-on-existence-148-Afis.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · A Pigeon Sat on a Branch (2014)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Roy_Andersson_in_Aug_2014-3.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · Director</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MartinParrVA130524_%286_of_7%29_%28cropped_2%29.jpg" alt="" loading="lazy" /><span class="ref-label">Martin Parr · Photographer</span></div>
   </div>
 </section>
 
-<!-- ——————————————————————————————
-     02 · APPROACH & TONE
-     —————————————————————————————— -->
+<!-- 02 APPROACH -->
 <section class="chapter" id="approach-chapter">
   <div class="num-row reveal">
     <div class="label">Chapter 01</div>
@@ -501,9 +465,7 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- ——————————————————————————————
-     03 · THE FILMS — chapter card
-     —————————————————————————————— -->
+<!-- 03 THE FILMS -->
 <section class="chapter has-divider-top" id="films-chapter">
   <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
   <div class="num-row reveal">
@@ -513,7 +475,7 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- ··· FILM 01 — DEMOGRAPHICS ··· -->
+<!-- FILM 01 — DEMOGRAPHICS -->
 <section class="film-section has-divider-top" id="film-01">
   <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-up"/></svg></div>
 
@@ -524,10 +486,22 @@
   </div>
 
   <div class="ref-grid reveal" data-parallax="-0.03">
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f1-ref-1/900/675?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f1-ref-2/900/675?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f1-ref-3/900/675?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f1-ref-4/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/f9/Vernon%2C_Florida.jpg" alt="Vernon, Florida (1981, dir. Errol Morris)" loading="lazy" />
+      <span class="ref-label">Errol Morris · Vernon, Florida (1981)</span>
+    </div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Errol_Morris_by_Bridget_Laudien.jpg" alt="Errol Morris portrait" loading="lazy" />
+      <span class="ref-label">Errol Morris · Documentarian</span>
+    </div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MartinParrVA130524_%286_of_7%29_%28cropped_2%29.jpg" alt="Martin Parr portrait" loading="lazy" />
+      <span class="ref-label">Martin Parr · Photographer</span>
+    </div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/en/c/c4/A-pigeon-sat-on-a-branch-reflecting-on-existence-148-Afis.jpg" alt="A Pigeon Sat on a Branch poster" loading="lazy" />
+      <span class="ref-label">Roy Andersson · A Pigeon Sat on a Branch (2014)</span>
+    </div>
   </div>
 
   <div class="two-col">
@@ -547,7 +521,7 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- ··· FILM 02 — EAT IT ANYWHERE ··· -->
+<!-- FILM 02 — EAT IT ANYWHERE -->
 <section class="film-section" id="film-02">
   <div class="film-header reveal">
     <span class="tag">Film 02 / 04</span>
@@ -556,10 +530,22 @@
   </div>
 
   <div class="ref-grid reveal" data-parallax="-0.03">
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f2-ref-1/900/675?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f2-ref-2/900/675?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f2-ref-3/900/675?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f2-ref-4/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/en/b/b3/Songssecondfloor.jpg" alt="Songs from the Second Floor poster" loading="lazy" />
+      <span class="ref-label">Roy Andersson · Songs from the Second Floor (2000)</span>
+    </div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Du_levande_movie_Poster.jpg" alt="You, the Living poster" loading="lazy" />
+      <span class="ref-label">Roy Andersson · You, the Living (2007)</span>
+    </div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/en/d/df/Du_levande_city_model.jpg" alt="You, the Living city model" loading="lazy" />
+      <span class="ref-label">Roy Andersson · You, the Living (2007)</span>
+    </div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/en/c/c4/A-pigeon-sat-on-a-branch-reflecting-on-existence-148-Afis.jpg" alt="A Pigeon Sat on a Branch poster" loading="lazy" />
+      <span class="ref-label">Roy Andersson · A Pigeon Sat on a Branch (2014)</span>
+    </div>
   </div>
 
   <div class="two-col">
@@ -579,7 +565,7 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- ··· FILM 03 — A NOTE FROM OUR FOUNDER ··· -->
+<!-- FILM 03 — A NOTE FROM OUR FOUNDER -->
 <section class="film-section" id="film-03">
   <div class="film-header reveal">
     <span class="tag">Film 03 / 04</span>
@@ -588,10 +574,22 @@
   </div>
 
   <div class="ref-grid reveal" data-parallax="-0.03">
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f3-ref-1/900/675?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f3-ref-2/900/675?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f3-ref-3/900/675?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f3-ref-4/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Roy_Andersson_in_Aug_2014-3.jpg" alt="Roy Andersson at his desk" loading="lazy" />
+      <span class="ref-label">Roy Andersson · Director Portrait</span>
+    </div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Villa_arpel.jpg" alt="Mon Oncle Villa Arpel set" loading="lazy" />
+      <span class="ref-label">Jacques Tati · Mon Oncle (1958)</span>
+    </div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Errol_Morris_by_Bridget_Laudien.jpg" alt="Errol Morris portrait" loading="lazy" />
+      <span class="ref-label">Errol Morris · Interrotron Method</span>
+    </div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/en/e/e5/Mon_Oncle_hulot.jpg" alt="Monsieur Hulot at his desk" loading="lazy" />
+      <span class="ref-label">Jacques Tati · Mon Oncle (1958)</span>
+    </div>
   </div>
 
   <div class="two-col">
@@ -611,7 +609,7 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- ··· FILM 04 — GOES WITH EVERYTHING ··· -->
+<!-- FILM 04 — GOES WITH EVERYTHING -->
 <section class="film-section" id="film-04">
   <div class="film-header reveal">
     <span class="tag">Film 04 / 04</span>
@@ -620,10 +618,22 @@
   </div>
 
   <div class="ref-grid reveal" data-parallax="-0.03">
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f4-ref-1/900/675?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f4-ref-2/900/675?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f4-ref-3/900/675?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f4-ref-4/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/en/c/c8/Playtimeoriginalposter.jpg" alt="Playtime poster" loading="lazy" />
+      <span class="ref-label">Jacques Tati · Playtime (1967)</span>
+    </div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/91/Play_Time_screenshot.jpg/1280px-Play_Time_screenshot.jpg" alt="Playtime still" loading="lazy" />
+      <span class="ref-label">Jacques Tati · Playtime (1967)</span>
+    </div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Mononcle_poster.jpg" alt="Mon Oncle poster" loading="lazy" />
+      <span class="ref-label">Jacques Tati · Mon Oncle (1958)</span>
+    </div>
+    <div class="frame zoom">
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/5a/Play_Time_Hulot.jpg" alt="Hulot in Playtime" loading="lazy" />
+      <span class="ref-label">Jacques Tati · Playtime (1967)</span>
+    </div>
   </div>
 
   <div class="two-col">
@@ -641,9 +651,7 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- ——————————————————————————————
-     04 · EDITING & SOUND
-     —————————————————————————————— -->
+<!-- 04 EDITING & SOUND -->
 <section class="chapter has-divider-top" id="edit-chapter">
   <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
   <div class="num-row reveal">
@@ -680,28 +688,27 @@
 <section class="strip-section scroll-driven no-min" style="padding-top: 220px;">
   <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
   <div class="strip" style="animation-duration: 70s;">
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-1/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-2/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-3/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-4/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-5/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-6/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-7/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-8/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-1/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-2/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-3/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-4/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-5/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-6/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-7/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-fin-8/600/400?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Mononcle_poster.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mon Oncle (1958)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/c/c8/Playtimeoriginalposter.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Playtime (1967)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Villa_arpel.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mon Oncle (1958)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/6/60/Du_levande_movie_Poster.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · You, the Living (2007)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Errol_Morris_by_Bridget_Laudien.jpg" alt="" loading="lazy" /><span class="ref-label">Errol Morris · Documentarian</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Roy_Andersson_in_Aug_2014-3.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · Director</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/5/5a/Play_Time_Hulot.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Playtime (1967)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/f/f9/Vernon%2C_Florida.jpg" alt="" loading="lazy" /><span class="ref-label">Errol Morris · Vernon, Florida (1981)</span></div>
+    <!-- duplicate -->
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Mononcle_poster.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mon Oncle (1958)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/c/c8/Playtimeoriginalposter.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Playtime (1967)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Villa_arpel.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mon Oncle (1958)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/6/60/Du_levande_movie_Poster.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · You, the Living (2007)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Errol_Morris_by_Bridget_Laudien.jpg" alt="" loading="lazy" /><span class="ref-label">Errol Morris · Documentarian</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Roy_Andersson_in_Aug_2014-3.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · Director</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/5/5a/Play_Time_Hulot.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Playtime (1967)</span></div>
+    <div class="frame"><img src="https://upload.wikimedia.org/wikipedia/en/f/f9/Vernon%2C_Florida.jpg" alt="" loading="lazy" /><span class="ref-label">Errol Morris · Vernon, Florida (1981)</span></div>
   </div>
 </section>
 
-<!-- ——————————————————————————————
-     05 · THANK YOU
-     —————————————————————————————— -->
+<!-- 05 THANK YOU -->
 <section class="closing" id="thanks">
   <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-up"/></svg></div>
   <h2 class="mark reveal">THANK<br/>YOU.</h2>
@@ -713,18 +720,13 @@
 </section>
 
 <script>
-  // reveal-on-scroll
   const io = new IntersectionObserver((entries) => {
     for (const e of entries) {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     }
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // parallax
   const parallaxItems = Array.from(document.querySelectorAll('[data-parallax]')).map(el => ({
     el, speed: parseFloat(el.dataset.parallax)
   }));
@@ -741,9 +743,7 @@
     }
     ticking = false;
   }
-  function onScroll() {
-    if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
-  }
+  function onScroll() { if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; } }
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   updateParallax();
