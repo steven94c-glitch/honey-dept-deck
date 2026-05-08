@@ -268,27 +268,10 @@
     object-fit: cover; object-position: center;
     display: block;
     transition: transform .8s ease;
-    /* unify the moodboard — light desat + subtle contrast bump */
-    filter: grayscale(0.25) saturate(0.9) contrast(1.04);
+    /* lock the moodboard to black & white */
+    filter: grayscale(1) contrast(1.04);
   }
-  .frame.zoom img:hover { transform: scale(1.04); filter: grayscale(0) saturate(1) contrast(1.04); }
-
-  /* reference caption — small label inside each frame */
-  .ref-label {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    z-index: 3;
-    font-family: var(--mono);
-    font-size: 9px;
-    font-weight: 500;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    color: var(--cream);
-    background: linear-gradient(180deg, rgba(36,31,33,0) 0%, rgba(36,31,33,.85) 60%);
-    padding: 32px 12px 10px;
-    line-height: 1.4;
-    pointer-events: none;
-  }
+  .frame.zoom img:hover { transform: scale(1.04); }
 
   /* horizontal marquee */
   .strip-section {
@@ -353,7 +336,6 @@
     .nav { padding: 14px 20px; font-size: 10px; }
     .strip .frame { width: 60vw; height: 24vh; }
     .wave-divider { height: 120px; }
-    .ref-label { font-size: 8px; padding: 24px 10px 8px; }
   }
 </style>
 </head>
@@ -407,27 +389,27 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- TRANSITION STRIP — film stills moodboard -->
+<!-- INTRO STRIP — drop images into  images/intro-strip/  (8 slots) -->
 <section class="strip-section scroll-driven no-min" style="padding-top: 220px;">
   <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
   <div class="strip">
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/64TTJmcYJAe7jlJQF0MVMlLZdop.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · Songs from the Second Floor (2000)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/4l6fASrUKjn7VThKkkXR9C2mKKr.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · You, the Living (2007)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/8391M0WGIU3vJlFAUmo7tuReOez.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · A Pigeon Sat on a Branch (2014)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/2USUGY484L6sUkjeD1Y0rG8uRC9.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mon Oncle (1958)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/6f59HdSTJtoovBaseIr0wEMZu0l.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Playtime (1967)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/1YwkxTDqu6XGeYr0n5fGDuZ2CxW.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mr. Hulot's Holiday (1953)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/796rOtok3D5opDZoQUPvnbCLJZP.jpg" alt="" loading="lazy" /><span class="ref-label">Errol Morris · Fast, Cheap & Out of Control (1997)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/d197O137GmBVDMmdDvoDvpVNtOP.jpg" alt="" loading="lazy" /><span class="ref-label">John Wilson · How To with John Wilson</span></div>
+    <div class="frame"><img src="images/intro-strip/01.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-1/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/02.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-2/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/03.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-3/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/04.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-4/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/05.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-5/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/06.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-6/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/07.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-7/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/08.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-8/1200/750?grayscale'" alt="" loading="lazy" /></div>
     <!-- duplicate for seamless loop -->
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/64TTJmcYJAe7jlJQF0MVMlLZdop.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · Songs from the Second Floor (2000)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/4l6fASrUKjn7VThKkkXR9C2mKKr.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · You, the Living (2007)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/8391M0WGIU3vJlFAUmo7tuReOez.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · A Pigeon Sat on a Branch (2014)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/2USUGY484L6sUkjeD1Y0rG8uRC9.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mon Oncle (1958)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/6f59HdSTJtoovBaseIr0wEMZu0l.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Playtime (1967)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/1YwkxTDqu6XGeYr0n5fGDuZ2CxW.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mr. Hulot's Holiday (1953)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/796rOtok3D5opDZoQUPvnbCLJZP.jpg" alt="" loading="lazy" /><span class="ref-label">Errol Morris · Fast, Cheap & Out of Control (1997)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/d197O137GmBVDMmdDvoDvpVNtOP.jpg" alt="" loading="lazy" /><span class="ref-label">John Wilson · How To with John Wilson</span></div>
+    <div class="frame"><img src="images/intro-strip/01.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-1/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/02.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-2/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/03.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-3/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/04.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-4/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/05.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-5/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/06.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-6/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/07.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-7/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/intro-strip/08.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-8/1200/750?grayscale'" alt="" loading="lazy" /></div>
   </div>
 </section>
 
@@ -477,7 +459,7 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- FILM 01 — DEMOGRAPHICS — observational portraits of ordinary people -->
+<!-- FILM 01 — drop images into  images/film-01-demographics/  (4 slots) -->
 <section class="film-section has-divider-top" id="film-01">
   <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-up"/></svg></div>
 
@@ -488,22 +470,10 @@
   </div>
 
   <div class="ref-grid reveal" data-parallax="-0.03">
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/1eN93Q6HwS1kWJeoImmXpVkIMqd.jpg" alt="Fast, Cheap & Out of Control still" loading="lazy" />
-      <span class="ref-label">Errol Morris · Fast, Cheap &amp; Out of Control (1997)</span>
-    </div>
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/d197O137GmBVDMmdDvoDvpVNtOP.jpg" alt="How To with John Wilson still" loading="lazy" />
-      <span class="ref-label">John Wilson · How To with John Wilson (HBO)</span>
-    </div>
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/4Xiw78PzPIPOUIsi6NHxjkG3n4x.jpg" alt="Fast, Cheap & Out of Control still" loading="lazy" />
-      <span class="ref-label">Errol Morris · Fast, Cheap &amp; Out of Control (1997)</span>
-    </div>
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/6FIiGEl3nop1VAIZY4guW3e1YNi.jpg" alt="A Pigeon Sat on a Branch still" loading="lazy" />
-      <span class="ref-label">Roy Andersson · A Pigeon Sat on a Branch (2014)</span>
-    </div>
+    <div class="frame zoom"><img src="images/film-01-demographics/01.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f1-1/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/film-01-demographics/02.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f1-2/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/film-01-demographics/03.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f1-3/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/film-01-demographics/04.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f1-4/1200/750?grayscale'" alt="" loading="lazy" /></div>
   </div>
 
   <div class="two-col">
@@ -523,7 +493,7 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- FILM 02 — EAT IT ANYWHERE — Andersson tableaux -->
+<!-- FILM 02 — drop images into  images/film-02-eat-it-anywhere/  (4 slots) -->
 <section class="film-section" id="film-02">
   <div class="film-header reveal">
     <span class="tag">Film 02 / 04</span>
@@ -532,22 +502,10 @@
   </div>
 
   <div class="ref-grid reveal" data-parallax="-0.03">
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/3Ps6pSWeMzT9WZpjdBuCQEWmck.jpg" alt="Songs from the Second Floor still" loading="lazy" />
-      <span class="ref-label">Roy Andersson · Songs from the Second Floor (2000)</span>
-    </div>
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/19eheWYkrt4FxBK98vMgFtsxf7T.jpg" alt="You, the Living still" loading="lazy" />
-      <span class="ref-label">Roy Andersson · You, the Living (2007)</span>
-    </div>
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/2xXRPYyfZP8P4Qoqym2GLVKGdLS.jpg" alt="A Pigeon Sat on a Branch still" loading="lazy" />
-      <span class="ref-label">Roy Andersson · A Pigeon Sat on a Branch (2014)</span>
-    </div>
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/6jthuEBgmx6R8FFYtogs5doj1l8.jpg" alt="Songs from the Second Floor still" loading="lazy" />
-      <span class="ref-label">Roy Andersson · Songs from the Second Floor (2000)</span>
-    </div>
+    <div class="frame zoom"><img src="images/film-02-eat-it-anywhere/01.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f2-1/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/film-02-eat-it-anywhere/02.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f2-2/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/film-02-eat-it-anywhere/03.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f2-3/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/film-02-eat-it-anywhere/04.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f2-4/1200/750?grayscale'" alt="" loading="lazy" /></div>
   </div>
 
   <div class="two-col">
@@ -567,7 +525,7 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- FILM 03 — A NOTE FROM OUR FOUNDER — desk / talking head -->
+<!-- FILM 03 — drop images into  images/film-03-note-from-our-founder/  (4 slots) -->
 <section class="film-section" id="film-03">
   <div class="film-header reveal">
     <span class="tag">Film 03 / 04</span>
@@ -576,22 +534,10 @@
   </div>
 
   <div class="ref-grid reveal" data-parallax="-0.03">
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/2h9FnWF8kIJ4BHBq8aWhATTx2px.jpg" alt="Fast, Cheap & Out of Control interview" loading="lazy" />
-      <span class="ref-label">Errol Morris · Fast, Cheap &amp; Out of Control (1997)</span>
-    </div>
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/7TZhRHh9fikzUVGbWCtdtxYOLxP.jpg" alt="Songs from the Second Floor still" loading="lazy" />
-      <span class="ref-label">Roy Andersson · Songs from the Second Floor (2000)</span>
-    </div>
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/1nGJ6KCDqpG41uu8pb2btuzNffQ.jpg" alt="Mon Oncle still" loading="lazy" />
-      <span class="ref-label">Jacques Tati · Mon Oncle (1958)</span>
-    </div>
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/4yiERlbuE8c5UX8o5j8dHRDj2jE.jpg" alt="Fast, Cheap & Out of Control interview" loading="lazy" />
-      <span class="ref-label">Errol Morris · Fast, Cheap &amp; Out of Control (1997)</span>
-    </div>
+    <div class="frame zoom"><img src="images/film-03-note-from-our-founder/01.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f3-1/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/film-03-note-from-our-founder/02.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f3-2/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/film-03-note-from-our-founder/03.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f3-3/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/film-03-note-from-our-founder/04.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f3-4/1200/750?grayscale'" alt="" loading="lazy" /></div>
   </div>
 
   <div class="two-col">
@@ -611,7 +557,7 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- FILM 04 — GOES WITH EVERYTHING — pairing vignettes -->
+<!-- FILM 04 — drop images into  images/film-04-goes-with-everything/  (4 slots) -->
 <section class="film-section" id="film-04">
   <div class="film-header reveal">
     <span class="tag">Film 04 / 04</span>
@@ -620,22 +566,10 @@
   </div>
 
   <div class="ref-grid reveal" data-parallax="-0.03">
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/22Oyy43U2hDdTel68PxfO52Bf9j.jpg" alt="Mon Oncle still" loading="lazy" />
-      <span class="ref-label">Jacques Tati · Mon Oncle (1958)</span>
-    </div>
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/5VUCd2hhkz2Hd7guTfD9YZ0a71i.jpg" alt="Playtime still" loading="lazy" />
-      <span class="ref-label">Jacques Tati · Playtime (1967)</span>
-    </div>
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/11hzaP311xefD5AdB2CSDaPrNEV.jpg" alt="Mr. Hulot's Holiday still" loading="lazy" />
-      <span class="ref-label">Jacques Tati · Mr. Hulot's Holiday (1953)</span>
-    </div>
-    <div class="frame zoom">
-      <img src="https://image.tmdb.org/t/p/original/4cnJmuiGDQ1XCq9bXJfSSKWX0ig.jpg" alt="A Pigeon Sat on a Branch still" loading="lazy" />
-      <span class="ref-label">Roy Andersson · A Pigeon Sat on a Branch (2014)</span>
-    </div>
+    <div class="frame zoom"><img src="images/film-04-goes-with-everything/01.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f4-1/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/film-04-goes-with-everything/02.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f4-2/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/film-04-goes-with-everything/03.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f4-3/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/film-04-goes-with-everything/04.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-f4-4/1200/750?grayscale'" alt="" loading="lazy" /></div>
   </div>
 
   <div class="two-col">
@@ -686,27 +620,27 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- closing strip -->
+<!-- CLOSING STRIP — drop images into  images/closing-strip/  (8 slots) -->
 <section class="strip-section scroll-driven no-min" style="padding-top: 220px;">
   <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
   <div class="strip" style="animation-duration: 70s;">
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/7l9sWWUhmXkNfVBt3XrrCsbRvB2.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · Songs from the Second Floor (2000)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/a9hZi2B0Pn1mhxhhCblpiVRqkA1.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · You, the Living (2007)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/8ohI4hvikRDUOcG7WkGVrXFt7pY.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · A Pigeon Sat on a Branch (2014)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/2fkdxTMw60GpZbJYGaHWbtgulXg.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mon Oncle (1958)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/8NphGb2OQgii7MlJjSTRzzB7TUy.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Playtime (1967)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/2XdXf9AzZknSboNwrI8bbl7sSof.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mr. Hulot's Holiday (1953)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/4yiERlbuE8c5UX8o5j8dHRDj2jE.jpg" alt="" loading="lazy" /><span class="ref-label">Errol Morris · Fast, Cheap &amp; Out of Control (1997)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/ii3WNOfgEp62jkJAHAOJyYwRfhl.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · You, the Living (2007)</span></div>
+    <div class="frame"><img src="images/closing-strip/01.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-1/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/02.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-2/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/03.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-3/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/04.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-4/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/05.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-5/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/06.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-6/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/07.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-7/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/08.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-8/1200/750?grayscale'" alt="" loading="lazy" /></div>
     <!-- duplicate -->
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/7l9sWWUhmXkNfVBt3XrrCsbRvB2.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · Songs from the Second Floor (2000)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/a9hZi2B0Pn1mhxhhCblpiVRqkA1.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · You, the Living (2007)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/8ohI4hvikRDUOcG7WkGVrXFt7pY.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · A Pigeon Sat on a Branch (2014)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/2fkdxTMw60GpZbJYGaHWbtgulXg.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mon Oncle (1958)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/8NphGb2OQgii7MlJjSTRzzB7TUy.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Playtime (1967)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/2XdXf9AzZknSboNwrI8bbl7sSof.jpg" alt="" loading="lazy" /><span class="ref-label">Jacques Tati · Mr. Hulot's Holiday (1953)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/4yiERlbuE8c5UX8o5j8dHRDj2jE.jpg" alt="" loading="lazy" /><span class="ref-label">Errol Morris · Fast, Cheap &amp; Out of Control (1997)</span></div>
-    <div class="frame"><img src="https://image.tmdb.org/t/p/original/ii3WNOfgEp62jkJAHAOJyYwRfhl.jpg" alt="" loading="lazy" /><span class="ref-label">Roy Andersson · You, the Living (2007)</span></div>
+    <div class="frame"><img src="images/closing-strip/01.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-1/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/02.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-2/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/03.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-3/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/04.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-4/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/05.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-5/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/06.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-6/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/07.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-7/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame"><img src="images/closing-strip/08.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-8/1200/750?grayscale'" alt="" loading="lazy" /></div>
   </div>
 </section>
 
