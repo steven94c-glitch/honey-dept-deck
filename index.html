@@ -3,23 +3,22 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Honey Department — Campaign Selects, Fall 2026</title>
-<meta name="description" content="A campaign concept deck from Studio SDK for Honey Department — Fall 2026." />
+<title>Honey Department — Studio SDK Pitch, Fall 2026</title>
+<meta name="description" content="Studio SDK's response to the Honey Department campaign brief — Fall 2026." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet" />
 <style>
   :root {
     /* —— 3-color palette, pulled from honeydepartment.org ———— */
-    --cream:    #efe6d2;   /* warm off-white */
-    --muted-1:  #c9a527;   /* darker shade of the brand yellow — ribbon strokes */
+    --cream:    #efe6d2;
+    --muted-1:  #c9a527;   /* darker shade of brand yellow — ribbons */
     --muted-2:  #f5db54;   /* brand primary honey yellow — feature fills */
-    --ink:      #241f21;   /* brand charcoal */
+    --ink:      #241f21;
 
     --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     --display: 'Alfa Slab One', 'Cooper Black', Georgia, serif;
 
-    /* type scale */
     --t-display-xl: clamp(64px, 11vw, 168px);
     --t-display-l:  clamp(40px, 7vw, 96px);
     --t-display-m:  clamp(28px, 4vw, 56px);
@@ -72,8 +71,6 @@
   section.cream { background: var(--cream); color: var(--ink); }
   section.deep  { background: var(--muted-2); color: var(--ink); }
   section.no-min { min-height: 0; }
-
-  /* extra top padding when a section has a top divider so content clears the wave */
   section.has-divider-top { padding-top: 200px; }
 
   .tag {
@@ -83,7 +80,7 @@
     padding: 6px 16px;
     font-family: var(--mono);
     font-size: var(--t-label); letter-spacing: .14em; text-transform: uppercase;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
     align-self: flex-start;
     position: relative; z-index: 2;
   }
@@ -97,12 +94,7 @@
   }
   .footer-mark.right { left: auto; right: 6vw; }
 
-  /* —————————————————————————————————————
-     WAVE DIVIDER — single curve, parallel ribbon offsets.
-     The SVG paints the "from" color above the curve (extending up via
-     the path's L 1440,-200 / L 0,-200 buffer). Below the curve is
-     transparent so the section's own bg shows through.
-     ————————————————————————————————————— */
+  /* wave divider */
   .wave-divider {
     position: absolute;
     left: -2%; right: -2%;
@@ -117,13 +109,13 @@
   .wave-divider svg {
     display: block;
     width: 100%; height: 100%;
-    overflow: visible; /* allow path's above-viewbox extension to render */
+    overflow: visible;
   }
 
   /* hero */
   .hero {
     min-height: 100vh;
-    padding: 0 6vw 0;
+    padding: 0 6vw;
     position: relative;
     align-items: stretch;
     justify-content: flex-end;
@@ -131,8 +123,8 @@
   }
   .hero-content {
     position: relative; z-index: 3;
-    padding-bottom: 22vh;
-    max-width: 90vw;
+    padding-bottom: 18vh;
+    max-width: 1200px;
   }
   .hero h1 {
     font-family: var(--display);
@@ -148,6 +140,12 @@
     font-family: var(--mono);
     font-size: var(--t-label); letter-spacing: .25em; text-transform: uppercase;
   }
+  .hero .intro-body {
+    margin-top: 48px;
+    max-width: 56ch;
+    font-size: var(--t-body); line-height: 1.65;
+  }
+  .hero .intro-body p { margin: 0 0 18px; }
   .hero .scroll-cue {
     position: absolute;
     bottom: 32px; right: 6vw;
@@ -168,10 +166,7 @@
     color: var(--ink);
     min-height: 70vh;
   }
-  .chapter .num-row {
-    display: flex; flex-direction: column; gap: 18px;
-    position: relative; z-index: 3;
-  }
+  .chapter .num-row { display: flex; flex-direction: column; gap: 18px; position: relative; z-index: 3; }
   .chapter .label {
     font-family: var(--mono);
     font-size: var(--t-label); letter-spacing: .25em; text-transform: uppercase;
@@ -180,15 +175,13 @@
     font-family: var(--display);
     font-weight: 400;
     font-size: var(--t-display-xl);
-    line-height: .88;
-    letter-spacing: -.015em;
-    margin: 0;
-    text-transform: uppercase;
+    line-height: .88; letter-spacing: -.015em;
+    margin: 0; text-transform: uppercase;
     color: var(--ink);
     max-width: 14ch;
   }
 
-  /* two col */
+  /* two col body */
   .two-col {
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 6vw; align-items: start;
@@ -200,27 +193,76 @@
     font-size: var(--t-display-m);
     line-height: .95; letter-spacing: -.005em;
     text-transform: uppercase;
-    margin: 0 0 28px;
+    margin: 0 0 24px;
+  }
+  .col-text h4 {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: var(--t-label);
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
   }
   .col-text p {
     font-family: var(--mono); font-size: var(--t-body); line-height: 1.65;
     margin: 0 0 18px; max-width: 56ch;
   }
-  .col-text p a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  .col-text ul {
+    list-style: none; padding: 0; margin: 0;
+    font-family: var(--mono); font-size: var(--t-body); line-height: 1.7;
+  }
+  .col-text ul li {
+    padding-left: 20px; position: relative;
+    margin-bottom: 6px;
+  }
+  .col-text ul li::before {
+    content: '—';
+    position: absolute; left: 0;
+  }
 
-  /* image grids */
-  .grid { display: grid; gap: 12px; }
-  .grid-3 { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; }
+  /* film breakdown */
+  .film-section { padding: 200px 6vw 120px; position: relative; background: var(--cream); }
+  .film-header {
+    position: relative; z-index: 2;
+    margin-bottom: 56px;
+    max-width: 90vw;
+  }
+  .film-header .tag { margin-bottom: 24px; }
+  .film-header h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: var(--t-display-xl);
+    line-height: .88; letter-spacing: -.015em;
+    margin: 0; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .film-header .logline {
+    margin: 20px 0 0;
+    font-family: var(--mono);
+    font-style: italic;
+    font-size: clamp(16px, 1.5vw, 22px);
+    line-height: 1.4;
+    max-width: 60ch;
+    opacity: .8;
+  }
 
+  /* 2x2 reference image grid — full page width */
+  .ref-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 0 0 72px;
+    position: relative; z-index: 2;
+  }
+  .ref-grid .frame { aspect-ratio: 4 / 3; }
+
+  /* generic frame */
   .frame {
     position: relative; overflow: hidden;
     background: var(--ink); color: var(--muted-1);
     aspect-ratio: 4 / 3;
     will-change: transform;
   }
-  .frame.tall { aspect-ratio: 3 / 4; }
-  .frame.wide { aspect-ratio: 16 / 9; }
-  .frame.square { aspect-ratio: 1 / 1; }
   .frame img {
     width: 100%; height: 100%;
     object-fit: cover; display: block;
@@ -228,50 +270,9 @@
   }
   .frame.zoom img:hover { transform: scale(1.04); }
 
-  .super {
-    position: absolute;
-    color: var(--muted-1);
-    font-family: var(--mono);
-    font-weight: 700;
-    text-transform: uppercase; letter-spacing: .02em;
-    line-height: 1.05;
-    font-size: clamp(13px, 1.4vw, 18px);
-    pointer-events: none; z-index: 2;
-    text-shadow: 0 2px 4px rgba(0,0,0,.6);
-  }
-  .super.tl { top: 14px; left: 14px; }
-  .super.center { top: 50%; right: 14px; transform: translateY(-50%); text-align: right; }
-
-  /* list */
-  .list-section {
-    padding: 200px 6vw 120px;
-    position: relative;
-    background: var(--cream);
-  }
-  .list {
-    columns: 2; column-gap: 6vw;
-    font-family: var(--mono);
-    font-size: var(--t-body); line-height: 1.85;
-    position: relative; z-index: 2;
-    max-width: 1400px;
-  }
-  .list span { display: block; break-inside: avoid; }
-
-  /* moodboard */
-  .grid-moodboard {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 22vh;
-    gap: 12px;
-    position: relative; z-index: 2;
-  }
-  .grid-moodboard .frame { aspect-ratio: auto; height: 100%; }
-  .span-2c { grid-column: span 2; }
-  .span-2r { grid-row: span 2; }
-
-  /* interstitial — deep slab */
+  /* interstitial */
   .interstitial {
-    min-height: 90vh;
+    min-height: 80vh;
     padding: 220px 6vw 180px;
     position: relative;
     background: var(--muted-2);
@@ -286,30 +287,18 @@
   .bleed-type {
     font-family: var(--display);
     font-size: var(--t-display-l);
-    line-height: .9;
-    letter-spacing: -.015em;
+    line-height: .9; letter-spacing: -.015em;
     text-transform: uppercase;
     color: var(--ink);
     margin: 0;
     text-align: center;
-    position: relative;
-    z-index: 2;
+    position: relative; z-index: 2;
+    max-width: 22ch;
   }
-  .interstitial-image {
-    position: relative;
-    z-index: 2;
-    width: min(60vw, 720px);
-    aspect-ratio: 16/10;
-    overflow: hidden;
-    will-change: transform;
-  }
-  .interstitial-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
 
   /* horizontal marquee */
   .strip-section {
-    padding: 0;
-    min-height: 0;
-    overflow: hidden;
+    padding: 0; min-height: 0; overflow: hidden;
     background: var(--muted-2);
     position: relative;
   }
@@ -317,57 +306,6 @@
   .strip .frame { width: 28vw; height: 32vh; flex-shrink: 0; aspect-ratio: auto; }
   .strip-section.scroll-driven .strip { animation: marquee 60s linear infinite; }
   @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  /* titles */
-  .titles-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 6vw;
-    align-items: center; position: relative; z-index: 2;
-  }
-  .title-frame {
-    position: relative;
-    aspect-ratio: 16 / 10;
-    background: var(--ink); overflow: hidden;
-    display: grid; place-items: center;
-  }
-  .title-frame .circle-crop {
-    width: 70%; aspect-ratio: 1/1;
-    border-radius: 50%; overflow: hidden;
-    background: var(--muted-2); position: relative;
-  }
-  .title-frame .circle-crop img {
-    width: 100%; height: 100%; object-fit: cover;
-    filter: grayscale(.6) contrast(1.05);
-  }
-  .title-frame .label-top, .title-frame .label-bottom {
-    position: absolute; color: var(--muted-1);
-    font-family: var(--mono); font-weight: 700;
-    text-transform: uppercase; letter-spacing: .02em;
-    text-align: center; width: 100%;
-  }
-  .title-frame .label-top { top: 9%; font-size: 16px; }
-  .title-frame .label-bottom { bottom: 9%; font-size: 13px; }
-
-  /* eat it anywhere vignettes */
-  .vignette-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-    position: relative; z-index: 2;
-  }
-  .vignette-grid .frame:first-child { grid-row: span 2; aspect-ratio: 3/4; }
-
-  /* founder grid */
-  .founder-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
-    position: relative; z-index: 2;
-  }
-  .founder-grid .frame { aspect-ratio: 4/5; }
-
-  /* goes with grid */
-  .goes-grid {
-    display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
-    gap: 12px; aspect-ratio: 1/1;
-    position: relative; z-index: 2;
-  }
-  .goes-grid .frame:last-child { grid-column: span 2; aspect-ratio: auto; }
 
   /* closing */
   .closing {
@@ -384,14 +322,20 @@
     margin: 0;
     position: relative; z-index: 3;
   }
-  .closing .credit {
-    margin-top: 40px;
-    font-family: var(--mono);
-    font-size: var(--t-label); letter-spacing: .25em; text-transform: uppercase;
-    opacity: .8;
+  .closing .signoff {
+    margin-top: 56px;
+    font-family: var(--mono); font-size: var(--t-body);
+    line-height: 1.8;
     position: relative; z-index: 3;
   }
-  .closing .credit a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+  .closing .signoff a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+  .closing .credit {
+    margin-top: 56px;
+    font-family: var(--mono);
+    font-size: var(--t-label); letter-spacing: .25em; text-transform: uppercase;
+    opacity: .6;
+    position: relative; z-index: 3;
+  }
 
   /* reveal */
   .reveal { opacity: 0; transition: opacity 1s ease; }
@@ -409,37 +353,22 @@
     section { padding: 72px 6vw; min-height: auto; }
     section.has-divider-top { padding-top: 140px; }
     .chapter { padding: 140px 6vw 80px; }
-    .list-section { padding: 140px 6vw 80px; }
+    .film-section { padding: 140px 6vw 80px; }
     .interstitial { padding: 160px 6vw 140px; min-height: 60vh; }
     .closing { padding-top: 160px; }
-    .two-col, .titles-grid { grid-template-columns: 1fr; gap: 32px; }
-    .list { columns: 1; }
-    .grid-moodboard { grid-template-columns: 1fr 1fr; grid-auto-rows: 28vh; }
-    .span-2c { grid-column: span 1; }
-    .founder-grid { grid-template-columns: 1fr 1fr; }
-    .vignette-grid { grid-template-columns: 1fr; }
-    .vignette-grid .frame:first-child { grid-row: auto; aspect-ratio: 16/10; }
+    .two-col { grid-template-columns: 1fr; gap: 32px; }
+    .ref-grid { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 48px; }
     .nav { padding: 14px 20px; font-size: 10px; }
     .strip .frame { width: 60vw; height: 24vh; }
-    .interstitial-image { width: 84vw; }
     .wave-divider { height: 120px; }
   }
 </style>
 </head>
 <body>
 
-<!-- ————————————————————————————————————
-     WAVE TEMPLATES — single curve. Two directions:
-       .down : cream above, deep ribbon+fill descending below
-       .up   : deep above, ribbons descending into cream below
-     Same path geometry, parallel offsets create the layered ribbon look.
-     ———————————————————————————————————— -->
+<!-- WAVE TEMPLATES -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <!-- DOWN: cream above (transitioning into a deep section).
-         Cream fills above the curve, extending well above the viewbox so any
-         parallax shift never exposes the section's deep bg. Below curve is
-         transparent so the section bg (deep) shows through. -->
     <symbol id="wd-down" viewBox="0 0 1440 220" preserveAspectRatio="none">
       <path d="M0,110 C360,55 720,165 1080,110 C1260,82 1380,138 1440,110 L1440,-200 L0,-200 Z" fill="var(--cream)"/>
       <path d="M0,94 C360,39 720,149 1080,94 C1260,66 1380,122 1440,94"
@@ -447,10 +376,6 @@
       <path d="M0,78 C360,23 720,133 1080,78 C1260,50 1380,106 1440,78"
             stroke="var(--muted-1)" stroke-width="7" fill="none" opacity="0.55" vector-effect="non-scaling-stroke"/>
     </symbol>
-
-    <!-- UP: deep above (transitioning into a cream section).
-         Deep fills above the curve, extending up. Below curve transparent
-         so section's cream bg shows through. -->
     <symbol id="wd-up" viewBox="0 0 1440 220" preserveAspectRatio="none">
       <path d="M0,110 C360,55 720,165 1080,110 C1260,82 1380,138 1440,110 L1440,-200 L0,-200 Z" fill="var(--muted-2)"/>
       <path d="M0,126 C360,71 720,181 1080,126 C1260,98 1380,154 1440,126"
@@ -462,25 +387,30 @@
 </svg>
 
 <nav class="nav" aria-label="primary">
-  <div class="left"><span class="dot"></span><a href="#top">Honey Department</a></div>
-  <div class="right"><a href="#closing">Studio SDK · Fall 2026</a></div>
+  <div class="left"><span class="dot"></span><a href="#top">Honey Department × Studio SDK</a></div>
+  <div class="right"><a href="#thanks">Fall 2026</a></div>
 </nav>
 
-<!-- HERO — cream bg, no top divider; bottom wave transitions to muted-2 -->
+<!-- ——————————————————————————————
+     01 · INTRO — Hello from Carlton
+     —————————————————————————————— -->
 <section id="top" class="hero">
   <div class="hero-content">
-    <h1 class="reveal">HONEY<br/>DEPARTMENT</h1>
-    <div class="sub reveal">Campaign Selects — Fall 2026</div>
+    <div class="sub reveal">A Pitch · Fall 2026</div>
+    <h1 class="reveal" style="margin-top: 28px;">HELLO.</h1>
+    <div class="intro-body reveal">
+      <p>I'm Carlton Lorenz. I run Studio SDK.</p>
+      <p>When the Honey Department brief landed, I read it twice and immediately wanted in. The references — Andersson, Owens, Parr, Errol Morris — are the references. The premise is the kind we'd write for ourselves on a good day.</p>
+      <p>This deck is how we'd make it. Four films, one tone, plenty of room for honey to just be in the room.</p>
+    </div>
   </div>
   <div class="scroll-cue">Scroll ↓</div>
-  <div class="footer-mark">FILM</div>
+  <div class="footer-mark">PITCH</div>
 </section>
 
-<!-- MARQUEE STRIP (deep) — top divider transitions cream→deep -->
+<!-- transition strip -->
 <section class="strip-section scroll-driven no-min" style="padding-top: 220px;">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-down"/></svg>
-  </div>
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
   <div class="strip">
     <div class="frame"><img src="https://picsum.photos/seed/hd-strip-1/600/400?grayscale" alt="" loading="lazy" /></div>
     <div class="frame"><img src="https://picsum.photos/seed/hd-strip-2/600/400?grayscale" alt="" loading="lazy" /></div>
@@ -501,413 +431,233 @@
   </div>
 </section>
 
-<!-- CHAPTER 1 (deep) — same color as strip, no divider needed -->
-<section class="chapter" id="ch-1">
+<!-- ——————————————————————————————
+     02 · APPROACH & TONE
+     —————————————————————————————— -->
+<section class="chapter" id="approach-chapter">
   <div class="num-row reveal">
     <div class="label">Chapter 01</div>
-    <h2>Demographics</h2>
+    <h2>Approach<br/>&amp; Tone</h2>
   </div>
-  <div class="footer-mark">FILM</div>
+  <div class="footer-mark">PITCH</div>
 </section>
 
-<!-- DEMOGRAPHICS (cream) — UP divider at top -->
 <section class="cream has-divider-top">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-up"/></svg>
-  </div>
-  <span class="tag">Film / Photo</span>
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-up"/></svg></div>
+  <span class="tag">02 · The Tone</span>
   <div class="two-col">
     <div class="col-text reveal">
-      <h3>Demographics</h3>
-      <p>Honey Dept. is made for anyone and everyone. It's made to eat anywhere doing anything. Our demographic is specifically anyone over the age of one.</p>
-      <p>Crossing guards eat HD. Manicurists eat HD. Foley artists, nuns, auctioneers, third-generation taxidermists, puppeteers, and dog groomers eat HD.</p>
-      <p>This is a series of portraits or films about specific average people living their lives and eating honey. Fly on the wall, the honey is just another character. We're focused on the eater eating, everyone around them goes about their business.</p>
-      <p style="margin-top:32px;">Think: John Wilson, <a href="#">Bill Owens</a>, Martin Parr, <a href="#">Vernon, Florida</a></p>
+      <h3>Nobody Is The Punchline.</h3>
+      <p>Everything in this campaign rises or falls on tone. The reference filmmakers — Andersson, Owens, Parr, Morris, Tati — share one rule. The humor never comes at the subject's expense.</p>
+      <p>Comedy here is comedy by noticing. We hold the frame one beat past comfortable. We let the room talk. The honey is a guest in the shot, not the point of the shot. The eater is the eater. The honey is just what they happen to be eating.</p>
+      <p>Done well, the films feel like documentaries that happen to have a brand in them. Done poorly, they feel like ads with a quirk filter. We know the difference.</p>
     </div>
-    <div class="grid grid-3 reveal" data-parallax="-0.04">
-      <div class="frame zoom">
-        <img src="https://picsum.photos/seed/hd-bingo/600/450" alt="" loading="lazy" />
-        <span class="super tl">Bingo Players<br/>Eat<br/>Honey Dept.</span>
-      </div>
-      <div class="frame zoom">
-        <img src="https://picsum.photos/seed/hd-chiro/600/450" alt="" loading="lazy" />
-        <span class="super tl">Chiropractors<br/>Eat<br/>Honey Dept.</span>
-      </div>
-      <div class="frame wide zoom" style="grid-column: span 2;">
-        <img src="https://picsum.photos/seed/hd-romeo/1200/675" alt="" loading="lazy" />
-        <span class="super center">Romeo<br/><small style="font-size:.7em;opacity:.85">(Retired Old Men Eating Out)</small><br/>Eat<br/>Honey Dept.</span>
-      </div>
+    <div class="col-text reveal">
+      <h4>Working Rules</h4>
+      <ul>
+        <li>Observational, never satirical</li>
+        <li>Deadpan tempo over comic timing</li>
+        <li>Specificity beats scale every time</li>
+        <li>Honey is present, never celebrated</li>
+        <li>Real people when we can find them</li>
+        <li>Real environments, real light</li>
+        <li>Wide before close. Always.</li>
+        <li>The cut should arrive late</li>
+      </ul>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
+  <div class="footer-mark">PITCH</div>
 </section>
 
-<!-- INTERSTITIAL 1 (deep) — DOWN divider at top -->
+<!-- pull-quote interstitial -->
 <section class="interstitial">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-down"/></svg>
-  </div>
-  <div class="bleed-type" data-parallax="0.04">ANYONE</div>
-  <div class="interstitial-image" data-parallax="-0.03">
-    <img src="https://picsum.photos/seed/hd-inter-1/1600/1000?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="bleed-type" data-parallax="-0.04">OVER ONE</div>
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
+  <div class="bleed-type" data-parallax="0.04">NOBODY IS<br/>THE PUNCHLINE.</div>
 </section>
 
-<!-- LIST 1 (cream) — UP divider -->
-<section class="list-section">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-up"/></svg>
-  </div>
-  <span class="tag">Film / Photo</span>
-  <div class="list reveal">
-    <span>Babuskas of Little Odessa eat Honey Dept.</span>
-    <span>Chess Players eat Honey Dept.</span>
-    <span>The Parks Dept. eats Honey Dept.</span>
-    <span>Your Bodega guy eats Honey Dept.</span>
-    <span>CPAs eat Honey Dept.</span>
-    <span>Deliverymen eat Honey Dept.</span>
-    <span>UWS Doormen eat Honey Dept.</span>
-    <span>"Mickey" eats Honey Dept. (a Times Sq. mascot on break)</span>
-    <span>Stagehands eat Honey Dept.</span>
-    <span>The West 4th Courts eat Honey Dept.</span>
-    <span>Sensei eats Honey Dept.</span>
-    <span>Handball players eat Honey Dept.</span>
-    <span>Republicans eat Honey Dept. Democrats eat Honey Dept.</span>
-    <span>Skaters eat Honey Dept.</span>
-    <span>Birders eat Honey Dept.</span>
-    <span>Marathon spectators eat Honey Dept.</span>
-    <span>Locksmiths eat Honey Dept.</span>
-    <span>Parking Enforcement eats Honey Dept.</span>
-    <span>Alternate side parkers eat Honey Dept.</span>
-    <span>6am regulars eat Honey Dept.</span>
-    <span>The unseasonably dressed eat Honey Dept.</span>
-    <span>Karaoke singers eat Honey Dept.</span>
-    <span>Pawnbrokers eat Honey Dept.</span>
-    <span>Tattoo artists eat Honey Dept.</span>
-    <span>Flower vendors eat Honey Dept.</span>
-    <span>Your neighbor eats Honey Dept.</span>
-    <span>Early mass eats Honey Dept.</span>
-    <span>Antique dealers eat Honey Dept.</span>
-    <span>Second-shift nurses eat Honey Dept.</span>
-    <span>The congregation eats Honey Dept.</span>
-    <span>Pool Sharks eat Honey Dept.</span>
-    <span>Furriers eat Honey Dept.</span>
-    <span>The opening act eats Honey Dept.</span>
-    <span>Docents eat Honey Dept.</span>
-    <span>Small Claims Court eats Honey Dept.</span>
-    <span>Volunteers eat Honey Dept.</span>
-    <span>The regulars eat Honey Dept.</span>
-    <span>Court reporters eat Honey Dept.</span>
-    <span>Dog walkers eat Honey Dept.</span>
-    <span>Nana eats Honey Dept.</span>
-    <span>Bingo players eat Honey Dept.</span>
-    <span>Chiropractors eat Honey Dept.</span>
-    <span>ROMEO (Retired Old Men Eating Out) eat Honey Dept.</span>
-    <span>Bailiffs eat Honey Dept.</span>
-    <span>5am gymgoers eat Honey Dept.</span>
-    <span>Loiterers eat Honey Dept.</span>
-    <span>The 7 train eats Honey Dept.</span>
-    <span>Sparring partners eat Honey Dept.</span>
-    <span>The early bird eats Honey Dept.</span>
-    <span>2nd place eats Honey Dept.</span>
-    <span>Scaffolding workers eat Honey Dept.</span>
-  </div>
-  <div class="footer-mark">FILM</div>
-</section>
-
-<!-- MARQUEE 2 (deep) -->
-<section class="strip-section scroll-driven no-min">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-down"/></svg>
-  </div>
-  <div class="strip" style="animation-duration: 80s; animation-direction: reverse; padding-top: 220px;">
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-1/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-2/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-3/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-4/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-5/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-6/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-7/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-8/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-1/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-2/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-3/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-4/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-5/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-6/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-7/600/400?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame"><img src="https://picsum.photos/seed/hd-strip2-8/600/400?grayscale" alt="" loading="lazy" /></div>
-  </div>
-</section>
-
-<!-- LIST 2 (cream) -->
-<section class="list-section">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-up"/></svg>
-  </div>
-  <span class="tag">Film / Photo</span>
-  <div class="list reveal">
-    <span>The guy waiting for the tow truck eats Honey Dept.</span>
-    <span>Crossing guards eat Honey Dept.</span>
-    <span>The second violin eats Honey Dept.</span>
-    <span>Coat check girls eat Honey Dept.</span>
-    <span>Apprentice plumbers eat Honey Dept.</span>
-    <span>The man who feeds the pigeons eats Honey Dept.</span>
-    <span>The woman on hold eats Honey Dept.</span>
-    <span>Amateur astronomers eat Honey Dept.</span>
-    <span>Roofers eat Honey Dept.</span>
-    <span>The pool man eats Honey Dept.</span>
-    <span>The man at the end of the bar eats Honey Dept.</span>
-    <span>The Sunday laundromat eats Honey Dept.</span>
-    <span>Your landlord eats Honey Dept.</span>
-    <span>Gaffers eat Honey Dept.</span>
-    <span>Timekeepers eat Honey Dept.</span>
-    <span>The woman waiting for the locksmith eats Honey Dept.</span>
-    <span>The night security guard eats Honey Dept.</span>
-    <span>Bench warmers eat Honey Dept.</span>
-    <span>Locals eat Honey Dept.</span>
-    <span>Personal assistants eat Honey Dept.</span>
-    <span>Mermaids eat Honey Dept. (Mermaid parade)</span>
-    <span>Puerto Rico eats Honey Dept. (Puerto Rico Day parade)</span>
-    <span>The Elks Lodge eats Honey Dept.</span>
-    <span>Old Italian Men eat Honey Dept.</span>
-    <span>The 9th floor eats Honey Dept.</span>
-    <span>Jockeys eat Honey Dept.</span>
-    <span>Women in fancy hats eat Honey Dept. (Hampton Classic)</span>
-    <span>Elvis impersonators eat Honey Dept.</span>
-    <span>Swifties eat Honey Dept.</span>
-    <span>Canal Street vendors eat Honey Dept.</span>
-    <span>Ironworkers Local 638 eat Honey Dept.</span>
-    <span>The bride eats Honey Dept.</span>
-    <span>Hot FM eats Honey Dept. (UCB improv troupe)</span>
-    <span>The Wednesday regulars eat Honey Dept. (trivia night team)</span>
-    <span>The Gutterbirds eat Honey Dept. (bowling league team)</span>
-  </div>
-  <div class="footer-mark">FILM</div>
-</section>
-
-<!-- MOODBOARD (deep) -->
-<section class="deep has-divider-top" style="padding: 220px 6vw 120px;">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-down"/></svg>
-  </div>
-  <span class="tag">Moodboard</span>
-  <div class="two-col" style="margin-bottom: 64px;">
-    <div class="col-text reveal">
-      <h3>Reference</h3>
-      <p>The references are Roy Andersson, Martin Parr, Bill Owens, Errol Morris, Jacques Tati — filmmakers and photographers with genuine curiosity about ordinary people in ordinary situations, and the patience to let those situations be exactly what they are.</p>
-      <p>The humor is always there, and it's never mean. Deadpan, warm, specific. Nobody is the punchline. The product is present but not celebrated. Every frame should look like it could be from a film that has nothing to do with honey.</p>
-    </div>
-    <div></div>
-  </div>
-  <div class="grid-moodboard reveal">
-    <div class="frame zoom span-2r" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-mood-1/600/800?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom span-2c" data-parallax="-0.03"><img src="https://picsum.photos/seed/hd-mood-2/1200/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="0.05"><img src="https://picsum.photos/seed/hd-mood-3/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="-0.05"><img src="https://picsum.photos/seed/hd-mood-4/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom span-2c" data-parallax="0.03"><img src="https://picsum.photos/seed/hd-mood-5/1200/600?grayscale" alt="" loading="lazy" /></div>
-  </div>
-  <div class="footer-mark">FILM</div>
-</section>
-
-<!-- REFERENCE MOODBOARD (cream) -->
-<section class="cream has-divider-top" style="padding: 220px 6vw 96px;">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-up"/></svg>
-  </div>
-  <span class="tag">Reference Moodboard</span>
-  <div class="grid-moodboard reveal">
-    <div class="frame zoom" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-ref-1/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="-0.03"><img src="https://picsum.photos/seed/hd-ref-2/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="0.06"><img src="https://picsum.photos/seed/hd-ref-3/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom span-2r" data-parallax="-0.05"><img src="https://picsum.photos/seed/hd-ref-4/600/800?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="0.03"><img src="https://picsum.photos/seed/hd-ref-5/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="-0.06"><img src="https://picsum.photos/seed/hd-ref-6/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="0.05"><img src="https://picsum.photos/seed/hd-ref-7/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom span-2c" data-parallax="-0.04"><img src="https://picsum.photos/seed/hd-ref-8/1200/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-ref-9/600/600?grayscale" alt="" loading="lazy" /></div>
-  </div>
-  <div class="footer-mark">FILM</div>
-</section>
-
-<!-- TITLES (deep) -->
-<section class="deep has-divider-top" style="padding: 220px 6vw 96px;">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-down"/></svg>
-  </div>
-  <span class="tag">Titles</span>
-  <div class="titles-grid">
-    <div class="col-text reveal">
-      <h3>Titles</h3>
-      <p>Let's not let framing get in the way of titles.</p>
-      <p>Each film cuts to a dedicated title frame at the end. The frame isolates the subject with a crop, circular to mimic the circles ("bees") used in branding. The super can appear above, below or beside the image, depending on the crop.</p>
-      <p>The title frame replaces the need for in-scene headroom or negative space. Framing during production stays unconstrained.</p>
-    </div>
-    <div class="title-frame reveal" data-parallax="-0.04">
-      <div class="label-top">ROMEO</div>
-      <div class="circle-crop"><img src="https://picsum.photos/seed/hd-romeo-circle/600/600?grayscale" alt="" loading="lazy" /></div>
-      <div class="label-bottom">EAT HONEY DEPT.</div>
-    </div>
-  </div>
-  <div class="footer-mark">FILM</div>
-</section>
-
-<!-- CHAPTER 2 (deep) — same color as titles, no divider -->
-<section class="chapter" id="ch-2">
+<!-- ——————————————————————————————
+     03 · THE FILMS — chapter card
+     —————————————————————————————— -->
+<section class="chapter" id="films-chapter">
   <div class="num-row reveal">
     <div class="label">Chapter 02</div>
-    <h2>Eat It<br/>Anywhere</h2>
+    <h2>The Films</h2>
   </div>
-  <div class="footer-mark">FILM</div>
+  <div class="footer-mark">PITCH</div>
 </section>
 
-<!-- EAT IT (cream) -->
-<section class="cream has-divider-top">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-up"/></svg>
+<!-- ··· FILM 01 — DEMOGRAPHICS ··· -->
+<section class="film-section has-divider-top" id="film-01">
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-up"/></svg></div>
+
+  <div class="film-header reveal">
+    <span class="tag">Film 01 / 04</span>
+    <h2>Demographics</h2>
+    <p class="logline">"Anyone over the age of one. Crossing guards, manicurists, third-generation taxidermists."</p>
   </div>
-  <span class="tag">Film</span>
+
+  <div class="ref-grid reveal" data-parallax="-0.03">
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f1-ref-1/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f1-ref-2/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f1-ref-3/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f1-ref-4/900/675?grayscale" alt="" loading="lazy" /></div>
+  </div>
+
   <div class="two-col">
     <div class="col-text reveal">
-      <h3>Eat It Anywhere</h3>
-      <p>Eat it near a horse. Eat it in a stairwell you don't belong in. Eat it in front of someone jogging. Eat it on the wrong train. Eat it while holding something fragile. Eat it walking up the down escalator. Eat it inside your coat, quietly. Eat it while whispering to a plant. Eat it mid-apology. Eat it behind the shed, where no one thinks to look. Eat it in the good chair, the one they said not to use. Eat it during the group photo, just slightly out of frame.</p>
-      <p>This honey is the first honey that can be eaten anywhere. So eat it wherever you want doing whatever you're doing. It's your honey.</p>
-      <p style="margin-top:32px; opacity:.75;">An edit of short vignettes. Locked-off shots. One scenario, one take, cut. The titles and VO run over them.</p>
+      <h4>Script</h4>
+      <p>A series of short portraits. One subject, one environment, one product. <em>Bingo Players. Chiropractors. ROMEO (Retired Old Men Eating Out).</em></p>
+      <p>We shoot them doing their thing. Honey enters the frame quietly — pocket, lunchbox, glove compartment. They eat. They go back to whatever they were doing.</p>
+      <p>End card: a circular crop of the eater with the super "BINGO PLAYERS EAT HONEY DEPT." We mimic the brand mark — the bee — as the framing device.</p>
     </div>
-    <div class="vignette-grid reveal" data-parallax="-0.03">
-      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-vig-1/600/800?grayscale" alt="" loading="lazy" /></div>
-      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-vig-2/600/450?grayscale" alt="" loading="lazy" /></div>
-      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-vig-3/600/450?grayscale" alt="" loading="lazy" /></div>
+    <div class="col-text reveal">
+      <h4>Visual Language</h4>
+      <p>35mm grain or a digital match. Naturalistic light, no fill, no flag we didn't find on set. Shallow but legible palette — we let each location bring its own color.</p>
+      <p>We never light the honey. It sits in the existing light of the room.</p>
+      <p>End cards in monospaced caps, dropped over a circular crop of the subject. Title card replaces the headroom we don't shoot for.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
+  <div class="footer-mark">PITCH</div>
 </section>
 
-<!-- INTERSTITIAL 2 (deep) -->
-<section class="interstitial">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-down"/></svg>
+<!-- ··· FILM 02 — EAT IT ANYWHERE ··· -->
+<section class="film-section" id="film-02">
+  <div class="film-header reveal">
+    <span class="tag">Film 02 / 04</span>
+    <h2>Eat It<br/>Anywhere</h2>
+    <p class="logline">"Eat it near a horse. Eat it in a stairwell you don't belong in. Eat it during the group photo, just slightly out of frame."</p>
   </div>
-  <div class="bleed-type" data-parallax="0.04">EAT IT</div>
-  <div class="interstitial-image" data-parallax="-0.03">
-    <img src="https://picsum.photos/seed/hd-inter-2/1600/1000?grayscale" alt="" loading="lazy" />
+
+  <div class="ref-grid reveal" data-parallax="-0.03">
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f2-ref-1/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f2-ref-2/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f2-ref-3/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f2-ref-4/900/675?grayscale" alt="" loading="lazy" /></div>
   </div>
-  <div class="bleed-type" data-parallax="-0.04">ANYWHERE</div>
+
+  <div class="two-col">
+    <div class="col-text reveal">
+      <h4>Script</h4>
+      <p>A vignette reel. Locked-off shots, one scenario per shot, one take per shot. Each beat lands in 4–8 seconds.</p>
+      <p>The VO threads them: <em>"Eat it on the wrong train. Eat it while holding something fragile. Eat it mid-apology."</em> The frame is the joke. The eater is straight-faced. The setting does the work.</p>
+      <p>We end on: "It's your honey."</p>
+    </div>
+    <div class="col-text reveal">
+      <h4>Visual Language</h4>
+      <p>Roy Andersson tableaux. Rigid centered or strict rule-of-thirds. Production design slightly heightened — wallpaper, fluorescent light, motel-bathroom green.</p>
+      <p>Wardrobe specific without being costume. Nobody in jeans-and-a-tee. Everybody in something a real person would actually own.</p>
+      <p>We cut on action, never on dialogue. The VO is allowed to land into silence.</p>
+    </div>
+  </div>
+  <div class="footer-mark">PITCH</div>
 </section>
 
-<!-- ADDITIONAL VIGNETTES (cream) -->
-<section class="cream has-divider-top" style="padding: 220px 6vw 96px;">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-up"/></svg>
+<!-- ··· FILM 03 — A NOTE FROM OUR FOUNDER ··· -->
+<section class="film-section" id="film-03">
+  <div class="film-header reveal">
+    <span class="tag">Film 03 / 04</span>
+    <h2>A Note From<br/>Our Founder</h2>
+    <p class="logline">"Every company has a founder. Ours has several."</p>
   </div>
-  <span class="tag">Additional Vignettes</span>
-  <div class="grid-moodboard reveal">
-    <div class="frame zoom" data-parallax="0.04"><img src="https://picsum.photos/seed/hd-add-1/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="-0.05"><img src="https://picsum.photos/seed/hd-add-2/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="0.03"><img src="https://picsum.photos/seed/hd-add-3/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="-0.06"><img src="https://picsum.photos/seed/hd-add-4/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom span-2c" data-parallax="0.05"><img src="https://picsum.photos/seed/hd-add-5/1200/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="-0.04"><img src="https://picsum.photos/seed/hd-add-6/600/600?grayscale" alt="" loading="lazy" /></div>
-    <div class="frame zoom" data-parallax="0.06"><img src="https://picsum.photos/seed/hd-add-7/600/600?grayscale" alt="" loading="lazy" /></div>
+
+  <div class="ref-grid reveal" data-parallax="-0.03">
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f3-ref-1/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f3-ref-2/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f3-ref-3/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f3-ref-4/900/675?grayscale" alt="" loading="lazy" /></div>
   </div>
-  <div class="footer-mark">FILM</div>
+
+  <div class="two-col">
+    <div class="col-text reveal">
+      <h4>Script</h4>
+      <p>One desk. One nameplate that reads HONEY DEPARTMENT. Same lighting setup, every spot. The chair is filled by someone different each time.</p>
+      <p>A bodega owner. A seven-year-old in a too-big blazer. A drag queen mid-paint. Somebody's nana. Each delivers an "official communication" — a press release, a Q3 update, an apology, a product launch.</p>
+      <p>They read it dead-serious, in their own voice.</p>
+    </div>
+    <div class="col-text reveal">
+      <h4>Visual Language</h4>
+      <p>Symmetrical locked frame, slightly wide, eye-line just below center. Practical desk lamp plus a soft key. Period-leaning office set — neutral wood, a weird trophy, beige wallpaper that's been there a while.</p>
+      <p>Wardrobe rhymes across founders without matching: collared shirt, no jacket, nameplate visible.</p>
+      <p>Each spot ends on a 3-second hold after the last word. Tati's ghost in the room.</p>
+    </div>
+  </div>
+  <div class="footer-mark">PITCH</div>
 </section>
 
-<!-- CHAPTER 3 (deep) -->
-<section class="chapter has-divider-top" id="ch-3">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-down"/></svg>
+<!-- ··· FILM 04 — GOES WITH EVERYTHING ··· -->
+<section class="film-section" id="film-04">
+  <div class="film-header reveal">
+    <span class="tag">Film 04 / 04</span>
+    <h2>Goes With<br/>Everything</h2>
+    <p class="logline">"Pairs well with ricotta toast. Also with timeshare scams, motel ice, and trying to appreciate jazz."</p>
   </div>
+
+  <div class="ref-grid reveal" data-parallax="-0.03">
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f4-ref-1/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f4-ref-2/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f4-ref-3/900/675?grayscale" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="https://picsum.photos/seed/hd-f4-ref-4/900/675?grayscale" alt="" loading="lazy" /></div>
+  </div>
+
+  <div class="two-col">
+    <div class="col-text reveal">
+      <h4>Script</h4>
+      <p>Pairing vignettes, 4–6 seconds each. A scene from ordinary life: a tanning bed, a sad ballet class, a formal dinner-for-one. Honey enters the frame. A super lands: "GOES WITH LATE-STAGE WELLNESS."</p>
+      <p>We rotate through 12–15 pairings. Some absurd, some tender, all observed.</p>
+    </div>
+    <div class="col-text reveal">
+      <h4>Visual Language</h4>
+      <p>Same world as Film 02 but with title cards integrated into the frame — set in brand mono, dropped into the negative space the production design leaves us. No graphic backgrounds, no shadows under the type.</p>
+      <p>Color graded a half-stop warmer than the Demographics films. Slightly more saturation. Just enough to read as a sister campaign, not a different one.</p>
+    </div>
+  </div>
+  <div class="footer-mark">PITCH</div>
+</section>
+
+<!-- ——————————————————————————————
+     04 · EDITING & SOUND
+     —————————————————————————————— -->
+<section class="chapter has-divider-top" id="edit-chapter">
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
   <div class="num-row reveal">
     <div class="label">Chapter 03</div>
-    <h2>A Note From Our Founder</h2>
+    <h2>Editing<br/>&amp; Sound</h2>
   </div>
-  <div class="footer-mark">FILM</div>
+  <div class="footer-mark">PITCH</div>
 </section>
 
-<!-- FOUNDER (cream) -->
 <section class="cream has-divider-top">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-up"/></svg>
-  </div>
-  <span class="tag">Film</span>
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-up"/></svg></div>
+  <span class="tag">04 · Cutting & Mix</span>
   <div class="two-col">
     <div class="col-text reveal">
-      <h3>A Note From Our Founder</h3>
-      <p>Every company has a founder. Ours has several.</p>
-      <p>A series of films in which a rotating cast of individuals — a bodega owner, a seven-year-old girl, someone's grandmother, a drag queen — each sit at a desk and deliver an official communication from Honey Department. A press release. A response to customer feedback. An AMA. Q3 results. An apology. A product announcement.</p>
-      <p>The desk is the same. The uniform is the same. The founder is never the same.</p>
+      <h3>The Cut Should<br/>Arrive Late.</h3>
+      <p>All four films share a cutting rhythm. We hold each shot one beat past comfort. The longer we trust the frame, the funnier it gets. Tati's rule — if you cut on the laugh, you killed the laugh.</p>
+      <p>Across the campaign we'd build a single edit logic: open on a wide, hold on the eater, cut to the thing they're not noticing, return. Repeat. Vary.</p>
     </div>
-    <div class="founder-grid reveal" data-parallax="-0.04">
-      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-found-1/500/625?grayscale" alt="" loading="lazy" /></div>
-      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-found-2/500/625?grayscale" alt="" loading="lazy" /></div>
-      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-found-3/500/625?grayscale" alt="" loading="lazy" /></div>
-      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-found-4/500/625?grayscale" alt="" loading="lazy" /></div>
-      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-found-5/500/625?grayscale" alt="" loading="lazy" /></div>
-      <div class="frame zoom"><img src="https://picsum.photos/seed/hd-found-6/500/625?grayscale" alt="" loading="lazy" /></div>
+    <div class="col-text reveal">
+      <h4>Foley</h4>
+      <p>Foley is doing as much work as picture. Every spoon scrape, every chair shift, every wrapper. The honey itself has a sound — slow, viscous, deliberate. We record it. It's the loudest thing in the room when we want it to be.</p>
+
+      <h4 style="margin-top:32px;">Score</h4>
+      <p>Sparse and instrumental. Strings, a single woodwind, occasional vibraphone. The score never sells the joke. It sits beside it.</p>
+
+      <h4 style="margin-top:32px;">Voiceover</h4>
+      <p>One voice across all four films. Warm, dry, slightly older than expected. We'd suggest a curated short list and tape early.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
+  <div class="footer-mark">PITCH</div>
 </section>
 
-<!-- INTERSTITIAL 3 (deep) -->
+<!-- pull-quote interstitial -->
 <section class="interstitial">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-down"/></svg>
-  </div>
-  <div class="bleed-type" data-parallax="0.04">NEVER</div>
-  <div class="interstitial-image" data-parallax="-0.03">
-    <img src="https://picsum.photos/seed/hd-inter-3/1600/1000?grayscale" alt="" loading="lazy" />
-  </div>
-  <div class="bleed-type" data-parallax="-0.04">THE SAME</div>
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
+  <div class="bleed-type" data-parallax="0.04">THE CUT SHOULD<br/>ARRIVE LATE.</div>
 </section>
 
-<!-- CHAPTER 4 (deep) — no divider, same color -->
-<section class="chapter" id="ch-4">
-  <div class="num-row reveal">
-    <div class="label">Chapter 04</div>
-    <h2>Goes With Everything</h2>
-  </div>
-  <div class="footer-mark">FILM</div>
-</section>
-
-<!-- GOES WITH (cream) -->
-<section class="cream has-divider-top">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-up"/></svg>
-  </div>
-  <span class="tag">Film / Photo</span>
-  <div class="two-col">
-    <div class="col-text reveal">
-      <h3>Goes With Everything</h3>
-      <p>Honey Department pairs well with Ricotta toast. It also goes with leather pants, climate anxiety, translating cat, corporate dystopia, overpriced candles, 2am Wikipedia spirals, motel ice, amicable divorces, trying to appreciate jazz, New Jersey suntanning, impatiently waiting, mid-range crystal energy, sorting through garage boxes, gas station sunglasses shopping, post office parking lots, fake accents, hotel stationery, benign neglect, discount astrology, long voicemails, and timeshare scams.</p>
-      <p>Is this a food pairing guide or compatibility study? Yes. A series of simple vignettes where the honey is being enjoyed in a different scenario with the specific pairing written out.</p>
-    </div>
-    <div class="goes-grid reveal" data-parallax="-0.03">
-      <div class="frame zoom">
-        <img src="https://picsum.photos/seed/hd-goes-1/600/600?grayscale" alt="" loading="lazy" />
-        <span class="super tl">Goes With<br/>Unsolicited<br/>Feedback.</span>
-      </div>
-      <div class="frame zoom">
-        <img src="https://picsum.photos/seed/hd-goes-2/600/600?grayscale" alt="" loading="lazy" />
-        <span class="super tl">Goes With<br/>Formally Dining<br/>Alone.</span>
-      </div>
-      <div class="frame zoom" style="aspect-ratio: 16/9;">
-        <img src="https://picsum.photos/seed/hd-goes-3/1200/675?grayscale" alt="" loading="lazy" />
-        <span class="super tl">Goes With<br/>Late-Stage<br/>Wellness.</span>
-      </div>
-    </div>
-  </div>
-  <div class="footer-mark">FILM</div>
-</section>
-
-<!-- FINAL MARQUEE (deep) -->
+<!-- closing strip -->
 <section class="strip-section scroll-driven no-min">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-down"/></svg>
-  </div>
-  <div class="strip" style="animation-duration: 70s; padding-top: 220px;">
+  <div class="strip" style="animation-duration: 70s;">
     <div class="frame"><img src="https://picsum.photos/seed/hd-fin-1/600/400?grayscale" alt="" loading="lazy" /></div>
     <div class="frame"><img src="https://picsum.photos/seed/hd-fin-2/600/400?grayscale" alt="" loading="lazy" /></div>
     <div class="frame"><img src="https://picsum.photos/seed/hd-fin-3/600/400?grayscale" alt="" loading="lazy" /></div>
@@ -927,17 +677,18 @@
   </div>
 </section>
 
-<!-- CLOSING (cream) -->
-<section class="closing" id="closing">
-  <div class="wave-divider top" data-parallax="0.04">
-    <svg><use href="#wd-up"/></svg>
-  </div>
-  <h2 class="mark reveal">HONEY<br/>DEPARTMENT</h2>
-  <div class="credit reveal">
-    Concept &amp; Direction —
+<!-- ——————————————————————————————
+     05 · THANK YOU
+     —————————————————————————————— -->
+<section class="closing" id="thanks">
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-up"/></svg></div>
+  <h2 class="mark reveal">THANK<br/>YOU.</h2>
+  <div class="signoff reveal">
+    Carlton Lorenz<br/>
+    Studio SDK<br/>
     <a href="https://studiosdk.co" target="_blank" rel="noopener">studiosdk.co</a>
   </div>
-  <div class="footer-mark">FILM</div>
+  <div class="credit reveal">Honey Department · Fall 2026</div>
 </section>
 
 <script>
@@ -952,12 +703,10 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // parallax engine — Y translate proportional to distance from viewport center.
+  // parallax
   const parallaxItems = Array.from(document.querySelectorAll('[data-parallax]')).map(el => ({
-    el,
-    speed: parseFloat(el.dataset.parallax)
+    el, speed: parseFloat(el.dataset.parallax)
   }));
-
   let ticking = false;
   function updateParallax() {
     const vh = window.innerHeight;
