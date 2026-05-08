@@ -7,21 +7,31 @@
 <meta name="description" content="A campaign concept deck from Studio SDK for Honey Department — Fall 2026." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@600;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <style>
+  /* —————————————————————————————————————
+     TYPE SCALE  — tightened, four sizes only
+     ————————————————————————————————————— */
   :root {
     --bg-light: #ececec;
     --bg-dark: #1f1d1c;
     --ink: #111;
     --paper: #ececec;
     --yellow: #ecd142;
-    --yellow-deep: #d6b91f;
     --honey: #f1b500;
+    --honey-deep: #c89200;
     --line: rgba(0,0,0,.18);
     --line-dark: rgba(255,255,255,.18);
+
     --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
     --display: 'Alfa Slab One', 'Cooper Black', Georgia, serif;
-    --ui: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* type scale (mobile -> desktop ceiling) */
+    --t-display-xl: clamp(64px, 11vw, 168px);   /* hero, closing, chapter h2 */
+    --t-display-l:  clamp(40px, 7vw, 96px);     /* interstitial bleed-type */
+    --t-display-m:  clamp(28px, 4vw, 56px);     /* col-text h3 */
+    --t-body:       15px;                       /* mono body */
+    --t-label:      11px;                       /* tags, labels, footer-mark */
   }
 
   * { box-sizing: border-box; }
@@ -31,7 +41,7 @@
     font-family: var(--mono);
     color: var(--ink);
     background: var(--bg-light);
-    font-size: 15px;
+    font-size: var(--t-body);
     line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -46,7 +56,7 @@
     display: flex; justify-content: space-between; align-items: center;
     padding: 18px 28px;
     font-family: var(--mono);
-    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    font-size: var(--t-label); letter-spacing: .12em; text-transform: uppercase;
     z-index: 100;
     mix-blend-mode: difference;
     color: #fff;
@@ -76,7 +86,7 @@
     border-radius: 999px;
     padding: 6px 16px;
     font-family: var(--mono);
-    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    font-size: var(--t-label); letter-spacing: .14em; text-transform: uppercase;
     margin-bottom: 48px;
     align-self: flex-start;
   }
@@ -85,78 +95,54 @@
     position: absolute;
     left: 6vw; bottom: 32px;
     font-family: var(--display);
-    font-size: 11px; letter-spacing: .04em;
+    font-size: var(--t-label); letter-spacing: .04em;
     z-index: 5;
   }
   .footer-mark.right { left: auto; right: 6vw; }
 
   /* —————————————————————————————————————
-     BOLD COLOR-SHAPE PRIMITIVES (Loverboy-inspired)
+     WAVY HONEY LAYERS
+     Full-width SVG bands with wavy top/bottom edges. Used as ambient
+     parallax depth — never carry content, never tilt.
      ————————————————————————————————————— */
-
-  /* giant circle "bee" — huge solid color disc that overlaps content */
-  .blob {
+  .wave {
     position: absolute;
-    border-radius: 50%;
-    background: var(--yellow);
-    z-index: 0;
+    left: -5%; right: -5%;
+    width: 110%;
     pointer-events: none;
-    will-change: transform;
-  }
-  .blob.honey { background: var(--honey); }
-  .blob.dark  { background: var(--bg-dark); }
-  .blob.cream { background: var(--bg-light); }
-
-  /* solid color slab — full-width or partial color block behind content */
-  .slab {
-    position: absolute;
-    background: var(--yellow);
     z-index: 0;
     will-change: transform;
+    display: block;
   }
-
-  /* huge ghost numeral — oversized chapter number bleeding off canvas */
-  .ghost-num {
-    position: absolute;
-    font-family: var(--mono);
-    font-weight: 400;
-    font-size: clamp(280px, 50vw, 700px);
-    line-height: .8;
-    color: var(--yellow);
-    opacity: .14;
-    user-select: none;
-    pointer-events: none;
-    letter-spacing: -.04em;
-    will-change: transform;
-    z-index: 0;
-  }
-
-  /* huge wordmark slab text */
-  .mega {
-    font-family: var(--display);
-    font-size: clamp(80px, 18vw, 320px);
-    line-height: .85;
-    letter-spacing: -.02em;
-    margin: 0;
-  }
+  .wave svg { display: block; width: 100%; height: 100%; }
 
   /* hero */
-  .hero { min-height: 100vh; padding: 0 6vw; position: relative; align-items: stretch; justify-content: flex-end; }
+  .hero {
+    min-height: 100vh;
+    padding: 0 6vw;
+    position: relative;
+    align-items: stretch;
+    justify-content: flex-end;
+    background: var(--yellow);
+  }
   .hero-content {
     position: relative; z-index: 3;
     padding-bottom: 14vh;
+    max-width: 90vw;
   }
   .hero h1 {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(56px, 14vw, 240px);
-    line-height: .85; letter-spacing: -.02em;
-    margin: 0; color: var(--ink);
+    font-size: var(--t-display-xl);
+    line-height: .88;
+    letter-spacing: -.015em;
+    margin: 0;
+    color: var(--ink);
   }
   .hero .sub {
-    margin-top: 32px;
+    margin-top: 28px;
     font-family: var(--mono);
-    font-size: 14px; letter-spacing: .25em; text-transform: uppercase;
+    font-size: var(--t-label); letter-spacing: .25em; text-transform: uppercase;
   }
   .hero .scroll-cue {
     position: absolute;
@@ -169,35 +155,33 @@
   }
   @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
 
-  /* chapter — now a bold yellow slab with oversized numeral */
+  /* chapter — yellow slab, large clean h2, no oversized ghost numeral */
   .chapter {
-    align-items: flex-start; justify-content: flex-end;
-    padding: 96px 6vw;
+    align-items: flex-start; justify-content: center;
+    padding: 120px 6vw;
     position: relative;
     background: var(--yellow);
     color: var(--ink);
-    min-height: 80vh;
+    min-height: 70vh;
   }
-  .chapter .num-row { display: flex; align-items: baseline; gap: 32px; position: relative; z-index: 3; }
-  .chapter h2 {
-    font-family: var(--display);
-    font-weight: 400;
-    font-size: clamp(60px, 14vw, 220px);
-    line-height: .85; letter-spacing: -.02em;
-    margin: 0; text-transform: uppercase;
-    color: var(--ink);
+  .chapter .num-row {
+    display: flex; flex-direction: column; gap: 18px;
+    position: relative; z-index: 3;
   }
   .chapter .label {
     font-family: var(--mono);
-    font-size: 13px; letter-spacing: .25em; text-transform: uppercase;
-    margin-bottom: 16px;
+    font-size: var(--t-label); letter-spacing: .25em; text-transform: uppercase;
   }
-  .chapter .ghost-num {
-    color: var(--ink);
-    opacity: .08;
-    top: -8%; right: -4%;
+  .chapter h2 {
     font-family: var(--display);
-    font-size: clamp(400px, 70vw, 900px);
+    font-weight: 400;
+    font-size: var(--t-display-xl);
+    line-height: .88;
+    letter-spacing: -.015em;
+    margin: 0;
+    text-transform: uppercase;
+    color: var(--ink);
+    max-width: 14ch;
   }
 
   /* two col */
@@ -209,13 +193,13 @@
   .col-text h3 {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(36px, 5vw, 64px);
-    line-height: .9; letter-spacing: -.01em;
+    font-size: var(--t-display-m);
+    line-height: .95; letter-spacing: -.005em;
     text-transform: uppercase;
     margin: 0 0 28px;
   }
   .col-text p {
-    font-family: var(--mono); font-size: 15px; line-height: 1.65;
+    font-family: var(--mono); font-size: var(--t-body); line-height: 1.65;
     margin: 0 0 18px; max-width: 56ch;
   }
   .col-text p a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
@@ -247,12 +231,11 @@
     font-weight: 700;
     text-transform: uppercase; letter-spacing: .02em;
     line-height: 1.05;
-    font-size: clamp(14px, 1.6vw, 22px);
+    font-size: clamp(13px, 1.4vw, 18px);
     pointer-events: none; z-index: 2;
     text-shadow: 0 2px 4px rgba(0,0,0,.6);
   }
   .super.tl { top: 14px; left: 14px; }
-  .super.tr { top: 14px; right: 14px; text-align: right; }
   .super.center { top: 50%; right: 14px; transform: translateY(-50%); text-align: right; }
 
   /* list */
@@ -260,7 +243,7 @@
   .list {
     columns: 2; column-gap: 6vw;
     font-family: var(--mono);
-    font-size: 15px; line-height: 1.85;
+    font-size: var(--t-body); line-height: 1.85;
     position: relative; z-index: 2;
     max-width: 1400px;
   }
@@ -278,40 +261,43 @@
   .span-2c { grid-column: span 2; }
   .span-2r { grid-row: span 2; }
 
-  /* full-bleed parallax interstitial: solid honey-yellow with overlapping image */
+  /* —————————————————————————————————————
+     INTERSTITIAL — yellow slab w/ stacked oversized type + image
+     Flex column to prevent any overlap.
+     ————————————————————————————————————— */
   .interstitial {
-    min-height: 80vh;
-    padding: 0;
-    overflow: hidden;
+    min-height: 90vh;
+    padding: 64px 6vw;
     position: relative;
     background: var(--yellow);
-    display: grid; place-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    overflow: hidden;
+  }
+  .bleed-type {
+    font-family: var(--display);
+    font-size: var(--t-display-l);
+    line-height: .9;
+    letter-spacing: -.015em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin: 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
   }
   .interstitial-image {
     position: relative;
     z-index: 2;
-    width: 60vw;
-    max-width: 900px;
+    width: min(60vw, 720px);
     aspect-ratio: 16/10;
     overflow: hidden;
     will-change: transform;
   }
   .interstitial-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
-  .interstitial-text {
-    position: absolute;
-    z-index: 3;
-    color: var(--ink);
-    font-family: var(--display);
-    font-size: clamp(48px, 11vw, 180px);
-    line-height: .85;
-    letter-spacing: -.02em;
-    text-align: center;
-    width: 100%;
-    padding: 0 6vw;
-    text-transform: uppercase;
-    pointer-events: none;
-    mix-blend-mode: multiply;
-  }
 
   /* horizontal marquee */
   .strip-section { padding: 0; min-height: 0; overflow: hidden; background: var(--bg-dark); }
@@ -346,8 +332,8 @@
     text-transform: uppercase; letter-spacing: .02em;
     text-align: center; width: 100%;
   }
-  .title-frame .label-top { top: 9%; font-size: 18px; }
-  .title-frame .label-bottom { bottom: 9%; font-size: 14px; }
+  .title-frame .label-top { top: 9%; font-size: 16px; }
+  .title-frame .label-bottom { bottom: 9%; font-size: 13px; }
 
   /* eat it anywhere vignettes */
   .vignette-grid {
@@ -371,11 +357,7 @@
   }
   .goes-grid .frame:last-child { grid-column: span 2; aspect-ratio: auto; }
 
-  /* —————————————————————————————————————
-     OVERLAPPING COLOR-BLOCK SECTIONS
-     ————————————————————————————————————— */
-
-  /* image-on-honey: yellow background, image grid sits on top, oversized title bleeds off */
+  /* on-honey wrapper */
   .on-honey {
     background: var(--yellow);
     color: var(--ink);
@@ -387,31 +369,6 @@
   .on-honey .col-text h3 { color: var(--ink); }
   .on-honey .col-text p  { color: var(--ink); }
 
-  /* huge type that bleeds off the right edge of the section */
-  .bleed-type {
-    font-family: var(--display);
-    font-size: clamp(120px, 28vw, 520px);
-    line-height: .82;
-    letter-spacing: -.03em;
-    text-transform: uppercase;
-    color: var(--ink);
-    margin: 0;
-    white-space: nowrap;
-    position: relative;
-    z-index: 1;
-    mix-blend-mode: multiply;
-  }
-  .bleed-type.outline {
-    color: transparent;
-    -webkit-text-stroke: 2px var(--ink);
-    mix-blend-mode: normal;
-  }
-  .bleed-type.right { text-align: right; margin-right: -8vw; }
-  .bleed-type.left  { text-align: left;  margin-left:  -4vw; }
-
-  /* circle-overlap: wraps an image grid so a big circle peeks behind it */
-  .with-circle { position: relative; }
-
   /* closing */
   .closing {
     text-align: center;
@@ -421,15 +378,15 @@
   }
   .closing .mark {
     font-family: var(--display);
-    font-size: clamp(80px, 18vw, 320px);
-    line-height: .82; letter-spacing: -.02em;
+    font-size: var(--t-display-xl);
+    line-height: .88; letter-spacing: -.015em;
     margin: 0;
     position: relative; z-index: 3;
   }
   .closing .credit {
     margin-top: 40px;
     font-family: var(--mono);
-    font-size: 12px; letter-spacing: .25em; text-transform: uppercase;
+    font-size: var(--t-label); letter-spacing: .25em; text-transform: uppercase;
     opacity: .8;
     position: relative; z-index: 3;
   }
@@ -458,25 +415,54 @@
     .vignette-grid .frame:first-child { grid-row: auto; aspect-ratio: 16/10; }
     .nav { padding: 14px 20px; font-size: 10px; }
     .strip .frame { width: 60vw; height: 28vh; }
-    .interstitial { min-height: 50vh; }
+    .interstitial { min-height: 60vh; }
     .interstitial-image { width: 84vw; }
-    .bleed-type { font-size: clamp(60px, 18vw, 120px); }
   }
 </style>
 </head>
 <body>
+
+<!-- ————————————————————————————————————
+     SVG WAVE DEFS — referenced via <use href="#wave-..."> below
+     ———————————————————————————————————— -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- gentle sine wave with full-width fill below -->
+    <symbol id="wave-soft" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,160 C240,80 480,240 720,160 C960,80 1200,240 1440,160 L1440,320 L0,320 Z"/>
+    </symbol>
+    <!-- bigger amplitude, dripping crests -->
+    <symbol id="wave-drip" viewBox="0 0 1440 360" preserveAspectRatio="none">
+      <path d="M0,200 C180,40 360,320 540,200 C720,80 900,300 1080,200 C1260,100 1350,260 1440,200 L1440,360 L0,360 Z"/>
+    </symbol>
+    <!-- low slow swell -->
+    <symbol id="wave-swell" viewBox="0 0 1440 220" preserveAspectRatio="none">
+      <path d="M0,120 C360,20 720,200 1080,100 C1260,50 1380,140 1440,110 L1440,220 L0,220 Z"/>
+    </symbol>
+    <!-- inverted — fills above, wavy bottom edge -->
+    <symbol id="wave-cap" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,0 L1440,0 L1440,160 C1200,260 960,80 720,160 C480,240 240,80 0,160 Z"/>
+    </symbol>
+  </defs>
+</svg>
 
 <nav class="nav" aria-label="primary">
   <div class="left"><span class="dot"></span><a href="#top">Honey Department</a></div>
   <div class="right"><a href="#closing">Studio SDK · Fall 2026</a></div>
 </nav>
 
-<!-- HERO — bold color-block with oversized wordmark sitting on honey -->
-<section id="top" class="hero" style="background: var(--yellow);">
-  <!-- giant overlapping circle bleeding off the top -->
-  <div class="blob honey" data-parallax="0.1" style="top: -25vh; left: -10vw; width: 80vh; height: 80vh;"></div>
-  <!-- secondary circle bottom-right -->
-  <div class="blob dark" data-parallax="0.06" style="bottom: -15vh; right: -8vw; width: 50vh; height: 50vh; opacity: .9;"></div>
+<!-- HERO -->
+<section id="top" class="hero">
+  <!-- stacked wavy honey bands at varying depths -->
+  <div class="wave" data-parallax="0.10" style="top: -8vh; height: 50vh; opacity: .55;">
+    <svg><use href="#wave-drip" fill="var(--honey)"/></svg>
+  </div>
+  <div class="wave" data-parallax="0.04" style="top: 18vh; height: 42vh; opacity: .85;">
+    <svg><use href="#wave-soft" fill="var(--honey-deep)"/></svg>
+  </div>
+  <div class="wave" data-parallax="-0.04" style="bottom: -6vh; height: 36vh;">
+    <svg><use href="#wave-cap" fill="var(--bg-dark)"/></svg>
+  </div>
 
   <div class="hero-content">
     <h1 class="reveal">HONEY<br/>DEPARTMENT</h1>
@@ -508,19 +494,23 @@
   </div>
 </section>
 
-<!-- CHAPTER 1 — yellow slab with oversized numeral -->
+<!-- CHAPTER 1 -->
 <section class="chapter" id="ch-1">
-  <div class="ghost-num">01</div>
+  <div class="wave" data-parallax="0.08" style="top: -10vh; height: 40vh; opacity: .55;">
+    <svg><use href="#wave-swell" fill="var(--honey)"/></svg>
+  </div>
+  <div class="wave" data-parallax="-0.04" style="bottom: -10vh; height: 36vh; opacity: .7;">
+    <svg><use href="#wave-cap" fill="var(--honey-deep)"/></svg>
+  </div>
+
   <div class="num-row reveal">
-    <div>
-      <div class="label">Chapter 01</div>
-      <h2>Demographics</h2>
-    </div>
+    <div class="label">Chapter 01</div>
+    <h2>Demographics</h2>
   </div>
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- DEMOGRAPHICS — concept (light bg, image grid only — congruent, no tilts) -->
+<!-- DEMOGRAPHICS -->
 <section>
   <span class="tag">Film / Photo</span>
   <div class="two-col">
@@ -549,18 +539,27 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- INTERSTITIAL — yellow slab + bleed type + image overlap -->
+<!-- INTERSTITIAL — ANYONE OVER ONE -->
 <section class="interstitial">
-  <div class="bleed-type" style="position:absolute; top: 8%; left: 0; right: 0; text-align:center;" data-parallax="0.06">ANYONE</div>
-  <div class="interstitial-image" data-parallax="-0.04">
+  <div class="wave" data-parallax="0.08" style="top: -8vh; height: 38vh; opacity: .5;">
+    <svg><use href="#wave-drip" fill="var(--honey-deep)"/></svg>
+  </div>
+  <div class="wave" data-parallax="-0.04" style="bottom: -8vh; height: 32vh; opacity: .6;">
+    <svg><use href="#wave-cap" fill="var(--honey)"/></svg>
+  </div>
+
+  <div class="bleed-type" data-parallax="0.04">ANYONE</div>
+  <div class="interstitial-image" data-parallax="-0.03">
     <img src="https://picsum.photos/seed/hd-inter-1/1600/1000?grayscale" alt="" loading="lazy" />
   </div>
-  <div class="bleed-type" style="position:absolute; bottom: 8%; left: 0; right: 0; text-align:center;" data-parallax="-0.06">OVER ONE</div>
+  <div class="bleed-type" data-parallax="-0.04">OVER ONE</div>
 </section>
 
-<!-- DEMOGRAPHICS — list 1 with overlapping circle -->
+<!-- LIST 1 -->
 <section class="list-section">
-  <div class="blob" data-parallax="0.12" style="top: -10vh; right: -10vw; width: 60vh; height: 60vh; opacity: .35;"></div>
+  <div class="wave" data-parallax="0.10" style="top: -8vh; height: 32vh; opacity: .25;">
+    <svg><use href="#wave-soft" fill="var(--honey)"/></svg>
+  </div>
 
   <span class="tag">Film / Photo</span>
   <div class="list reveal">
@@ -641,9 +640,11 @@
   </div>
 </section>
 
-<!-- DEMOGRAPHICS — list 2 -->
+<!-- LIST 2 -->
 <section class="list-section">
-  <div class="blob" data-parallax="0.1" style="bottom: -15vh; left: -10vw; width: 70vh; height: 70vh; opacity: .35;"></div>
+  <div class="wave" data-parallax="0.10" style="bottom: -10vh; height: 36vh; opacity: .25;">
+    <svg><use href="#wave-cap" fill="var(--honey)"/></svg>
+  </div>
 
   <span class="tag">Film / Photo</span>
   <div class="list reveal">
@@ -686,8 +687,12 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- MOODBOARD — on yellow slab w/ bleed type -->
+<!-- MOODBOARD on yellow -->
 <section class="on-honey">
+  <div class="wave" data-parallax="0.06" style="top: -8vh; height: 32vh; opacity: .35;">
+    <svg><use href="#wave-soft" fill="var(--honey-deep)"/></svg>
+  </div>
+
   <span class="tag">Moodboard</span>
   <div class="two-col" style="margin-bottom: 64px;">
     <div class="col-text reveal">
@@ -707,7 +712,7 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- REFERENCE MOODBOARD - bigger mosaic on dark -->
+<!-- REFERENCE MOODBOARD on dark -->
 <section class="dark" style="padding: 96px 6vw;">
   <span class="tag">Reference Moodboard</span>
   <div class="grid-moodboard reveal">
@@ -745,12 +750,16 @@
 
 <!-- CHAPTER 2 -->
 <section class="chapter" id="ch-2">
-  <div class="ghost-num">02</div>
+  <div class="wave" data-parallax="0.08" style="top: -10vh; height: 40vh; opacity: .55;">
+    <svg><use href="#wave-drip" fill="var(--honey)"/></svg>
+  </div>
+  <div class="wave" data-parallax="-0.04" style="bottom: -10vh; height: 36vh; opacity: .7;">
+    <svg><use href="#wave-cap" fill="var(--honey-deep)"/></svg>
+  </div>
+
   <div class="num-row reveal">
-    <div>
-      <div class="label">Chapter 02</div>
-      <h2>Eat It<br/>Anywhere</h2>
-    </div>
+    <div class="label">Chapter 02</div>
+    <h2>Eat It<br/>Anywhere</h2>
   </div>
   <div class="footer-mark">FILM</div>
 </section>
@@ -774,16 +783,23 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- INTERSTITIAL — ANYWHERE -->
+<!-- INTERSTITIAL — EAT IT / ANYWHERE -->
 <section class="interstitial">
-  <div class="bleed-type" style="position:absolute; top: 8%; left: 0; right: 0; text-align:center;" data-parallax="0.06">EAT IT</div>
-  <div class="interstitial-image" data-parallax="-0.04">
+  <div class="wave" data-parallax="0.08" style="top: -8vh; height: 38vh; opacity: .5;">
+    <svg><use href="#wave-soft" fill="var(--honey-deep)"/></svg>
+  </div>
+  <div class="wave" data-parallax="-0.04" style="bottom: -8vh; height: 32vh; opacity: .6;">
+    <svg><use href="#wave-cap" fill="var(--honey)"/></svg>
+  </div>
+
+  <div class="bleed-type" data-parallax="0.04">EAT IT</div>
+  <div class="interstitial-image" data-parallax="-0.03">
     <img src="https://picsum.photos/seed/hd-inter-2/1600/1000?grayscale" alt="" loading="lazy" />
   </div>
-  <div class="bleed-type" style="position:absolute; bottom: 8%; left: 0; right: 0; text-align:center;" data-parallax="-0.06">ANYWHERE</div>
+  <div class="bleed-type" data-parallax="-0.04">ANYWHERE</div>
 </section>
 
-<!-- ADDITIONAL VIGNETTES on light -->
+<!-- ADDITIONAL VIGNETTES -->
 <section style="padding-top: 96px;">
   <span class="tag">Additional Vignettes</span>
   <div class="grid-moodboard reveal">
@@ -800,12 +816,16 @@
 
 <!-- CHAPTER 3 -->
 <section class="chapter" id="ch-3">
-  <div class="ghost-num">03</div>
+  <div class="wave" data-parallax="0.08" style="top: -10vh; height: 40vh; opacity: .55;">
+    <svg><use href="#wave-swell" fill="var(--honey)"/></svg>
+  </div>
+  <div class="wave" data-parallax="-0.04" style="bottom: -10vh; height: 36vh; opacity: .7;">
+    <svg><use href="#wave-cap" fill="var(--honey-deep)"/></svg>
+  </div>
+
   <div class="num-row reveal">
-    <div>
-      <div class="label">Chapter 03</div>
-      <h2>A Note From<br/>Our Founder</h2>
-    </div>
+    <div class="label">Chapter 03</div>
+    <h2>A Note From Our Founder</h2>
   </div>
   <div class="footer-mark">FILM</div>
 </section>
@@ -834,21 +854,32 @@
 
 <!-- INTERSTITIAL — NEVER THE SAME -->
 <section class="interstitial">
-  <div class="bleed-type" style="position:absolute; top: 8%; left: 0; right: 0; text-align:center;" data-parallax="0.06">NEVER</div>
-  <div class="interstitial-image" data-parallax="-0.04">
+  <div class="wave" data-parallax="0.08" style="top: -8vh; height: 38vh; opacity: .5;">
+    <svg><use href="#wave-drip" fill="var(--honey-deep)"/></svg>
+  </div>
+  <div class="wave" data-parallax="-0.04" style="bottom: -8vh; height: 32vh; opacity: .6;">
+    <svg><use href="#wave-cap" fill="var(--honey)"/></svg>
+  </div>
+
+  <div class="bleed-type" data-parallax="0.04">NEVER</div>
+  <div class="interstitial-image" data-parallax="-0.03">
     <img src="https://picsum.photos/seed/hd-inter-3/1600/1000?grayscale" alt="" loading="lazy" />
   </div>
-  <div class="bleed-type" style="position:absolute; bottom: 8%; left: 0; right: 0; text-align:center;" data-parallax="-0.06">THE SAME</div>
+  <div class="bleed-type" data-parallax="-0.04">THE SAME</div>
 </section>
 
 <!-- CHAPTER 4 -->
 <section class="chapter" id="ch-4">
-  <div class="ghost-num">04</div>
+  <div class="wave" data-parallax="0.08" style="top: -10vh; height: 40vh; opacity: .55;">
+    <svg><use href="#wave-soft" fill="var(--honey)"/></svg>
+  </div>
+  <div class="wave" data-parallax="-0.04" style="bottom: -10vh; height: 36vh; opacity: .7;">
+    <svg><use href="#wave-cap" fill="var(--honey-deep)"/></svg>
+  </div>
+
   <div class="num-row reveal">
-    <div>
-      <div class="label">Chapter 04</div>
-      <h2>Goes With<br/>Everything</h2>
-    </div>
+    <div class="label">Chapter 04</div>
+    <h2>Goes With Everything</h2>
   </div>
   <div class="footer-mark">FILM</div>
 </section>
@@ -904,8 +935,15 @@
 
 <!-- CLOSING -->
 <section class="closing" id="closing">
-  <div class="blob dark" data-parallax="0.08" style="top: -25vh; left: -10vw; width: 70vh; height: 70vh; opacity: .9;"></div>
-  <div class="blob honey" data-parallax="0.05" style="bottom: -30vh; right: -15vw; width: 90vh; height: 90vh;"></div>
+  <div class="wave" data-parallax="0.08" style="top: -10vh; height: 50vh; opacity: .55;">
+    <svg><use href="#wave-drip" fill="var(--honey)"/></svg>
+  </div>
+  <div class="wave" data-parallax="0.04" style="top: 30vh; height: 38vh; opacity: .85;">
+    <svg><use href="#wave-soft" fill="var(--honey-deep)"/></svg>
+  </div>
+  <div class="wave" data-parallax="-0.04" style="bottom: -10vh; height: 36vh;">
+    <svg><use href="#wave-cap" fill="var(--bg-dark)"/></svg>
+  </div>
 
   <h2 class="mark reveal">HONEY<br/>DEPARTMENT</h2>
   <div class="credit reveal">
@@ -927,9 +965,8 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // parallax engine — translate Y based on distance from viewport center.
-  // Positive speed = slower (deeper z), negative = faster (closer).
-  // No rotation — keeps everything congruent.
+  // parallax engine — Y translate proportional to distance from viewport center.
+  // No rotations; everything stays congruent.
   const parallaxItems = Array.from(document.querySelectorAll('[data-parallax]')).map(el => ({
     el,
     speed: parseFloat(el.dataset.parallax)
