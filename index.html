@@ -42,20 +42,21 @@
   a { color: inherit; }
   img { display: block; max-width: 100%; }
 
-  /* nav */
+  /* nav — solid bg so it's legible across every section color */
   .nav {
     position: fixed; top: 0; left: 0; right: 0;
     display: flex; justify-content: space-between; align-items: center;
-    padding: 18px 28px;
+    padding: 14px 28px;
     font-family: var(--mono);
     font-size: var(--t-label); letter-spacing: .12em; text-transform: uppercase;
     z-index: 100;
-    mix-blend-mode: difference;
-    color: #fff;
-    pointer-events: none;
+    background: var(--cream);
+    border-bottom: 1px solid rgba(36, 31, 33, 0.08);
+    color: var(--ink);
   }
-  .nav .left, .nav .right { pointer-events: auto; }
+  .nav .left, .nav .right { display: inline-flex; align-items: center; }
   .nav a { text-decoration: none; opacity: .85; }
+  .nav a:hover { opacity: 1; }
   .nav .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--muted-1); margin-right: 8px; vertical-align: middle; }
 
   /* sections */
@@ -166,14 +167,17 @@
   .intro-section .intro-body p { margin: 0 0 22px; }
   .hero .scroll-cue {
     position: absolute;
-    bottom: 32px; right: 6vw;
+    bottom: 32px; left: 50%; transform: translateX(-50%);
     font-family: var(--mono);
     font-size: 10px; letter-spacing: .3em; text-transform: uppercase;
     opacity: .6;
     animation: bob 2.4s ease-in-out infinite;
     z-index: 5;
   }
-  @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+  @keyframes bob {
+    0%,100% { transform: translate(-50%, 0); }
+    50%     { transform: translate(-50%, 6px); }
+  }
 
   /* chapter — deep slab */
   .chapter {
@@ -497,16 +501,11 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- pull-quote interstitial -->
-<section class="interstitial">
-  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
-  <div class="bleed-type" data-parallax="0.04">NOBODY IS<br/>THE PUNCHLINE.</div>
-</section>
-
 <!-- ——————————————————————————————
      03 · THE FILMS — chapter card
      —————————————————————————————— -->
-<section class="chapter" id="films-chapter">
+<section class="chapter has-divider-top" id="films-chapter">
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
   <div class="num-row reveal">
     <div class="label">Chapter 02</div>
     <h2>The Films</h2>
@@ -677,14 +676,9 @@
   <div class="footer-mark">FILM</div>
 </section>
 
-<!-- pull-quote interstitial -->
-<section class="interstitial">
-  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
-  <div class="bleed-type" data-parallax="0.04">THE CUT SHOULD<br/>ARRIVE LATE.</div>
-</section>
-
 <!-- closing strip -->
-<section class="strip-section scroll-driven no-min">
+<section class="strip-section scroll-driven no-min" style="padding-top: 220px;">
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
   <div class="strip" style="animation-duration: 70s;">
     <div class="frame"><img src="https://picsum.photos/seed/hd-fin-1/600/400?grayscale" alt="" loading="lazy" /></div>
     <div class="frame"><img src="https://picsum.photos/seed/hd-fin-2/600/400?grayscale" alt="" loading="lazy" /></div>
