@@ -170,6 +170,26 @@ Gen. "Mo" Greaves · U.S. Army · base commander, Fort Bragg
 Spends Sunday afternoons assembling 1/72-scale model frigates with tweezers. Hasn't said "I love you" out loud since the early Reagan administration. Eats his Honey Dept. in the four-minute window between meetings.
 ▲ END
 
+**Favorite Song:**
+▼ EDIT
+"Wind Beneath My Wings" — Bette Midler
+▲ END
+
+**Hobbies:**
+▼ EDIT
+1/72-scale ship-modeling. Identifying brass on sight.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+A guided tour of the Battleship New Jersey, followed by silence.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Visit Pearl Harbor unaccompanied. Be hugged.
+▲ END
+
 **In "Eat It Anywhere":**
 ▼ EDIT
 Greaves dismisses a lieutenant with a single word that visibly ages the room, waits for the latch to click, and releases a smile no outside observer has ever seen. He squeezes a Honey Dept. into his mouth with the giddiness of a six-year-old opening a present.
@@ -200,6 +220,26 @@ Independent dog walker · Upper East Side
 31. Charges $400 per walk. Twelve dogs in her standing rotation.
 
 Bangs cut by a stylist who flies in from Milan. Calls every dog by its owner's last name. Owns no dogs.
+▲ END
+
+**Favorite Song:**
+▼ EDIT
+"Edge of Seventeen" — Stevie Nicks
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Drafting passive-aggressive group texts. Spite-Pilates.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+Drinks at the Carlyle. He picks up the check immediately and doesn't comment.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Get profiled in *The Cut*. Buy a Vermeer.
 ▲ END
 
 **In "Eat It Anywhere":**
@@ -234,6 +274,26 @@ Third-generation apiarist · Lehigh County, PA
 Names every queen after a 1940s starlet. Drinks one Schlitz a night. Hasn't been to a movie theater since 1979 but reads every review in the Sunday paper.
 ▲ END
 
+**Favorite Song:**
+▼ EDIT
+"Stardust" — Hoagy Carmichael
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Reading Sunday film reviews of movies he won't see. Naming queens.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+A drive through the Poconos with the radio off. Cole slaw afterward.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Outlive the hive he started in 1992.
+▲ END
+
 **In "Eat It Anywhere":**
 ▼ EDIT
 Linwood collapses into a folding chair at the edge of his apiary, peels off the mesh helmet, and squeezes a Honey Dept. directly into his mouth while ten thousand of his own bees swarm somewhere just out of frame. He doesn't flinch.
@@ -264,6 +324,26 @@ Garafalo
 44. Owns fourteen cut-off sweat suits, all gray, all from 1991–1994.
 
 Calls his mother at 4pm every day without fail. Cried at *Coco* and tells everyone. Bench: 405.
+▲ END
+
+**Favorite Song:**
+▼ EDIT
+"I Will Always Love You" — Whitney Houston
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Calling his mother. Watching Pixar films alone.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+Long walk on the boardwalk where she lets him talk about his abuela.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Be told he's a good son by an authority figure. Tag a bear.
 ▲ END
 
 **In "Eat It Anywhere":**
@@ -298,6 +378,26 @@ Bjeldevskij
 Studio apartment with three Pinarellos and a betta fish named Doping Allegation. Has never laughed at a joke in front of a witness.
 ▲ END
 
+**Favorite Song:**
+▼ EDIT
+"Adagio in G Minor" — Albinoni
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Hand-tuning derailleurs. Maintaining grudges.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+A guided tour of the Royal Library of Belgium. Mutual silence afterward.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Be named in a *Vrij Nederland* feature. Finish in the top half.
+▲ END
+
 **In "Eat It Anywhere":**
 ▼ EDIT
 Ren pulls onto the shoulder mid-cramp, dismounts with surgical care, and is mid-squeeze of a Honey Dept. when a passing F-150 launches a sheet of brown roadwater across his entire person. He keeps squeezing.
@@ -328,6 +428,26 @@ Bellanca
 81. Same seat, Tuesdays and Thursdays, for 23 years.
 
 Won $2,400 in 1987 and hasn't won since. Carries a small framed photo of a stranger she found on the side of Route 17 in 1974. Will not speak to her sister.
+▲ END
+
+**Favorite Song:**
+▼ EDIT
+"Goodnight, Irene" — Lead Belly
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Bingo. Inventorying.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+Early dinner at a diner that takes cash only. Home by 8.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Be left alone. See it through.
 ▲ END
 
 **In "Eat It Anywhere":**
@@ -362,6 +482,26 @@ Partners 19 years. Parked behind the laundromat at 6:42am every weekday.
 Frank reads the entire Pennysaver, including the classifieds. Pencil pretends to. Neither has pulled anyone over in a calendar year.
 ▲ END
 
+**Favorite Song:**
+▼ EDIT
+"Take Me Home, Country Roads" — John Denver
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Reading the Pennysaver. Sitting.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+A full shift parked behind the laundromat with nothing happening.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Make it to thirty years. Get a corner office.
+▲ END
+
 **In "Eat It Anywhere":**
 ▼ EDIT
 Frank and Pencil are mid-donut in their cruiser when Frank produces a Honey Dept. and drizzles a slow, careful zigzag across his honey-glazed. Pencil says nothing. Pencil reaches for the tube.
@@ -392,6 +532,26 @@ Ciardullo
 36. Hair currently 11 inches tall.
 
 Engaged five times to the same man, named Carl. Subscribes to four trade magazines and reads zero of them. Has worn the same perfume since 1984.
+▲ END
+
+**Favorite Song:**
+▼ EDIT
+"Total Eclipse of the Heart" — Bonnie Tyler
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Bowling league. Speaking loudly.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+A booth at the Italian place where they know her order. He tips well.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Get Carl to actually marry her. Cruise the Mediterranean.
 ▲ END
 
 **In "Eat It Anywhere":**
@@ -426,6 +586,26 @@ Junior copywriter · mid-tier agency · Flatiron
 Owns a tortoiseshell cat named Provision. Sat through his entire two-year relationship like it was a calendar invite he forgot to decline.
 ▲ END
 
+**Favorite Song:**
+▼ EDIT
+"How Long" — Charlie Puth
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Texting back. Maintaining a Notes-app list of women.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+She does most of the talking. Splits the check.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Be promoted to senior. Get a co-op below 23rd.
+▲ END
+
 **In "Eat It Anywhere":**
 ▼ EDIT
 Devon's girlfriend of two years finishes her closing statement at the table, drops her napkin, and walks out of the restaurant. He waits one full beat, retrieves a Honey Dept. from his jacket, and squeezes it into his mouth with the expression of a man checking the time.
@@ -456,6 +636,26 @@ Cottingham
 52. Eats lunch out of the same Igloo cooler he's owned since 1989.
 
 Watches a single coat of paint dry for the full eight-hour cure window without leaving the room. Has lived next to the same neighbor for 14 years and does not know his name.
+▲ END
+
+**Favorite Song:**
+▼ EDIT
+"Misty" — Erroll Garner
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Watching paint dry. Knowing the name of every color on sight.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+She brings a thermos. They sit in a room together.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Paint the inside of a church. Be quiet for an entire summer.
 ▲ END
 
 **In "Eat It Anywhere":**
@@ -490,6 +690,26 @@ Brother Pemwa (formerly Greg) · Buddhist monk, contemplative tradition
 Previously regional sales lead for a paper distributor in Akron, Ohio. Has not spoken on a telephone in thirteen years. Still dreams about printer toner.
 ▲ END
 
+**Favorite Song:**
+▼ EDIT
+"Big Yellow Taxi" — Joni Mitchell
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Meditation. Light gardening. Resisting the urge to call his old boss.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+A long hike with no phone. Vow of silence honored on both sides.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+One uninterrupted year. See Akron one more time and feel nothing.
+▲ END
+
 **In "Eat It Anywhere":**
 ▼ EDIT
 Pemwa is mid-meditation, eyes closed, sustaining a sonorous "hmmmmm," when he reaches into his robe, produces a Honey Dept., and the hum opens into an unmistakable "mmmmm." His eyes pop wide. Nobody is in the temple to see it.
@@ -520,6 +740,26 @@ Quintero
 28. Trains in a Bronx gym that hasn't been painted since the Reagan administration.
 
 Talks to his dead father between rounds. Reads only the obituaries. Plays no music.
+▲ END
+
+**Favorite Song:**
+▼ EDIT
+"Cuando Calienta el Sol" — Luis Miguel
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Reading obituaries. Long bus rides.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+She comes to the fight. They eat pernil after.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Beat someone who's beaten him before. Build his mother a house.
 ▲ END
 
 **In "Eat It Anywhere":**
@@ -554,6 +794,26 @@ Romanenko
 Wife back home, daughter in Edmonton he has never met. Sings opera on the rig. Loudly, badly, with great feeling.
 ▲ END
 
+**Favorite Song:**
+▼ EDIT
+"Nessun Dorma" — Pavarotti, 1972
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Singing opera at altitude. Postcards.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+A walk along the Hudson. She lets him sing.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Visit Edmonton. Be invited in.
+▲ END
+
 **In "Eat It Anywhere":**
 ▼ EDIT
 Vass appears inside a foam-covered window 600 feet above 7th Avenue and squeegees a slow clear arc through the lather, revealing himself: one hand on the rubber, one hand on a Honey Dept., singing something operatic and unbothered. The city is silent behind him.
@@ -585,6 +845,26 @@ Married 23 years · on their way to a wedding they don't want to attend
 Their 2003 Volvo has been "fine" for the entire trip.
 
 Lance refuses to call AAA. Bernadette will not suggest it. They have carried three tubes of Honey Dept. in the glove box for nine years. This is what they're for.
+▲ END
+
+**Favorite Song:**
+▼ EDIT
+"The Way You Look Tonight" — Sinatra
+▲ END
+
+**Hobbies:**
+▼ EDIT
+Day-drives. Not calling AAA.
+▲ END
+
+**Perfect Date:**
+▼ EDIT
+They are already on it.
+▲ END
+
+**Bucketlist:**
+▼ EDIT
+Make it to the wedding. Make it home.
 ▲ END
 
 **In "Eat It Anywhere":**
