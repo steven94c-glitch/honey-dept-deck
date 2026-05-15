@@ -22,19 +22,19 @@ I'm Carlton Lorenz.
 
 When the Honey Department brief landed, I read it twice and immediately wanted in. The references — Andersson, Owens, Parr, Errol Morris — are the references. The premise is the kind we'd write for ourselves on a good day.
 
-This deck is how we'd make it. Four films, one tone, plenty of room for honey to just be in the room.
+This deck is how we'd make it. Two films, fourteen characters, one tone, plenty of room for honey to just be in the room.
 ▲ END
 
 ---
 
 ## 02 · APPROACH & TONE  (Chapter 01)
 
-**Chapter card — small label above title:**
+**Chapter card label:**
 ▼ EDIT
 Chapter 01
 ▲ END
 
-**Chapter card — big title (use a line break if you want):**
+**Chapter card title (line break allowed):**
 ▼ EDIT
 Approach
 & Tone
@@ -78,74 +78,21 @@ The cut should arrive late
 
 ---
 
-## 03 · THE FILMS  (Chapter 02)
+## CHAPTER 02 · THE CAST
 
-**Chapter card — small label:**
+**Chapter card label:**
 ▼ EDIT
 Chapter 02
 ▲ END
 
-**Chapter card — title:**
-▼ EDIT
-The Films
-▲ END
-
----
-
-### Film 01 — DEMOGRAPHICS
-
-**Tag:**
-▼ EDIT
-Film 01 / 04
-▲ END
-
-**Title (line break allowed):**
-▼ EDIT
-Demographics
-▲ END
-
-**Logline (italic quote, single paragraph):**
-▼ EDIT
-"Anyone over the age of one. Crossing guards, manicurists, third-generation taxidermists."
-▲ END
-
-**Script (paragraphs separated by blank lines):**
-▼ EDIT
-A series of short portraits. One subject, one environment, one product. *Bingo Players. Chiropractors. ROMEO (Retired Old Men Eating Out).*
-
-We shoot them doing their thing. Honey enters the frame quietly — pocket, lunchbox, glove compartment. They eat. They go back to whatever they were doing.
-
-End card: a circular crop of the eater with the super "BINGO PLAYERS EAT HONEY DEPT." We mimic the brand mark — the bee — as the framing device.
-▲ END
-
-**Visual Language:**
-▼ EDIT
-35mm grain or a digital match. Naturalistic light, no fill, no flag we didn't find on set. Shallow but legible palette — we let each location bring its own color.
-
-We never light the honey. It sits in the existing light of the room.
-
-End cards in monospaced caps, dropped over a circular crop of the subject. Title card replaces the headroom we don't shoot for.
-▲ END
-
----
-
----
-
-## INTERLUDE · THE CAST  (sits between Film 01 and Film 02)
-
-**Small label above the title:**
-▼ EDIT
-Interlude
-▲ END
-
-**Cast intro big title:**
+**Chapter card title:**
 ▼ EDIT
 The Cast
 ▲ END
 
-**Intro paragraph:**
+**Intro paragraph (under the title):**
 ▼ EDIT
-Fourteen specific people pulled from the demographic. Same eater, different rooms. The films don't keep inventing new characters — they follow these.
+Fourteen specific people. The films don't keep inventing new characters — they follow these. Each one shows up across the campaign, doing what they do, eating what they eat.
 ▲ END
 
 ---
@@ -879,11 +826,25 @@ Goes with weddings you don't want to attend. Goes with marriages that work becau
 
 ---
 
-### Film 02 — EAT IT ANYWHERE
+## CHAPTER 03 · THE FILMS
+
+**Chapter card label:**
+▼ EDIT
+Chapter 03
+▲ END
+
+**Chapter card title:**
+▼ EDIT
+The Films
+▲ END
+
+---
+
+### Film 01 — EAT IT ANYWHERE
 
 **Tag:**
 ▼ EDIT
-Film 02 / 04
+Film 01 / 02
 ▲ END
 
 **Title:**
@@ -917,49 +878,11 @@ We cut on action, never on dialogue. The VO is allowed to land into silence.
 
 ---
 
-### Film 03 — A NOTE FROM OUR FOUNDER
+### Film 02 — GOES WITH EVERYTHING
 
 **Tag:**
 ▼ EDIT
-Film 03 / 04
-▲ END
-
-**Title:**
-▼ EDIT
-A Note From
-Our Founder
-▲ END
-
-**Logline:**
-▼ EDIT
-"Every company has a founder. Ours has several."
-▲ END
-
-**Script:**
-▼ EDIT
-One desk. One nameplate that reads HONEY DEPARTMENT. Same lighting setup, every spot. The chair is filled by someone different each time.
-
-A bodega owner. A seven-year-old in a too-big blazer. A drag queen mid-paint. Somebody's nana. Each delivers an "official communication" — a press release, a Q3 update, an apology, a product launch.
-
-They read it dead-serious, in their own voice.
-▲ END
-
-**Visual Language:**
-▼ EDIT
-Symmetrical locked frame, slightly wide, eye-line just below center. Practical desk lamp plus a soft key. Period-leaning office set — neutral wood, a weird trophy, beige wallpaper that's been there a while.
-
-Wardrobe rhymes across founders without matching: collared shirt, no jacket, nameplate visible.
-
-Each spot ends on a 3-second hold after the last word. Tati's ghost in the room.
-▲ END
-
----
-
-### Film 04 — GOES WITH EVERYTHING
-
-**Tag:**
-▼ EDIT
-Film 04 / 04
+Film 02 / 02
 ▲ END
 
 **Title:**
@@ -982,18 +905,93 @@ We rotate through 12–15 pairings. Some absurd, some tender, all observed.
 
 **Visual Language:**
 ▼ EDIT
-Same world as Film 02 but with title cards integrated into the frame — set in brand mono, dropped into the negative space the production design leaves us. No graphic backgrounds, no shadows under the type.
+Same world as Film 01 but with title cards integrated into the frame — set in brand mono, dropped into the negative space the production design leaves us. No graphic backgrounds, no shadows under the type.
 
-Color graded a half-stop warmer than the Demographics films. Slightly more saturation. Just enough to read as a sister campaign, not a different one.
+Color graded a half-stop warmer than the rest. Slightly more saturation. Just enough to read as a sister film, not a different campaign.
 ▲ END
 
 ---
 
-## 04 · EDITING & SOUND  (Chapter 03)
+## CHAPTER 04 · PRODUCTION DESIGN
 
 **Chapter card label:**
 ▼ EDIT
-Chapter 03
+Chapter 04
+▲ END
+
+**Chapter card title:**
+▼ EDIT
+Production
+Design
+▲ END
+
+**Section tag (pill):**
+▼ EDIT
+04 · Sets, Props, Wardrobe
+▲ END
+
+**Left column headline:**
+▼ EDIT
+The Room Does
+The Joke.
+▲ END
+
+**Left column body:**
+▼ EDIT
+Every set we build, dress, or scout for this campaign is doing comedic work before anyone says a word. The walls have to be the right wrong color. The chair has to be the right wrong chair. We never decorate to a brief — we collect to a feeling.
+
+Locations are real wherever possible. When we build, we build to look found. No production-design fingerprints. Andersson's rule: the production designer should be invisible, and slightly mean.
+
+Each character carries a palette into their room. Honey is the warm note in every one.
+▲ END
+
+**Right column subhead 1 (Locations):**
+▼ EDIT
+Locations
+▲ END
+
+**Right column body 1:**
+▼ EDIT
+Honest, specific, dated. The kind of room a particular person has actually lived in. Wallpaper that's been there a while.
+▲ END
+
+**Right column subhead 2 (Wardrobe):**
+▼ EDIT
+Wardrobe
+▲ END
+
+**Right column body 2:**
+▼ EDIT
+Real garments. No costume. We dress to what a real version of this person owns. Tailoring is allowed; styling is not.
+▲ END
+
+**Right column subhead 3 (Props):**
+▼ EDIT
+Props
+▲ END
+
+**Right column body 3:**
+▼ EDIT
+One signature object per character on screen — a medal, a nameplate, a bingo dauber, a Pinarello. Honey is always a prop, never a hero.
+▲ END
+
+**Right column subhead 4 (Color):**
+▼ EDIT
+Color
+▲ END
+
+**Right column body 4:**
+▼ EDIT
+Mid-century beige, motel green, fluorescent pink, dust. Each location bringing its own. We don't grade them together; we let them argue.
+▲ END
+
+---
+
+## CHAPTER 05 · EDITING & SOUND
+
+**Chapter card label:**
+▼ EDIT
+Chapter 05
 ▲ END
 
 **Chapter card title:**
@@ -1004,7 +1002,7 @@ Editing
 
 **Section tag (pill):**
 ▼ EDIT
-04 · Cutting & Mix
+05 · Cutting & Mix
 ▲ END
 
 **Left column headline:**
@@ -1047,12 +1045,12 @@ Voiceover
 
 **Right column body 3:**
 ▼ EDIT
-One voice across all four films. Warm, dry, slightly older than expected. We'd suggest a curated short list and tape early.
+One voice across both films. Warm, dry, slightly older than expected. We'd suggest a curated short list and tape early.
 ▲ END
 
 ---
 
-## 05 · THANK YOU  (closing page)
+## CLOSING · THANK YOU
 
 **Big sign-off:**
 ▼ EDIT
