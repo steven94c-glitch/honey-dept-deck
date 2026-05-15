@@ -129,6 +129,476 @@ End cards in monospaced caps, dropped over a circular crop of the subject. Title
 
 ---
 
+---
+
+## INTERLUDE · THE CAST  (sits between Film 01 and Film 02)
+
+**Small label above the title:**
+▼ EDIT
+Interlude
+▲ END
+
+**Cast intro big title:**
+▼ EDIT
+The Cast
+▲ END
+
+**Intro paragraph:**
+▼ EDIT
+Fourteen specific people pulled from the demographic. Same eater, different rooms. The films don't keep inventing new characters — they follow these.
+▲ END
+
+---
+
+### Character 01 — MAURICE GREAVES
+
+**Name (line breaks allowed):**
+▼ EDIT
+Maurice
+Greaves
+▲ END
+
+**Role line (italic, under name):**
+▼ EDIT
+Gen. "Mo" Greaves · U.S. Army · base commander, Fort Bragg
+▲ END
+
+**Bio (paragraphs separated by blank lines):**
+▼ EDIT
+35-year career. Two combat tours. A chest you can read.
+
+Spends Sunday afternoons assembling 1/72-scale model frigates with tweezers. Hasn't said "I love you" out loud since the early Reagan administration. Eats his Honey Dept. in the four-minute window between meetings.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Greaves dismisses a lieutenant with a single word that visibly ages the room, waits for the latch to click, and releases a smile no outside observer has ever seen. He squeezes a Honey Dept. into his mouth with the giddiness of a six-year-old opening a present.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with command authority. Goes with privately weeping at the end of *Brian's Song*.
+▲ END
+
+---
+
+### Character 02 — CORIANDER WEXLER-PIKE
+
+**Name:**
+▼ EDIT
+Coriander
+Wexler-Pike
+▲ END
+
+**Role:**
+▼ EDIT
+Independent dog walker · Upper East Side
+▲ END
+
+**Bio:**
+▼ EDIT
+31. Charges $400 per walk. Twelve dogs in her standing rotation.
+
+Bangs cut by a stylist who flies in from Milan. Calls every dog by its owner's last name. Owns no dogs.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Cory carves down Madison Avenue at a 7-minute mile, fifteen dogs in formation, sunglasses on at 8am. She produces a Honey Dept. and squeezes it into her mouth without breaking pace, eye contact, or expression.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with prenups. Goes with hating the suburbs out loud at parties.
+▲ END
+
+---
+
+### Character 03 — LINWOOD EARHARDT
+
+**Name:**
+▼ EDIT
+Linwood
+Earhardt
+▲ END
+
+**Role:**
+▼ EDIT
+Third-generation apiarist · Lehigh County, PA
+▲ END
+
+**Bio:**
+▼ EDIT
+58 years old. Eleven thousand career stings.
+
+Names every queen after a 1940s starlet. Drinks one Schlitz a night. Hasn't been to a movie theater since 1979 but reads every review in the Sunday paper.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Linwood collapses into a folding chair at the edge of his apiary, peels off the mesh helmet, and squeezes a Honey Dept. directly into his mouth while ten thousand of his own bees swarm somewhere just out of frame. He doesn't flinch.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with grief you've made peace with. Goes with whatever Hedy Lamarr is doing right now.
+▲ END
+
+---
+
+### Character 04 — ROMAN GARAFALO
+
+**Name:**
+▼ EDIT
+Roman
+Garafalo
+▲ END
+
+**Role:**
+▼ EDIT
+"Rome" · Muscle Beach regular · occasional personal trainer
+▲ END
+
+**Bio:**
+▼ EDIT
+44. Owns fourteen cut-off sweat suits, all gray, all from 1991–1994.
+
+Calls his mother at 4pm every day without fail. Cried at *Coco* and tells everyone. Bench: 405.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Rome is pinned under the bar mid-rep, veins doing veiny things, when his spotter Brick lowers a Honey Dept. tube to his lips and squeezes. Rome racks 405 like he's setting down a teacup.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with crying alone in the parking lot. Goes with telling everyone you're fine.
+▲ END
+
+---
+
+### Character 05 — HENRIK BJELDEVSKIJ
+
+**Name:**
+▼ EDIT
+Henrik
+Bjeldevskij
+▲ END
+
+**Role:**
+▼ EDIT
+"Ren" · amateur cyclist · lifelong last-place finisher
+▲ END
+
+**Bio:**
+▼ EDIT
+29. Belgian-American. Four straight gran fondos in the bottom 5%.
+
+Studio apartment with three Pinarellos and a betta fish named Doping Allegation. Has never laughed at a joke in front of a witness.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Ren pulls onto the shoulder mid-cramp, dismounts with surgical care, and is mid-squeeze of a Honey Dept. when a passing F-150 launches a sheet of brown roadwater across his entire person. He keeps squeezing.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with European cinema with subtitles. Goes with anti-monarchist sentiment.
+▲ END
+
+---
+
+### Character 06 — MARGERY BELLANCA
+
+**Name:**
+▼ EDIT
+Margery
+Bellanca
+▲ END
+
+**Role:**
+▼ EDIT
+"Marge" · standing bingo regular · Our Lady of Sorrows Senior Center
+▲ END
+
+**Bio:**
+▼ EDIT
+81. Same seat, Tuesdays and Thursdays, for 23 years.
+
+Won $2,400 in 1987 and hasn't won since. Carries a small framed photo of a stranger she found on the side of Route 17 in 1974. Will not speak to her sister.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Marge is two squares from a vertical when the caller goes "B-11" and the room exhales. Without looking up from her card, she retrieves a Honey Dept. from her purse and squeezes it like she's daring God to make her wait one more minute.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with bingo. Goes with knowing the exact number of days since.
+▲ END
+
+---
+
+### Character 07 — FRANK & PENCIL
+
+**Name:**
+▼ EDIT
+Frank &
+Pencil
+▲ END
+
+**Role:**
+▼ EDIT
+Officers Tedesco & Pencillo · patrol partners · Cruiser 4-11
+▲ END
+
+**Bio:**
+▼ EDIT
+Partners 19 years. Parked behind the laundromat at 6:42am every weekday.
+
+Frank reads the entire Pennysaver, including the classifieds. Pencil pretends to. Neither has pulled anyone over in a calendar year.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Frank and Pencil are mid-donut in their cruiser when Frank produces a Honey Dept. and drizzles a slow, careful zigzag across his honey-glazed. Pencil says nothing. Pencil reaches for the tube.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with not pulling anyone over. Goes with marriages that work because nobody's home.
+▲ END
+
+---
+
+### Character 08 — STEPHANIE CIARDULLO
+
+**Name:**
+▼ EDIT
+Stephanie
+Ciardullo
+▲ END
+
+**Role:**
+▼ EDIT
+"Steph" · owner, Steph's House of Hair · Yonkers
+▲ END
+
+**Bio:**
+▼ EDIT
+36. Hair currently 11 inches tall.
+
+Engaged five times to the same man, named Carl. Subscribes to four trade magazines and reads zero of them. Has worn the same perfume since 1984.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Steph is mid-blowout on a regular when she snaps her gum, mouths "hold on a sec, doll," and ducks behind the half-wall to squeeze a Honey Dept. into her mouth without disturbing a single follicle. She returns with the dryer immediately.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with the affair the whole town knows about. Goes with one perfume forever.
+▲ END
+
+---
+
+### Character 09 — DEVON MARQUARDT
+
+**Name:**
+▼ EDIT
+Devon
+Marquardt
+▲ END
+
+**Role:**
+▼ EDIT
+Junior copywriter · mid-tier agency · Flatiron
+▲ END
+
+**Bio:**
+▼ EDIT
+27. Has not initiated a conversation since 2019.
+
+Owns a tortoiseshell cat named Provision. Sat through his entire two-year relationship like it was a calendar invite he forgot to decline.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Devon's girlfriend of two years finishes her closing statement at the table, drops her napkin, and walks out of the restaurant. He waits one full beat, retrieves a Honey Dept. from his jacket, and squeezes it into his mouth with the expression of a man checking the time.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with checking your phone immediately. Goes with the next text already coming in.
+▲ END
+
+---
+
+### Character 10 — WESLEY COTTINGHAM
+
+**Name:**
+▼ EDIT
+Wesley
+Cottingham
+▲ END
+
+**Role:**
+▼ EDIT
+"Wez" · sole proprietor, Cottingham Painting LLC · Linden, NJ
+▲ END
+
+**Bio:**
+▼ EDIT
+52. Eats lunch out of the same Igloo cooler he's owned since 1989.
+
+Watches a single coat of paint dry for the full eight-hour cure window without leaving the room. Has lived next to the same neighbor for 14 years and does not know his name.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Wez sits in a freshly painted room — eggshell, semi-gloss, eight hours of cure ahead — locked onto the drying wall like a man watching the final 90 seconds of an FA Cup final. He eats a Honey Dept. with the contained excitement of a fan who has waited a long time for this.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with knowing the difference between *eggshell* and *satin* on sight. Goes with profound and unbroken silence.
+▲ END
+
+---
+
+### Character 11 — PEMWA TSERING
+
+**Name:**
+▼ EDIT
+Pemwa
+Tsering
+▲ END
+
+**Role:**
+▼ EDIT
+Brother Pemwa (formerly Greg) · Buddhist monk, contemplative tradition
+▲ END
+
+**Bio:**
+▼ EDIT
+41. Ordained at 28.
+
+Previously regional sales lead for a paper distributor in Akron, Ohio. Has not spoken on a telephone in thirteen years. Still dreams about printer toner.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Pemwa is mid-meditation, eyes closed, sustaining a sonorous "hmmmmm," when he reaches into his robe, produces a Honey Dept., and the hum opens into an unmistakable "mmmmm." His eyes pop wide. Nobody is in the temple to see it.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with a past you no longer claim. Goes with five-pound bags of jasmine rice.
+▲ END
+
+---
+
+### Character 12 — SAMMY QUINTERO
+
+**Name:**
+▼ EDIT
+Sammy
+Quintero
+▲ END
+
+**Role:**
+▼ EDIT
+"Sweet" Sammy · journeyman middleweight · 17–9–1
+▲ END
+
+**Bio:**
+▼ EDIT
+28. Trains in a Bronx gym that hasn't been painted since the Reagan administration.
+
+Talks to his dead father between rounds. Reads only the obituaries. Plays no music.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Sammy slumps onto the stool between rounds, mouthpiece out, eyes blooming. His cutman brushes a cut, his trainer shouts something neither of them hear, and Sammy squeezes a Honey Dept. into his mouth like a man reading mail.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with losing on points. Goes with calling your mother after every fight, win or lose.
+▲ END
+
+---
+
+### Character 13 — VASILI ROMANENKO
+
+**Name:**
+▼ EDIT
+Vasili
+Romanenko
+▲ END
+
+**Role:**
+▼ EDIT
+"Vass" · window cleaner · the Equitable Building, 47th floor
+▲ END
+
+**Bio:**
+▼ EDIT
+47. Came over from Lviv in 1998. Started in scaffolding, climbed up.
+
+Wife back home, daughter in Edmonton he has never met. Sings opera on the rig. Loudly, badly, with great feeling.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+Vass appears inside a foam-covered window 600 feet above 7th Avenue and squeegees a slow clear arc through the lather, revealing himself: one hand on the rubber, one hand on a Honey Dept., singing something operatic and unbothered. The city is silent behind him.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with calling Edmonton long-distance. Goes with whatever Pavarotti would have wanted.
+▲ END
+
+---
+
+### Character 14 — LANCE & BERNADETTE HOAG
+
+**Name:**
+▼ EDIT
+Lance &
+Bernadette
+Hoag
+▲ END
+
+**Role:**
+▼ EDIT
+Married 23 years · on their way to a wedding they don't want to attend
+▲ END
+
+**Bio:**
+▼ EDIT
+Their 2003 Volvo has been "fine" for the entire trip.
+
+Lance refuses to call AAA. Bernadette will not suggest it. They have carried three tubes of Honey Dept. in the glove box for nine years. This is what they're for.
+▲ END
+
+**In "Eat It Anywhere":**
+▼ EDIT
+The Hoags sit on the shoulder of I-78 watching their hood release a confident jet of steam when a Good Samaritan in a Subaru rolls down a window and asks if they need help. They light up, beam, and underhand a tube of Honey Dept. through the open window. He drives off.
+▲ END
+
+**In "Goes With Everything":**
+▼ EDIT
+Goes with weddings you don't want to attend. Goes with marriages that work because of small, generous acts.
+▲ END
+
+---
+
 ### Film 02 — EAT IT ANYWHERE
 
 **Tag:**

@@ -273,6 +273,133 @@
   }
   .frame.zoom img:hover { transform: scale(1.04); }
 
+  /* —— character sections —— */
+  .cast-intro {
+    background: var(--muted-2);
+    color: var(--ink);
+    padding: 200px 6vw 120px;
+    min-height: 60vh;
+    position: relative;
+    display: flex; flex-direction: column; justify-content: center;
+    overflow: hidden;
+  }
+  .cast-intro .label {
+    font-family: var(--mono);
+    font-size: var(--t-label);
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    display: block;
+    position: relative; z-index: 2;
+  }
+  .cast-intro h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: var(--t-display-xl);
+    line-height: .88;
+    letter-spacing: -.015em;
+    margin: 0 0 32px;
+    text-transform: uppercase;
+    position: relative; z-index: 2;
+  }
+  .cast-intro p {
+    font-family: var(--mono);
+    font-size: var(--t-body);
+    line-height: 1.65;
+    max-width: 56ch;
+    margin: 0;
+    position: relative; z-index: 2;
+  }
+
+  .character-section {
+    padding: 96px 6vw;
+    position: relative;
+    background: var(--cream);
+    min-height: auto;
+    overflow: hidden;
+  }
+  .character-section.has-divider-top { padding-top: 200px; }
+
+  .character-header { margin-bottom: 48px; position: relative; z-index: 2; }
+  .character-header .tag { margin-bottom: 24px; }
+  .character-header h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: var(--t-display-xl);
+    line-height: .88;
+    letter-spacing: -.015em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  .character-header .role {
+    font-family: var(--mono);
+    font-style: italic;
+    font-size: clamp(15px, 1.3vw, 20px);
+    margin: 16px 0 0;
+    opacity: .75;
+    max-width: 60ch;
+  }
+
+  .character-grid {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: 5vw;
+    align-items: start;
+    margin-bottom: 48px;
+    position: relative; z-index: 2;
+  }
+  .character-grid .portrait {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--ink);
+  }
+  .character-grid .portrait img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.04);
+    display: block;
+  }
+  .character-grid .bio h4 {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: var(--t-label);
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    margin: 0 0 18px;
+  }
+  .character-grid .bio p {
+    font-family: var(--mono);
+    font-size: var(--t-body);
+    line-height: 1.65;
+    margin: 0 0 16px;
+    max-width: 50ch;
+  }
+
+  .synopses {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5vw;
+    border-top: 1px solid rgba(36, 31, 33, 0.15);
+    padding-top: 40px;
+    position: relative; z-index: 2;
+  }
+  .synopsis h4 {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: var(--t-label);
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    margin: 0 0 18px;
+  }
+  .synopsis p {
+    font-family: var(--mono);
+    font-size: var(--t-body);
+    line-height: 1.65;
+    margin: 0;
+    max-width: 48ch;
+  }
+
   /* horizontal marquee */
   .strip-section {
     padding: 0; min-height: 0; overflow: hidden;
@@ -384,6 +511,17 @@
 
     /* parallax on touch is jittery — disable Y-translate on mobile */
     [data-parallax] { transform: none !important; }
+
+    /* character sections */
+    .cast-intro { padding: 120px 6vw 64px; min-height: auto; }
+    .character-section { padding: 64px 6vw; }
+    .character-section.has-divider-top { padding-top: 120px; }
+    .character-header { margin-bottom: 32px; }
+    .character-header .role { font-size: 14px; }
+    .character-grid { grid-template-columns: 1fr; gap: 24px; margin-bottom: 32px; }
+    .character-grid .portrait { aspect-ratio: 4 / 5; max-width: 320px; }
+    .synopses { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; }
+    .synopsis p { font-size: 14px; }
   }
 
   /* —————— very small phones (≤ 380px) —————— */
@@ -547,6 +685,408 @@
       <p>35mm grain or a digital match. Naturalistic light, no fill, no flag we didn't find on set. Shallow but legible palette — we let each location bring its own color.</p>
       <p>We never light the honey. It sits in the existing light of the room.</p>
       <p>End cards in monospaced caps, dropped over a circular crop of the subject. Title card replaces the headroom we don't shoot for.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- INTERLUDE: THE CAST -->
+<section class="cast-intro has-divider-top">
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
+  <span class="label reveal">Interlude</span>
+  <h2 class="reveal">The Cast</h2>
+  <p class="reveal">Fourteen specific people pulled from the demographic. Same eater, different rooms. The films don't keep inventing new characters — they follow these.</p>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 01 — GENERAL GREAVES -->
+<section class="character-section has-divider-top" id="character-01">
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-up"/></svg></div>
+  <div class="character-header reveal">
+    <span class="tag">Character 01 / 14</span>
+    <h2>Maurice<br/>Greaves</h2>
+    <p class="role">Gen. "Mo" Greaves · U.S. Army · base commander, Fort Bragg</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-01-army-general/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-01/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>35-year career. Two combat tours. A chest you can read.</p>
+      <p>Spends Sunday afternoons assembling 1/72-scale model frigates with tweezers. Hasn't said "I love you" out loud since the early Reagan administration. Eats his Honey Dept. in the four-minute window between meetings.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Greaves dismisses a lieutenant with a single word that visibly ages the room, waits for the latch to click, and releases a smile no outside observer has ever seen. He squeezes a Honey Dept. into his mouth with the giddiness of a six-year-old opening a present.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with command authority. Goes with privately weeping at the end of <em>Brian's Song</em>.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 02 — CORIANDER WEXLER-PIKE -->
+<section class="character-section" id="character-02">
+  <div class="character-header reveal">
+    <span class="tag">Character 02 / 14</span>
+    <h2>Coriander<br/>Wexler-Pike</h2>
+    <p class="role">Independent dog walker · Upper East Side</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-02-dog-walker/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-02/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>31. Charges $400 per walk. Twelve dogs in her standing rotation.</p>
+      <p>Bangs cut by a stylist who flies in from Milan. Calls every dog by its owner's last name. Owns no dogs.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Cory carves down Madison Avenue at a 7-minute mile, fifteen dogs in formation, sunglasses on at 8am. She produces a Honey Dept. and squeezes it into her mouth without breaking pace, eye contact, or expression.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with prenups. Goes with hating the suburbs out loud at parties.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 03 — LINWOOD EARHARDT -->
+<section class="character-section" id="character-03">
+  <div class="character-header reveal">
+    <span class="tag">Character 03 / 14</span>
+    <h2>Linwood<br/>Earhardt</h2>
+    <p class="role">Third-generation apiarist · Lehigh County, PA</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-03-bee-keeper/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-03/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>58 years old. Eleven thousand career stings.</p>
+      <p>Names every queen after a 1940s starlet. Drinks one Schlitz a night. Hasn't been to a movie theater since 1979 but reads every review in the Sunday paper.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Linwood collapses into a folding chair at the edge of his apiary, peels off the mesh helmet, and squeezes a Honey Dept. directly into his mouth while ten thousand of his own bees swarm somewhere just out of frame. He doesn't flinch.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with grief you've made peace with. Goes with whatever Hedy Lamarr is doing right now.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 04 — ROMAN GARAFALO -->
+<section class="character-section" id="character-04">
+  <div class="character-header reveal">
+    <span class="tag">Character 04 / 14</span>
+    <h2>Roman<br/>Garafalo</h2>
+    <p class="role">"Rome" · Muscle Beach regular · occasional personal trainer</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-04-body-builder/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-04/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>44. Owns fourteen cut-off sweat suits, all gray, all from 1991–1994.</p>
+      <p>Calls his mother at 4pm every day without fail. Cried at <em>Coco</em> and tells everyone. Bench: 405.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Rome is pinned under the bar mid-rep, veins doing veiny things, when his spotter Brick lowers a Honey Dept. tube to his lips and squeezes. Rome racks 405 like he's setting down a teacup.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with crying alone in the parking lot. Goes with telling everyone you're fine.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 05 — HENRIK BJELDEVSKIJ -->
+<section class="character-section" id="character-05">
+  <div class="character-header reveal">
+    <span class="tag">Character 05 / 14</span>
+    <h2>Henrik<br/>Bjeldevskij</h2>
+    <p class="role">"Ren" · amateur cyclist · lifelong last-place finisher</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-05-bicyclist/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-05/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>29. Belgian-American. Four straight gran fondos in the bottom 5%.</p>
+      <p>Studio apartment with three Pinarellos and a betta fish named Doping Allegation. Has never laughed at a joke in front of a witness.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Ren pulls onto the shoulder mid-cramp, dismounts with surgical care, and is mid-squeeze of a Honey Dept. when a passing F-150 launches a sheet of brown roadwater across his entire person. He keeps squeezing.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with European cinema with subtitles. Goes with anti-monarchist sentiment.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 06 — MARGERY BELLANCA -->
+<section class="character-section" id="character-06">
+  <div class="character-header reveal">
+    <span class="tag">Character 06 / 14</span>
+    <h2>Margery<br/>Bellanca</h2>
+    <p class="role">"Marge" · standing bingo regular · Our Lady of Sorrows Senior Center</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-06-bingo-regular/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-06/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>81. Same seat, Tuesdays and Thursdays, for 23 years.</p>
+      <p>Won $2,400 in 1987 and hasn't won since. Carries a small framed photo of a stranger she found on the side of Route 17 in 1974. Will not speak to her sister.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Marge is two squares from a vertical when the caller goes "B-11" and the room exhales. Without looking up from her card, she retrieves a Honey Dept. from her purse and squeezes it like she's daring God to make her wait one more minute.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with bingo. Goes with knowing the exact number of days since.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 07 — TEDESCO & PENCILLO -->
+<section class="character-section" id="character-07">
+  <div class="character-header reveal">
+    <span class="tag">Character 07 / 14</span>
+    <h2>Frank &amp;<br/>Pencil</h2>
+    <p class="role">Officers Tedesco &amp; Pencillo · patrol partners · Cruiser 4-11</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-07-cops/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-07/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>Partners 19 years. Parked behind the laundromat at 6:42am every weekday.</p>
+      <p>Frank reads the entire Pennysaver, including the classifieds. Pencil pretends to. Neither has pulled anyone over in a calendar year.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Frank and Pencil are mid-donut in their cruiser when Frank produces a Honey Dept. and drizzles a slow, careful zigzag across his honey-glazed. Pencil says nothing. Pencil reaches for the tube.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with not pulling anyone over. Goes with marriages that work because nobody's home.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 08 — STEPHANIE CIARDULLO -->
+<section class="character-section" id="character-08">
+  <div class="character-header reveal">
+    <span class="tag">Character 08 / 14</span>
+    <h2>Stephanie<br/>Ciardullo</h2>
+    <p class="role">"Steph" · owner, Steph's House of Hair · Yonkers</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-08-hair-dresser/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-08/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>36. Hair currently 11 inches tall.</p>
+      <p>Engaged five times to the same man, named Carl. Subscribes to four trade magazines and reads zero of them. Has worn the same perfume since 1984.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Steph is mid-blowout on a regular when she snaps her gum, mouths "hold on a sec, doll," and ducks behind the half-wall to squeeze a Honey Dept. into her mouth without disturbing a single follicle. She returns with the dryer immediately.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with the affair the whole town knows about. Goes with one perfume forever.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 09 — DEVON MARQUARDT -->
+<section class="character-section" id="character-09">
+  <div class="character-header reveal">
+    <span class="tag">Character 09 / 14</span>
+    <h2>Devon<br/>Marquardt</h2>
+    <p class="role">Junior copywriter · mid-tier agency · Flatiron</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-09-break-up/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-09/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>27. Has not initiated a conversation since 2019.</p>
+      <p>Owns a tortoiseshell cat named Provision. Sat through his entire two-year relationship like it was a calendar invite he forgot to decline.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Devon's girlfriend of two years finishes her closing statement at the table, drops her napkin, and walks out of the restaurant. He waits one full beat, retrieves a Honey Dept. from his jacket, and squeezes it into his mouth with the expression of a man checking the time.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with checking your phone immediately. Goes with the next text already coming in.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 10 — WESLEY COTTINGHAM -->
+<section class="character-section" id="character-10">
+  <div class="character-header reveal">
+    <span class="tag">Character 10 / 14</span>
+    <h2>Wesley<br/>Cottingham</h2>
+    <p class="role">"Wez" · sole proprietor, Cottingham Painting LLC · Linden, NJ</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-10-painter/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-10/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>52. Eats lunch out of the same Igloo cooler he's owned since 1989.</p>
+      <p>Watches a single coat of paint dry for the full eight-hour cure window without leaving the room. Has lived next to the same neighbor for 14 years and does not know his name.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Wez sits in a freshly painted room — eggshell, semi-gloss, eight hours of cure ahead — locked onto the drying wall like a man watching the final 90 seconds of an FA Cup final. He eats a Honey Dept. with the contained excitement of a fan who has waited a long time for this.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with knowing the difference between <em>eggshell</em> and <em>satin</em> on sight. Goes with profound and unbroken silence.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 11 — BROTHER PEMWA -->
+<section class="character-section" id="character-11">
+  <div class="character-header reveal">
+    <span class="tag">Character 11 / 14</span>
+    <h2>Pemwa<br/>Tsering</h2>
+    <p class="role">Brother Pemwa (formerly Greg) · Buddhist monk, contemplative tradition</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-11-monk/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-11/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>41. Ordained at 28.</p>
+      <p>Previously regional sales lead for a paper distributor in Akron, Ohio. Has not spoken on a telephone in thirteen years. Still dreams about printer toner.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Pemwa is mid-meditation, eyes closed, sustaining a sonorous "hmmmmm," when he reaches into his robe, produces a Honey Dept., and the hum opens into an unmistakable "mmmmm." His eyes pop wide. Nobody is in the temple to see it.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with a past you no longer claim. Goes with five-pound bags of jasmine rice.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 12 — SAMMY QUINTERO -->
+<section class="character-section" id="character-12">
+  <div class="character-header reveal">
+    <span class="tag">Character 12 / 14</span>
+    <h2>Sammy<br/>Quintero</h2>
+    <p class="role">"Sweet" Sammy · journeyman middleweight · 17–9–1</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-12-boxer/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-12/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>28. Trains in a Bronx gym that hasn't been painted since the Reagan administration.</p>
+      <p>Talks to his dead father between rounds. Reads only the obituaries. Plays no music.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Sammy slumps onto the stool between rounds, mouthpiece out, eyes blooming. His cutman brushes a cut, his trainer shouts something neither of them hear, and Sammy squeezes a Honey Dept. into his mouth like a man reading mail.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with losing on points. Goes with calling your mother after every fight, win or lose.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 13 — VASILI ROMANENKO -->
+<section class="character-section" id="character-13">
+  <div class="character-header reveal">
+    <span class="tag">Character 13 / 14</span>
+    <h2>Vasili<br/>Romanenko</h2>
+    <p class="role">"Vass" · window cleaner · the Equitable Building, 47th floor</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-13-window-cleaner/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-13/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>47. Came over from Lviv in 1998. Started in scaffolding, climbed up.</p>
+      <p>Wife back home, daughter in Edmonton he has never met. Sings opera on the rig. Loudly, badly, with great feeling.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>Vass appears inside a foam-covered window 600 feet above 7th Avenue and squeegees a slow clear arc through the lather, revealing himself: one hand on the rubber, one hand on a Honey Dept., singing something operatic and unbothered. The city is silent behind him.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with calling Edmonton long-distance. Goes with whatever Pavarotti would have wanted.</p>
+    </div>
+  </div>
+  <div class="footer-mark">FILM</div>
+</section>
+
+<!-- CHARACTER 14 — THE HOAGS -->
+<section class="character-section" id="character-14">
+  <div class="character-header reveal">
+    <span class="tag">Character 14 / 14</span>
+    <h2>Lance &amp;<br/>Bernadette<br/>Hoag</h2>
+    <p class="role">Married 23 years · on their way to a wedding they don't want to attend</p>
+  </div>
+  <div class="character-grid reveal">
+    <div class="portrait"><img src="images/character-14-broken-down-car/portrait.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-ch-14/800/1000?grayscale'" alt="" loading="lazy" /></div>
+    <div class="bio">
+      <h4>Bio</h4>
+      <p>Their 2003 Volvo has been "fine" for the entire trip.</p>
+      <p>Lance refuses to call AAA. Bernadette will not suggest it. They have carried three tubes of Honey Dept. in the glove box for nine years. This is what they're for.</p>
+    </div>
+  </div>
+  <div class="synopses reveal">
+    <div class="synopsis">
+      <h4>In "Eat It Anywhere"</h4>
+      <p>The Hoags sit on the shoulder of I-78 watching their hood release a confident jet of steam when a Good Samaritan in a Subaru rolls down a window and asks if they need help. They light up, beam, and underhand a tube of Honey Dept. through the open window. He drives off.</p>
+    </div>
+    <div class="synopsis">
+      <h4>In "Goes With Everything"</h4>
+      <p>Goes with weddings you don't want to attend. Goes with marriages that work because of small, generous acts.</p>
     </div>
   </div>
   <div class="footer-mark">FILM</div>
