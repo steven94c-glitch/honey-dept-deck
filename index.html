@@ -422,6 +422,55 @@
     max-width: 48ch;
   }
 
+  /* —— desktop only: 3-column character pages so each fits in one viewport —— */
+  @media (min-width: 1024px) {
+    .character-section {
+      display: grid;
+      grid-template-areas:
+        "header   header header"
+        "portrait bio    synopses";
+      grid-template-columns: 4fr 5fr 5fr;
+      grid-template-rows: auto auto;
+      column-gap: 4vw;
+      row-gap: 36px;
+      align-items: start;
+      align-content: start;
+      min-height: 100vh;
+      padding: 110px 6vw 64px;
+    }
+    .character-section.has-divider-top { padding-top: 200px; }
+
+    .character-header { grid-area: header; margin-bottom: 0; }
+    .character-header h2 { font-size: clamp(40px, 5.4vw, 84px); }
+    .character-header .role { font-size: 15px; }
+
+    .character-grid { display: contents; }
+    .character-grid .portrait { grid-area: portrait; aspect-ratio: 4/5; }
+    .character-grid .bio { grid-area: bio; }
+    .character-grid .bio h4 { margin-bottom: 14px; }
+    .character-grid .bio p {
+      font-size: 13px;
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+
+    .dating-profile { margin-top: 20px; padding-top: 18px; }
+    .dating-profile dt { margin-top: 10px; font-size: 9px; }
+    .dating-profile dd { font-size: 13px; line-height: 1.5; }
+
+    .synopses {
+      grid-area: synopses;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      border-top: none;
+      padding-top: 0;
+      grid-template-columns: none;
+    }
+    .synopsis h4 { margin-bottom: 12px; }
+    .synopsis p { font-size: 13px; line-height: 1.55; max-width: none; }
+  }
+
   /* horizontal marquee */
   .strip-section {
     padding: 0; min-height: 0; overflow: hidden;
