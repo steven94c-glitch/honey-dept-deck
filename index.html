@@ -352,11 +352,12 @@
     position: relative;
     aspect-ratio: 4 / 5;
     overflow: hidden;
-    background: var(--ink);
+    background: var(--cream); /* blends with page so any letterbox area is invisible */
   }
   .character-grid .portrait img {
     width: 100%; height: 100%;
-    object-fit: cover;
+    object-fit: contain;          /* show whole photo, never crop */
+    object-position: center;
     filter: grayscale(1) contrast(1.04);
     display: block;
   }
