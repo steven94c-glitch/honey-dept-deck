@@ -61,8 +61,8 @@
   /* sections */
   section {
     position: relative;
-    padding: 96px 6vw;
-    min-height: 100vh;
+    padding: 80px 6vw;
+    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -71,7 +71,7 @@
   section.cream { background: var(--cream); color: var(--ink); }
   section.deep  { background: var(--muted-2); color: var(--ink); }
   section.no-min { min-height: 0; }
-  section.has-divider-top { padding-top: 200px; }
+  section.has-divider-top { padding-top: 160px; }
 
   .tag {
     display: inline-block;
@@ -148,8 +148,8 @@
   /* intro section */
   .intro-section {
     background: var(--cream);
-    padding: 96px 6vw;
-    min-height: 90vh;
+    padding: 80px 6vw;
+    min-height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -172,11 +172,11 @@
   /* chapter */
   .chapter {
     align-items: flex-start; justify-content: center;
-    padding: 200px 6vw 120px;
+    padding: 140px 6vw 80px;
     position: relative;
     background: var(--muted-2);
     color: var(--ink);
-    min-height: 70vh;
+    min-height: auto;
   }
   .chapter .num-row { display: flex; flex-direction: column; gap: 18px; position: relative; z-index: 3; }
   .chapter .label {
@@ -225,7 +225,7 @@
   .col-text ul li::before { content: '—'; position: absolute; left: 0; }
 
   /* film breakdown */
-  .film-section { padding: 200px 6vw 120px; position: relative; background: var(--cream); }
+  .film-section { padding: 140px 6vw 80px; position: relative; background: var(--cream); }
   .film-header { position: relative; z-index: 2; margin-bottom: 56px; max-width: 90vw; }
   .film-header .tag { margin-bottom: 24px; }
   .film-header h2 {
@@ -277,8 +277,8 @@
   .cast-intro {
     background: var(--muted-2);
     color: var(--ink);
-    padding: 200px 6vw 120px;
-    min-height: 60vh;
+    padding: 140px 6vw 80px;
+    min-height: auto;
     position: relative;
     display: flex; flex-direction: column; justify-content: center;
     overflow: hidden;
@@ -516,7 +516,7 @@
     align-items: center; justify-content: center;
     background: var(--cream); color: var(--ink);
     position: relative;
-    padding-top: 220px;
+    padding-top: 160px;
   }
   .closing .mark {
     font-family: var(--display);
@@ -561,28 +561,28 @@
     }
 
     /* base section: tight by default. Wave-clearance only when needed. */
-    section { padding: 64px 6vw; min-height: auto; }
-    section.has-divider-top { padding-top: 120px; }
+    section { padding: 48px 6vw; min-height: auto; }
+    section.has-divider-top { padding-top: 100px; }
 
     /* chapter cards: short, content-driven height */
-    .chapter { padding: 64px 6vw; min-height: auto; }
-    .chapter.has-divider-top { padding-top: 120px; }
+    .chapter { padding: 48px 6vw; min-height: auto; }
+    .chapter.has-divider-top { padding-top: 100px; }
     .chapter h2 { max-width: none; }
 
     /* film breakdown sections: only the first one (with divider) needs extra top */
-    .film-section { padding: 64px 6vw; }
-    .film-section.has-divider-top { padding-top: 120px; }
+    .film-section { padding: 48px 6vw; }
+    .film-section.has-divider-top { padding-top: 100px; }
     .film-header { margin-bottom: 32px; }
     .film-header .logline { font-size: 14px; line-height: 1.5; }
 
-    .intro-section { padding: 88px 6vw 56px; min-height: auto; }
+    .intro-section { padding: 64px 6vw 48px; min-height: auto; }
     .intro-section h2 { margin-bottom: 24px; }
     .intro-section .intro-body { font-size: 14px; }
 
     .hero-content { padding: 0 4vw; }
     .hero h1 { line-height: .9; }
 
-    .closing { padding-top: 120px; padding-bottom: 80px; }
+    .closing { padding-top: 100px; padding-bottom: 64px; }
     .closing .signoff { font-size: 14px; margin-top: 40px; }
 
     .two-col { grid-template-columns: 1fr; gap: 32px; }
@@ -601,7 +601,7 @@
     .footer-mark { font-size: 9px; bottom: 20px; }
 
     /* strip section — keep it compact, let the imagery dominate not empty yellow */
-    .strip-section { padding-top: 100px !important; padding-bottom: 0; }
+    .strip-section { padding-top: 56px !important; padding-bottom: 0; }
     .strip { padding: 12px 0; }
     .strip .frame { width: 68vw; height: 26vh; }
 
@@ -612,7 +612,7 @@
     [data-parallax] { transform: none !important; }
 
     /* character sections */
-    .cast-intro { padding: 120px 6vw 64px; min-height: auto; }
+    .cast-intro { padding: 80px 6vw 48px; min-height: auto; }
     .character-section { padding: 64px 6vw; }
     .character-section.has-divider-top { padding-top: 120px; }
     .character-header { margin-bottom: 32px; }
@@ -669,7 +669,6 @@
     <div class="sub reveal">Campaign Selects — Fall 2026</div>
   </div>
   <div class="scroll-cue">Scroll ↓</div>
-  <div class="footer-mark">FILM</div>
   <div class="footer-mark right" style="font-family: var(--display);">HONEY DEPARTMENT</div>
 </section>
 
@@ -682,11 +681,10 @@
     <p>When the Honey Department brief landed, I read it twice and immediately wanted in. The references — Andersson, Owens, Parr, Errol Morris — are the references. The premise is the kind we'd write for ourselves on a good day.</p>
     <p>This deck is how we'd make it. Two films, fourteen characters, one tone, plenty of room for honey to just be in the room.</p>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- INTRO STRIP — images/intro-strip/ (6 slots) -->
-<section class="strip-section scroll-driven no-min cream" style="padding-top: 120px;">
+<section class="strip-section scroll-driven no-min cream" style="padding-top: 72px;">
   <div class="strip">
     <div class="frame"><img src="images/intro-strip/01.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-1/1200/750?grayscale'" alt="" loading="lazy" /></div>
     <div class="frame"><img src="images/intro-strip/02.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-2/1200/750?grayscale'" alt="" loading="lazy" /></div>
@@ -711,7 +709,6 @@
     <div class="label">Chapter 01</div>
     <h2>Approach<br/>&amp; Tone</h2>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <section class="cream has-divider-top">
@@ -738,7 +735,6 @@
       </ul>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHAPTER 02: THE CAST -->
@@ -747,7 +743,6 @@
   <span class="label reveal">Chapter 02</span>
   <h2 class="reveal">The Cast</h2>
   <p class="reveal">Fourteen specific people. The films don't keep inventing new characters — they follow these. Each one shows up across the campaign, doing what they do, eating what they eat.</p>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 01 — GENERAL GREAVES -->
@@ -781,7 +776,6 @@
       <p>Goes with overcompensating with authority.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 02 — CORIANDER WEXLER-PIKE -->
@@ -814,7 +808,6 @@
       <p>Goes with delusionally being the main character.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 03 — LINWOOD EARHARDT -->
@@ -847,7 +840,6 @@
       <p>Goes with getting high off your own supply.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 04 — ROMAN GARAFALO -->
@@ -880,7 +872,6 @@
       <p>Goes with fragile masculinity.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 05 — HENRIK BJELDEVSKIJ -->
@@ -913,7 +904,6 @@
       <p>Goes with not pulling anyone over. They remain in the cop car unphased as we hear a car chase happening right in front of them, off camera.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 06 — MARGERY BELLANCA -->
@@ -946,7 +936,6 @@
       <p>Goes with not pulling anyone over. They remain in the cop car unphased as we hear a car chase happening right in front of them, off camera.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 07 — TEDESCO & PENCILLO -->
@@ -979,7 +968,6 @@
       <p>Goes with not pulling anyone over. They remain in the cop car unphased as we hear a car chase happening right in front of them, off camera.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 08 — STEPHANIE CIARDULLO -->
@@ -1012,7 +1000,6 @@
       <p>Goes with one perfume forever. Getting ready in the salon (clearly her daily routine), she sprays her perfume with a Honey Dept. in the other hand to chase it with.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 09 — DEVON MARQUARDT -->
@@ -1045,7 +1032,6 @@
       <p>Goes with checking your phone right after a loud public breakup. She walks away and tosses her water on him. Without reaction he reaches for the honey on the table, eats it, and checks his phone.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 10 — WESLEY COTTINGHAM -->
@@ -1078,7 +1064,6 @@
       <p>Goes with watching paint dry. Wesley still sitting there in the empty room.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 11 — BROTHER PEMWA -->
@@ -1111,7 +1096,6 @@
       <p>Goes with meditation. Goes with nobody watching.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 12 — SAMMY QUINTERO -->
@@ -1144,7 +1128,6 @@
       <p>Goes with a 2nd-round knockout.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 13 — VASILI ROMANENKO -->
@@ -1177,7 +1160,6 @@
       <p>Goes with being suspended 600 feet in the air.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHARACTER 14 — THE HOAGS -->
@@ -1210,7 +1192,6 @@
       <p>Goes with breaking down with the significant other you can't stand.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHAPTER 03: THE FILMS -->
@@ -1220,7 +1201,6 @@
     <div class="label">Chapter 03</div>
     <h2>The Films</h2>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- FILM 01 — drop images into  images/film-02-eat-it-anywhere/  (4 slots) -->
@@ -1253,7 +1233,6 @@
       <p>Production design will bring all the scenes to life, heightened with bright color palettes, props, fluorescent lights. Wardrobe + HMU is going to be outfitted to the specific character. Nobody is jeans and a t-shirt — everything from the physical space to the casting to the wardrobe are all to be designed and thought through. We cut on action, never on dialogue. The VO is allowed to land into silence.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- FILM 02 — drop images into  images/film-04-goes-with-everything/  (4 slots) -->
@@ -1287,7 +1266,6 @@
       <p>Camera movement is to be intentional and always locked off, designed to show all of the world needed for each concept and not too much more. The framing / composition for the campaign should feel like a painting with movement, with intentional off-center subjects and props in the fore and background to give dimension to the otherwise static frame. Finding creative ways to incorporate small branded details in these props to live in the physical space that feel discovered rather than staged.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHAPTER 04: PRODUCTION DESIGN -->
@@ -1297,7 +1275,6 @@
     <div class="label">Chapter 04</div>
     <h2>Production<br/>Design</h2>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <section class="cream has-divider-top" id="prod-design">
@@ -1333,7 +1310,6 @@
     <div class="frame zoom"><img src="images/production-design/04.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-pd-4/1200/750?grayscale'" alt="" loading="lazy" /></div>
   </div>
 
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CHAPTER 05: EDITING & SOUND -->
@@ -1343,7 +1319,6 @@
     <div class="label">Chapter 05</div>
     <h2>Editing<br/>&amp; Sound</h2>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <section class="cream has-divider-top">
@@ -1366,11 +1341,10 @@
       <p>One voice across both films. Warm, dry, slightly older than expected. We'd suggest a curated short list and tape early.</p>
     </div>
   </div>
-  <div class="footer-mark">FILM</div>
 </section>
 
 <!-- CLOSING STRIP — drop images into  images/closing-strip/  (8 slots) -->
-<section class="strip-section scroll-driven no-min" style="padding-top: 220px;">
+<section class="strip-section scroll-driven no-min" style="padding-top: 140px;">
   <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
   <div class="strip" style="animation-duration: 70s;">
     <div class="frame"><img src="images/closing-strip/01.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-cs-1/1200/750?grayscale'" alt="" loading="lazy" /></div>
