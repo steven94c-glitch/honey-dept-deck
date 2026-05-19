@@ -363,31 +363,31 @@
   }
 
   /* —— Per-character portrait overrides —— */
-  /* #07 cops: need both partners visible, use contain so neither gets cropped out */
+  /* #07 cops: contain, align top with bio */
   #character-07 .portrait { background: var(--cream); }
-  #character-07 .portrait img { object-fit: contain; object-position: center; }
+  #character-07 .portrait img { object-fit: contain; object-position: center top; }
 
-  /* #09 Devon: shift visible window so subject moves right in frame */
-  #character-09 .portrait img { object-position: 25% 40%; }
+  /* #09 Devon: subject sits left — anchor right side of frame */
+  #character-09 .portrait img { object-position: 75% 40%; }
 
-  /* #10 Wesley: subject sits to the right of source — anchor right edge */
-  #character-10 .portrait img { object-position: 80% 40%; }
+  /* #10 Wesley: subject sits right — anchor left side of frame */
+  #character-10 .portrait img { object-position: 20% 40%; }
 
-  /* #11 Pemwa: slightly wider — letterbox top/bottom but show more horizontal */
+  /* #11 Pemwa: cover with slight crop, align top */
   #character-11 .portrait { background: var(--cream); }
-  #character-11 .portrait img { object-fit: contain; object-position: center; }
+  #character-11 .portrait img { object-fit: cover; object-position: center top; }
 
-  /* #12 Sammy: wider (subtitle removed at source level) */
+  /* #12 Sammy: cover with slight crop, align top */
   #character-12 .portrait { background: var(--cream); }
-  #character-12 .portrait img { object-fit: contain; object-position: center; }
+  #character-12 .portrait img { object-fit: cover; object-position: center top; }
 
-  /* #13 Jake: slightly wider */
+  /* #13 Jake: contain, align top */
   #character-13 .portrait { background: var(--cream); }
-  #character-13 .portrait img { object-fit: contain; object-position: center; }
+  #character-13 .portrait img { object-fit: contain; object-position: center top; }
 
-  /* #14 Williamsons: wider */
+  /* #14 Williamsons: contain, align top */
   #character-14 .portrait { background: var(--cream); }
-  #character-14 .portrait img { object-fit: contain; object-position: center; }
+  #character-14 .portrait img { object-fit: contain; object-position: center top; }
   .character-grid .bio h4 {
     font-family: var(--mono);
     font-weight: 700;
@@ -686,8 +686,7 @@
 </section>
 
 <!-- INTRO STRIP — drop images into  images/intro-strip/  (8 slots) -->
-<section class="strip-section scroll-driven no-min" style="padding-top: 220px;">
-  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
+<section class="strip-section scroll-driven no-min cream" style="padding-top: 120px;">
   <div class="strip">
     <div class="frame"><img src="images/intro-strip/01.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-1/1200/750?grayscale'" alt="" loading="lazy" /></div>
     <div class="frame"><img src="images/intro-strip/02.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-is-2/1200/750?grayscale'" alt="" loading="lazy" /></div>
@@ -710,7 +709,8 @@
 </section>
 
 <!-- 02 APPROACH -->
-<section class="chapter" id="approach-chapter">
+<section class="chapter has-divider-top" id="approach-chapter">
+  <div class="wave-divider top" data-parallax="0.04"><svg><use href="#wd-down"/></svg></div>
   <div class="num-row reveal">
     <div class="label">Chapter 01</div>
     <h2>Approach<br/>&amp; Tone</h2>
@@ -1328,6 +1328,15 @@
       <p>Mid-century beige, motel green, fluorescent pink, dust. Each location bringing its own. We don't grade them together; we let them argue.</p>
     </div>
   </div>
+
+  <!-- Production Design reference grid — drop images into images/production-design/ (4 slots) -->
+  <div class="ref-grid reveal" data-parallax="-0.03" style="margin-top: 72px;">
+    <div class="frame zoom"><img src="images/production-design/01.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-pd-1/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/production-design/02.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-pd-2/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/production-design/03.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-pd-3/1200/750?grayscale'" alt="" loading="lazy" /></div>
+    <div class="frame zoom"><img src="images/production-design/04.jpg" onerror="this.onerror=null;this.src='https://picsum.photos/seed/hd-pd-4/1200/750?grayscale'" alt="" loading="lazy" /></div>
+  </div>
+
   <div class="footer-mark">FILM</div>
 </section>
 
