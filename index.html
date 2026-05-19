@@ -361,6 +361,33 @@
     filter: grayscale(1) contrast(1.04);
     display: block;
   }
+
+  /* —— Per-character portrait overrides —— */
+  /* #07 cops: need both partners visible, use contain so neither gets cropped out */
+  #character-07 .portrait { background: var(--cream); }
+  #character-07 .portrait img { object-fit: contain; object-position: center; }
+
+  /* #09 Devon: shift visible window so subject moves right in frame */
+  #character-09 .portrait img { object-position: 25% 40%; }
+
+  /* #10 Wesley: subject sits to the right of source — anchor right edge */
+  #character-10 .portrait img { object-position: 80% 40%; }
+
+  /* #11 Pemwa: slightly wider — letterbox top/bottom but show more horizontal */
+  #character-11 .portrait { background: var(--cream); }
+  #character-11 .portrait img { object-fit: contain; object-position: center; }
+
+  /* #12 Sammy: wider (subtitle removed at source level) */
+  #character-12 .portrait { background: var(--cream); }
+  #character-12 .portrait img { object-fit: contain; object-position: center; }
+
+  /* #13 Jake: slightly wider */
+  #character-13 .portrait { background: var(--cream); }
+  #character-13 .portrait img { object-fit: contain; object-position: center; }
+
+  /* #14 Williamsons: wider */
+  #character-14 .portrait { background: var(--cream); }
+  #character-14 .portrait img { object-fit: contain; object-position: center; }
   .character-grid .bio h4 {
     font-family: var(--mono);
     font-weight: 700;
